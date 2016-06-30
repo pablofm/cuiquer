@@ -1,8 +1,8 @@
 from django.conf.urls import url, include
 from django.contrib import admin
-from base import urls as base_urls
+from landing import urls as landing_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include(base_urls)),
+    url(r'^', include(landing_urls)),
 ]
