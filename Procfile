@@ -1,0 +1,1 @@
+gunicorn cuiquer.wsgi --log-file -
