@@ -1,1 +1,1 @@
-gunicorn cuiquer.wsgi --log-file -
+web: gunicorn cuiquer.wsgi --log-file -
