@@ -1,6 +1,7 @@
 from django.conf.urls import url
-from landing.views import IndexView
+from landing.views import Index, Cuiquer
 
 urlpatterns = [
-    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^$', Index.as_view(), name='index'),
+    url(r'^cuiquer$', Cuiquer.as_view(), name='cuiquer'),
 ]

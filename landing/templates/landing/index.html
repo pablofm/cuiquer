@@ -13,8 +13,6 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <!-- Theme CSS -->
-    <link href="{% static 'css/clean-blog.css' %}" rel="stylesheet">
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
@@ -28,10 +26,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- Theme CSS -->
+    <link href="{% static 'css/clean-blog.css' %}" rel="stylesheet">
 </head>
 
 <body>
-
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
@@ -47,9 +47,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.html">Accede</a></li>
-                    <li><a href="about.html">Date de alta</a></li>
-                    
+                    <li><a href="#">Únete como profesional</a></li>
+                    <li><a href="#">Entrar</a></li>
+                    <li><a href="#">Pide precio gratis</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -72,20 +72,20 @@
             </div>
         </div>
     </header>
-    <div class="row fondo-gris">
-        <div class="container">
-            <div class="text-center">
-                <i class="seccion fa fa-home fa-3x" aria-hidden="true"></i>
-                <i class="seccion fa fa-graduation-cap fa-3x" aria-hidden="true"></i>
-                <i class="seccion fa fa-heart fa-3x" aria-hidden="true"></i>
-            </div>
+      
+    {% block content %}
+    <div class="fondo-gris">
+        <div class="container text-center">
+            <div class="seccion"><i class="icono-seccion fa-2x fa fa-home" aria-hidden="true"></i><span class="texto-seccion">Monitor de deporte</span></div>
+            <div class="seccion"><i class="icono-seccion fa-2x fa fa-graduation-cap" aria-hidden="true"></i><span class="texto-seccion">Profesor particular</span></div>
+            <div class="seccion"><i class="icono-seccion fa-2x fa fa-heart" aria-hidden="true"></i><span class="texto-seccion">Canguros</span></div>
+            <div class="seccion"><i class="icono-seccion fa-2x fa fa-ellipsis-h" aria-hidden="true"></i><span class="texto-seccion">Más</span></div>
         </div>    
     </div>
-
-
     <!-- Main Content -->
     <div class="container">
         <div class="row">
+            <h2 class="text-center naranja cabecera">¡Es muy fácil!</h2>
             <div class="col-lg-6"><img src="{% static 'img/como.png' %}"></div>
             <div class="col-lg-6">
                 <h3 class="naranja">1. Cuéntanos que proyecto tienes en mente.</h3>
@@ -97,15 +97,14 @@
             </div>
         </div>
     </div>
-    
-    {% include "landing/provincias.html" %}
-        
+    <div class="fondo-gris">    
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x naranja"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-thumbs-up fa-stack-1x fa-inverse" aria-hidden="true"></i>
+                        
                     </span>
                     <h4 class="service-heading">Fácil y rápido de usar.</h4>
                     <p class="text-muted">Recibe las ofertas que más se ajustan a tus necesidades en el plazo de un día. Contrata al profesional más indicado con tan sólo 1-click.</p>
@@ -113,7 +112,7 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x naranja"></i>
-                        <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Calidad Garantizada</h4>
                     <p class="text-muted">Cuiquer sigue un rigoroso proceso de selección y de control de calidad a fn de ofrecer tan sólo servicios profesionales de confanza.</p>
@@ -128,108 +127,89 @@
                 </div>
             </div>
         </div>
-
-
-
- 
-        {% comment %}
-            
-            
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Man must explore, and this is exploration at its greatest
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Problems look mighty small from 150 miles up
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-                        </h2>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Science has not yet mastered prophecy
-                        </h2>
-                        <h3 class="post-subtitle">
-                            We predict too much for the next year and yet far too little for the next ten.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Failure is not an option
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
-                </div>
-                <hr>
-            </div>
+    </div>
+    
+    <div class="container">
+        <h2 class="text-center naranja cabecera">¿Qué dicen nuestros clientes?</h2>
+        <div class="col-lg-4 text-center">
+            <i class="fa fa-quote-right naranja testimonio" aria-hidden="true"></i>
+            <p><em>Cuiquer es efectivo y muy fácil de usar. Necesitabamos un profesor de natación para nuestra hija, y en cuestión de horas teníamos 3 amables profesionales dispuestos a ayudarnos.</em></p>
+            <h4>Juan, Tomares</h4>
         </div>
-        {% endcomment %}
-
+        <div class="col-lg-4 text-center">
+            <i class="fa fa-quote-right naranja testimonio" aria-hidden="true"></i>
+            <p><em>He utilizado Cuiquer en varias ocasiones, la experieia ha sido siempre buena. Atención exquisita y máxima profesionalidad.</em></p>
+            <h4>Pedro, Sevilla</h4>
+        </div>
+        <div class="col-lg-4 text-center">
+            <i class="fa fa-quote-right naranja testimonio" aria-hidden="true"></i>
+            <p><em>Tras perder mucho tiempo buscando una buena canguro de confianza para mis niños, me recomendaron utilizar Cuiquer. En 24 horas hemos conseguido a una canguro con experiencia, a buen precio y que además habla en inglés a nuestros hijos!</em></p>
+            <h4>Paula, Sevilla Este</h4>
+        </div>
+    </div>
+    {% endblock content %}
+    <hr/>
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    {% comment %}
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    {% endcomment %}
-                    <p class="copyright text-muted">Cuiquer &copy;  2016</p>
-                </div>
+            <div class="col-lg-3">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="https://www.facebook.com/cuiquer/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x naranja"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/cuiquerservices">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x naranja"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/cuiquer/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x naranja"></i>
+                                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <span class="texto-footer"><strong>Empresa</strong></span>
+                <span class="texto-footer"><a href="{% url 'cuiquer' %}#sobre">Sobre Cuiquer</a></span>
+                <span class="texto-footer"><a href="{% url 'cuiquer' %}#equipo">Equipo</a></span>
+                <span class="texto-footer"><a href="{% url 'cuiquer' %}#contacto">Contacto</a></span>
+            </div>
+            <div class="col-lg-3">
+                <span class="texto-footer"><strong>Clientes</strong></span>
+                <span class="texto-footer"><a href="#">Cómo funciona</a></span>
+                <span class="texto-footer"><a href="#">Pide ofertas</a></span>
+            </div>
+            <div class="col-lg-3">
+                <span class="texto-footer"><strong>Profesionales</strong></span>
+                <span class="texto-footer"><a href="#">Cómo funciona</a></span>
+                <span class="texto-footer"><a href="#">Únete como profesional</a></span>
             </div>
         </div>
+    <div class="fondo-naranja text-center">
+        <p class="copyright text-muted">Cuiquer ©  2016</p>
+    </div>
     </footer>
+    {% comment %}
+    {% endcomment %}    
 
     <!-- jQuery -->
     <script
-        src="https://code.jquery.com/jquery-3.0.0.min.js"
-        integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="
-        crossorigin="anonymous"></script>
+       src="https://code.jquery.com/jquery-1.12.4.min.js"
+       integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+       crossorigin="anonymous"></script>  
+
 
     <!-- Bootstrap Core JavaScript -->
     <script

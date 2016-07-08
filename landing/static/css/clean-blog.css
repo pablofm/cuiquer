@@ -75,7 +75,7 @@ hr.small {
   }
   .navbar-custom .navbar-brand {
     color: white;
-    padding: 20px;
+    a: 20px;
   }
   .navbar-custom .navbar-brand:hover,
   .navbar-custom .navbar-brand:focus {
@@ -268,7 +268,7 @@ hr.small {
   border-bottom-left-radius: 5px;
 }
 footer {
-  padding: 50px 0 65px;
+  padding: 50px 0 0;
 }
 footer .list-inline {
   margin: 0;
@@ -384,13 +384,55 @@ body {
 }
 
 .seccion{
-  padding: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: inline-block;
+}
+.icono-seccion{
+  padding: 15px 15px 0px 15px;
+}
+.texto-seccion{
+  display: block;
+  font-size: small;
 }
 
 .provincias > ul {
-    list-style: none;
+  list-style: none;
 }
 
 .provincias > ul > li > a {
   text-decoration: none
+}
+
+.carousel-indicators li {
+  background: #d3d3d3;
+}
+
+.carousel-indicators .active {
+  background: #f27802;
+}
+
+.testimonio  {
+  padding: 10px;
+  display: inline-block;
+  border-radius: 200px;
+  border-style: solid;  
+}
+
+.cabecera{
+  margin-bottom: 60px;
+}
+
+.fondo-naranja{
+  background-color: #f27802
+
+}
+
+.texto-footer{
+  display: block;
+  font-size: medium;
+}
+
+.contacto{
+  display: block;
 }

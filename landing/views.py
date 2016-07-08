@@ -1,9 +1,9 @@
 from django.views.generic import TemplateView
 
 
-class IndexView(TemplateView):
+class Index(TemplateView):
     template_name = 'landing/index.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs)
-        return context
+
+class Cuiquer(TemplateView):
+    template_name = 'landing/cuiquer.html'
