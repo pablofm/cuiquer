@@ -55,6 +55,9 @@ hr.small {
 }
 .navbar-custom .navbar-brand {
   font-weight: 800;
+  background-image: url("../img/logo-02.png");
+  width: 288px;
+  height: 81px;
 }
 .navbar-custom .navbar-header .navbar-toggle {
   color: #777777;
@@ -75,7 +78,6 @@ hr.small {
   }
   .navbar-custom .navbar-brand {
     color: white;
-    a: 20px;
   }
   .navbar-custom .navbar-brand:hover,
   .navbar-custom .navbar-brand:focus {

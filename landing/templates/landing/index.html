@@ -41,7 +41,10 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">Cuiquer</a>
+                <a class="navbar-brand" href="{% url 'index' %}"></a>
+                {% comment %}
+                <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/logo-02.png' %}" alt="cuiquer" /></a>
+                {% endcomment %}
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -86,7 +89,7 @@
     <div class="container">
         <div class="row">
             <h2 class="text-center naranja cabecera">¡Es muy fácil!</h2>
-            <div class="col-lg-6"><img src="{% static 'img/como.png' %}"></div>
+            <div class="col-lg-6"><img class="img-responsive" src="{% static 'img/como.png' %}"></div>
             <div class="col-lg-6">
                 <h3 class="naranja">1. Cuéntanos que proyecto tienes en mente.</h3>
                 <p>Con la ayuda de un par de preguntas tendremos una mejor idea del profesional que buscas.</p>
