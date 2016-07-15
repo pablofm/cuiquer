@@ -42,20 +42,18 @@
                     Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="{% url 'index' %}"></a>
-                {% comment %}
-                <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/logo-02.png' %}" alt="cuiquer" /></a>
-                {% endcomment %}
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Únete como profesional</a></li>
+                    <li><a href="{% url 'anadir_profesional' %}">Únete como profesional</a></li>
                     <li><a href="#">Entrar</a></li>
                     <li><a href="#">Pide precio gratis</a></li>
                 </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+            </div><!-- /.navbar-collapse -->
+            <div class="the-blur"></div>
+
         </div>
         <!-- /.container -->
     </nav>
@@ -64,19 +62,23 @@
     <!-- Set your background image for this header on the line below. -->
     <header class="intro-header" style="background-image: url({% static 'img/home-bg.jpg' %})">
         <div class="container">
+            
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
                     <div class="site-heading">
                         <h1>Cuiquer. Dicho y hecho</h1>
                         <hr class="small">
+                        {% block buscador %}
                         <span class="subheading">Desde jardineros hasta entrenadores personales. <br/>Disfruta del verano mientras nosotros encontramos el profesional ideal para cualquier proyecto que tengas en mente.</span>
                         <div class="input-group buscador">
                             <input class="form-control" type="text" placeholder="¿Qué necesitas?" aria-describedby="basic-addon2">
                             <span class="input-group-addon" id="basic-addon2">¡Vamos!</span>
                         </div>
+                        {% endblock buscador %}
                     </div>
                 </div>
             </div>
+            
         </div>
     </header>
       

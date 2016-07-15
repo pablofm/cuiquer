@@ -1,0 +1,31 @@
+{% extends "landing/index.html" %}
+
+{% block buscador %}
+	<span class="subheading">Formulario de Alta para Profesionales</span>
+{% endblock buscador %}
+
+{% block content %}
+<div class="container">
+	<form action="{% url 'anadir_profesional' %}" method="post">
+    {% csrf_token %}
+    {% comment %}
+    	
+    <p>Los campos marcados con * son obligatorios. Sin ellos, no podremos dar de alta tu perfil.</p>
+
+	<h2>PREGUNTAS BÁSICAS</h2>
+	<p>Sé creativo, habla con el corazón, explícales a tu clientes por qué deben de contratarte:</p>
+	<h2>PREGUNTAS ADICIONALES QUE MEJORARÁN TU PERFIL</h2>
+	<h2>TRABAJOS RECIENTES Y RECOMENDACIONES</h2>
+	<p>Experiencia previa y recomendaciones son fundamentales para que el cliente confíe en ti. ¡Anímate, cuantas más mejor!</p>
+	<h2>Y COMO UNA IMAGEN VALE MÁS QUE MIL PALABRAS...</h2>
+    {% endcomment %}
+    <input type="submit" value="Date de alta"/>
+</form>
+
+
+	
+	<table>
+		{{form.as_table}}
+	</table>
+</div>
+{% endblock content %}

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'profesionales',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -58,6 +59,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
                 os.path.join(BASE_DIR, 'landing/templates'),
+                os.path.join(BASE_DIR, 'profesionales/templates'),
             ],
         'APP_DIRS': False,
         'OPTIONS': {
@@ -140,3 +142,4 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
+
