@@ -426,7 +426,7 @@ body {
 }
 
 .fondo-naranja{
-  background-color: #f27802
+  background-color: #f27802;
 
 }
 
@@ -437,4 +437,11 @@ body {
 
 .contacto{
   display: block;
+}
+
+.buscador{
+  width: 50%;
+  margin: 0 auto;
+  float: none;
+  padding-top: 30px;
 }
