@@ -23,7 +23,7 @@ class Profesional(models.Model):
 
     # Campos opcionales
     web = models.URLField()
-    linked_in = models.URLField()
+    linkedin = models.URLField()
     nombre_empresa = models.CharField(max_length=100)
 
     # Preguntas basicas
