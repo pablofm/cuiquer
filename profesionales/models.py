@@ -26,7 +26,7 @@ class Profesional(models.Model):
     linked_in = models.URLField()
     nombre_empresa = models.CharField(max_length=100)
 
-    # Preguntas básicas
+    # Preguntas basicas
     como = models.TextField()
     que = models.TextField()
     experiencia = models.TextField()
