@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row">
     	<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-			<form action="{% url 'anadir_profesional' %}" method="post">
+			<form method="post">
 	    		{% csrf_token %}
 			    <p>Los campos marcados con * son obligatorios. Sin ellos, no podremos dar de alta tu perfil.</p>
 			    <div class="row">
@@ -69,7 +69,7 @@
 			    		{{form.nombre_empresa}}
 			    	</div>
 			    </div>
-				<h2>PREGUNTAS BÁSICAS</h2>
+				<h2 class="naranja">PREGUNTAS BÁSICAS</h2>
 				<p>Sé creativo, habla con el corazón, explícales a tu clientes por qué deben de contratarte:</p>
 				<div class="row">
 			    	<div class="col-lg-12">
@@ -89,7 +89,7 @@
 			    		{{form.experiencia}}
 			    	</div>
 			    </div>
-				<h2>PREGUNTAS ADICIONALES QUE MEJORARÁN TU PERFIL</h2>
+				<h2 class="naranja">PREGUNTAS ADICIONALES QUE MEJORARÁN TU PERFIL</h2>
 				<div class="row">
 			    	<div class="col-lg-12">
 			    		{{form.consejo.errors}}
@@ -108,16 +108,9 @@
 			    		{{form.tipo_cliente}}
 			    	</div>
 			    </div>
-
-				<h2>TRABAJOS RECIENTES Y RECOMENDACIONES</h2>
-				<p>Experiencia previa y recomendaciones son fundamentales para que el cliente confíe en ti. ¡Anímate, cuantas más mejor!</p>
-				<h2>Y COMO UNA IMAGEN VALE MÁS QUE MIL PALABRAS...</h2>
+			    <button type="submit" class="btn btn-default naranja center-block">Date de alta</button>
 			    
-			    <input type="submit" value="Date de alta"/>
 			</form>
-			
-				
-			
 		</div>
 	</div>
 </div>

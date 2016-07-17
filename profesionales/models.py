@@ -22,9 +22,9 @@ class Profesional(models.Model):
     radio_prestacion = models.IntegerField()
 
     # Campos opcionales
-    web = models.URLField()
-    linkedin = models.URLField()
-    nombre_empresa = models.CharField(max_length=100)
+    web = models.URLField(blank=True)
+    linkedin = models.URLField(blank=True)
+    nombre_empresa = models.CharField(max_length=100, blank=True)
 
     # Preguntas basicas
     como = models.TextField()
@@ -32,6 +32,6 @@ class Profesional(models.Model):
     experiencia = models.TextField()
 
     # Preguntas adicinales
-    consejo = models.TextField()
-    formacion = models.TextField()
-    tipo_cliente = models.TextField()
+    consejo = models.TextField(blank=True)
+    formacion = models.TextField(blank=True)
+    tipo_cliente = models.TextField(blank=True)
