@@ -1,18 +1,20 @@
 from django.forms import ModelForm, TextInput, Textarea
 from profesionales.models import Profesional, Trabajo
+from localflavor.es.forms import ESIdentityCardNumberField
 
 
-# Create the form class.
 class ProfesionalForm(ModelForm):
+    dni = ESIdentityCardNumberField(widget=TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* DNI"}))
+
     class Meta:
         model = Profesional
         fields = '__all__'
         widgets = {
             "servicio": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* Servicio que ofreces"}),
             "nombre": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* Nombre"}),
-            "dni": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* DNI"}),
             "fecha_nacimiento": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* Fecha de Nacimiento"}),
             "email": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* Correo electrónico"}),
+            # "dni": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* DNI"}),
             "telefono": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* Teléfono"}),
             "lugar_de_residencia": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* Lugar de residencia"}),
             "radio_prestacion": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* Radio(en Km) de prestación del servicio"}),

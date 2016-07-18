@@ -35,3 +35,7 @@ class Profesional(models.Model):
     consejo = models.TextField(blank=True)
     formacion = models.TextField(blank=True)
     tipo_cliente = models.TextField(blank=True)
+
+    class Meta:
+        verbose_name = 'Profesional'
+        verbose_name_plural = 'Profesionales'
