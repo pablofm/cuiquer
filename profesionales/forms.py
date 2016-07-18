@@ -14,7 +14,6 @@ class ProfesionalForm(ModelForm):
             "nombre": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* Nombre"}),
             "fecha_nacimiento": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* Fecha de Nacimiento"}),
             "email": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* Correo electrónico"}),
-            # "dni": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* DNI"}),
             "telefono": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* Teléfono"}),
             "lugar_de_residencia": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* Lugar de residencia"}),
             "radio_prestacion": TextInput(attrs={'class': 'form-control form-alta-profesional', 'placeholder': "* Radio(en Km) de prestación del servicio"}),
