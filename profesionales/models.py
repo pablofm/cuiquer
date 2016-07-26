@@ -16,27 +16,12 @@ class Profesional(models.Model):
     servicios = models.ManyToManyField(Servicio)
 
     nombre = models.CharField(max_length=100)
-    dni = models.CharField(max_length=10)
-    fecha_nacimiento = models.DateField()
     email = models.EmailField()
     telefono = models.CharField(max_length=9)
     lugar_de_residencia = models.CharField(max_length=30)
-    radio_prestacion = models.IntegerField()
-
-    # Campos opcionales
-    web = models.URLField(blank=True)
-    linkedin = models.URLField(blank=True)
-    nombre_empresa = models.CharField(max_length=100, blank=True)
 
     # Preguntas basicas
-    como = models.TextField()
     que = models.TextField()
-    experiencia = models.TextField()
-
-    # Preguntas adicinales
-    consejo = models.TextField(blank=True)
-    formacion = models.TextField(blank=True)
-    tipo_cliente = models.TextField(blank=True)
 
     class Meta:
         verbose_name = 'Profesional'
