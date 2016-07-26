@@ -16,6 +16,6 @@ class ProfesionalCreateFinished(TemplateView):
     template_name = 'profesionales/alta_finalizada.html'
 
 
-class ProfesionalUpdate(UpdateView):
-    model = Profesional
-    fields = ['name']
+# class ProfesionalUpdate(UpdateView):
+#     model = Profesional
+#     fields = ['name']

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'localflavor',
     'profesionales',
+    'clientes',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -61,6 +62,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'landing/templates'),
             os.path.join(BASE_DIR, 'profesionales/templates'),
+            os.path.join(BASE_DIR, 'clientes/templates'),
         ],
         'OPTIONS': {
             'context_processors': [
