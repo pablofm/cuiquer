@@ -13,12 +13,11 @@ class Servicio(models.Model):
 
 
 class Profesional(models.Model):
-    servicios = models.ManyToManyField(Servicio)
-
+    servicio = models.ManyToManyField(Servicio)
     nombre = models.CharField(max_length=100)
     email = models.EmailField()
     telefono = models.CharField(max_length=9)
-    lugar_de_residencia = models.CharField(max_length=30)
+    area_servicio = models.CharField(max_length=30)
 
     # Preguntas basicas
     que = models.TextField()
