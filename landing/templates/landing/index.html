@@ -50,7 +50,7 @@
                     {% comment %}
                     <li><a href="#">Entrar</a></li>
                     {% endcomment %}
-                    <li><a href="{% url 'alta_cliente' %}">Pide precio gratis</a></li>
+                    <li><a href="{% url 'alta_cliente' %}">Solicita servicio</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
             <div class="the-blur"></div>
@@ -192,20 +192,18 @@
             <div class="col-lg-3">
                 <span class="texto-footer"><strong>Clientes</strong></span>
                 <span class="texto-footer"><a href="#">Cómo funciona</a></span>
-                <span class="texto-footer"><a href="#">Pide ofertas</a></span>
+                <span class="texto-footer"><a href="{% url 'alta_cliente' %}">Solicita servicio</a></span>
             </div>
             <div class="col-lg-3">
                 <span class="texto-footer"><strong>Profesionales</strong></span>
                 <span class="texto-footer"><a href="#">Cómo funciona</a></span>
-                <span class="texto-footer"><a href="#">Únete como profesional</a></span>
+                <span class="texto-footer"><a href="{% url 'alta_profesional' %}">Únete como profesional</a></span>
             </div>
         </div>
     <div class="fondo-naranja text-center">
         <p class="copyright text-muted">Cuiquer ©  2016</p>
     </div>
     </footer>
-    {% comment %}
-    {% endcomment %}    
 
     <!-- jQuery -->
     <script
