@@ -27,13 +27,15 @@ h6 {
 a {
   color: #333333;
 }
-a:hover,
-a:focus {
+a:hover, a:focus {
   color: #0085A1;
 }
-a img:hover,
-a img:focus {
+a img:hover, a img:focus {
   cursor: zoom-in;
+}
+
+a:hover .copyright{
+  color: red;
 }
 blockquote {
   color: #777777;
@@ -273,10 +275,14 @@ footer .list-inline {
   margin: 0;
   padding: 0;
 }
+
 footer .copyright {
   font-size: 14px;
   text-align: center;
   margin-bottom: 0;
+  margin-right: 15px;
+  color: white;
+  
 }
 .floating-label-form-group {
   font-size: 14px;
