@@ -40,7 +40,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                 <a class="navbar-brand" href="{% url 'index' %}"><img class="logo img-responsive" alt="Logotipo Cuiquer" src="../static/img/cuiquer-s.png"></a>
+                 <a class="navbar-brand" href="{% url 'index' %}"><img class="logo img-responsive" alt="Logotipo Cuiquer" src="{% static 'img/cuiquer-s.png' %}"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -179,6 +179,14 @@
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x naranja"></i>
                                 <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/company/cuiquer">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x naranja"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
                     </li>
