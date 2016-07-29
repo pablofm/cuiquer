@@ -1,8 +1,9 @@
-from django.forms import ModelForm, TextInput, Textarea, ModelChoiceField, Select
+from django.forms import ModelForm, TextInput, Textarea, ModelChoiceField, Select, BooleanField
 from profesionales.models import Profesional, Trabajo, Servicio
 
 
 class ProfesionalForm(ModelForm):
+    licencia = BooleanField(initial=False)
     servicio = ModelChoiceField(
         queryset=Servicio.objects.all(),
         empty_label='* Servicio que ofreces',

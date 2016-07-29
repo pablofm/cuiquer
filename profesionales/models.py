@@ -20,7 +20,7 @@ class Profesional(models.Model):
     area_servicio = models.CharField(max_length=30)
 
     # Preguntas basicas
-    que = models.TextField()
+    que = models.TextField(blank=True, null=True)
 
     class Meta:
         verbose_name = 'Profesional'
