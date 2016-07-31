@@ -15,10 +15,8 @@ body {
 }
 p {
   font-family: 'Didact Gothic', 'Arial', serif;
-  line-height: 25px;
-  /*margin: 30px 0;*/
-  margin-bottom:20px;
-  font-size: 18px;
+  line-height: 1.5;
+  margin: 30px 0;
 }
 p a {
   text-decoration: underline;
@@ -37,7 +35,7 @@ a {
 }
 a:hover, a:focus {
   /*color: #0085A1;*/
-  color:#ff7900;
+  color:#f27802;
   text-decoration:none;
 
 }
@@ -317,23 +315,12 @@ footer .copyright {
   color: white;
 }
 
-
-
 footer .container {
   padding-bottom: 20px;
 }
 
 footer .copy{
   padding:10px 0px;
-  background: #888;
-}
-
-footer .copy a{
-  color:#fff;
-}
-
-footer .copy a:hover{
-  color:#333;
 }
 
 footer a .fa-stack.fa-lg i:not(.fa-circle){
@@ -343,15 +330,6 @@ footer a .fa-stack.fa-lg i:not(.fa-circle){
 
 footer a .fa-stack.fa-lg:hover i:not(.fa-circle){
   transform: rotate(360deg);
-}
-
-footer a .fa-stack.fa-lg i.fa-circle{
-  color: #888;
-  transition: color 0.4s ease-out 0.2s;
-}
-
-footer a .fa-stack.fa-lg:hover i.fa-circle{
-  color: #ff7900;
 }
 
 .floating-label-form-group {
@@ -443,7 +421,7 @@ img::-moz-selection {
 /* CUIQUER */
 
 .naranja{
-  color: #ff7900;
+  color: #f27802;
 }
 
 .fondo-gris{
@@ -454,10 +432,6 @@ img::-moz-selection {
 header+.fondo-gris{
   margin-bottom: 50px;
   padding: 15px;
-}
-
-.intro-header+.container{
-  margin-top:90px;
 }
 
 .caja.fondo-gris{
@@ -490,7 +464,7 @@ header+.fondo-gris{
 }
 
 .carousel-indicators .active {
-  background: #ff7900;
+  background: #f27802;
 }
 
 .testimonio  {
@@ -505,7 +479,7 @@ header+.fondo-gris{
 }
 
 .fondo-naranja{
-  background-color: #ff7900;
+  background-color: #f27802;
 
 }
 
