@@ -193,7 +193,7 @@ hr.small {
   line-height: 1.1;
   display: block;
   font-weight: 300;
-  margin: 10px 0 0;
+  margin: 20px;
 }
 
 
@@ -235,8 +235,6 @@ hr.small {
     font-size: 30px;
   }
 }
-
-
 .post-preview > a {
   color: #333333;
 }
@@ -518,6 +516,10 @@ header+.fondo-gris{
   display: block;
 }
 
+.formulario-contacto{
+  margin-top: 15px;
+}
+
 .buscador{
   width: 50%;
   margin: 0 auto;
@@ -552,3 +554,4 @@ header+.fondo-gris{
 .home-slide{
   width:100%;
 }
+
