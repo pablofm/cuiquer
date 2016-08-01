@@ -90,6 +90,10 @@
                         <h1>Cuiquer. Dicho y hecho</h1>
                         <hr class="small">
                         <span class="subheading">Te ponemos en contacto con los mejores profesionales de tu zona.</span>
+                        {% block botones-slider %}
+                        <a href="{% url 'alta_cliente' %}"><button type="button" class="btn btn-primary">Solicita servicio</button></a>
+                        <a href="{% url 'alta_profesional' %}"><button type="button" class="btn btn-primary">Únete como profesional</button></a>
+                        {% endblock botones-slider %}
                     </div>
                 </div>
             </div>

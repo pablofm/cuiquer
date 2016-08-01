@@ -12,6 +12,3 @@ class ContactoForm(forms.ModelForm):
             "asunto": forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Asunto"}),
             "mensaje": forms.Textarea(attrs={'class': 'form-control form-alta', 'rows': 4, 'placeholder': "* Mensaje"}),
         }
-
-
-            
