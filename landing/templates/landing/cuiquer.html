@@ -12,22 +12,35 @@
 	<p>Cuiquer está formado por un equipo de profesionales apasionados por construir una solución que ayude a gente de todo el mundo a realizar sus proyectos de forma eficiente.</p>
 	<p>En nuestras oficinas en la Isla de la Cartuja, en Sevilla, se encuentra el equipo fundador que cubre las áreas de gestión, marketing y IT.</p>
 	<a name="contacto"></a>
-	<h2 class="naranja">Contacta con nosotros</h2>
+	
 	<div class="row">
 		<div class="col-lg-6">
+			<h2 class="naranja">Contacta con nosotros</h2>
 			<span class="contacto"><i class="naranja fa fa-envelope"></i> <a href="mailto:hello@cuiquer.com">hello@cuiquer.com</a></span>
 			<span class="contacto"><i class="naranja fa fa-phone"></i> 955 278 254</span>
 			<span class="contacto"><i class="naranja fa fa-mobile"></i> 667 488 640</span>
 			<span class="contacto"><i class="naranja fa fa-map-marker"></i> C/ Leonardo da Vinci, 12. Isla de la Cartuja. Sevilla.</span>
 		</div>
 		<div class="col-lg-6">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1584.6678305597256!2d-6.005609269249633!3d37.405540408515236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc6dea3a6193ba2ce!2sEOI+Escuela+de+Organizaci%C3%B3n+Industrial+-+Escuela+de+Negocios!5e0!3m2!1ses!2ses!4v1468004367453" width="600" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3169.3383187866343!2d-6.009397484292295!3d37.40547757982846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126b8b9d91b383%3A0x37c7209423e72db2!2sCalle+Leonardo+da+Vinci%2C+12%2C+41092+Sevilla!5e0!3m2!1ses!2ses!4v1470049457874" width="600" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
 		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+			<form method="post" class="formulario-contacto">
+				{% csrf_token %}
+				{{form.nombre.errors}}
+				{{form.nombre}}
+				{{form.email.errors}}
+				{{form.email}}
+				{{form.asunto.errors}}
+				{{form.asunto}}
+				{{form.mensaje.errors}}
+				{{form.mensaje}}
+				<button type="submit" class="btn btn-default naranja center-block">Enviar</button>
+			</form>
+		</div>
+		
 	</div>
 </div>
 {% endblock content %}
-
-  
-
-
-

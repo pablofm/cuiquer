@@ -518,6 +518,10 @@ header+.fondo-gris{
   display: block;
 }
 
+.formulario-contacto{
+  margin-top: 15px;
+}
+
 .buscador{
   width: 50%;
   margin: 0 auto;

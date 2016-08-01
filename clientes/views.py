@@ -1,4 +1,4 @@
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView  # , UpdateView
 from django.views.generic import TemplateView
 from django.core.urlresolvers import reverse_lazy
 
