@@ -1,5 +1,5 @@
 from django import forms
-from landing.models import Contacto
+from landing.models import Contacto, NewsLetter
 
 
 class ContactoForm(forms.ModelForm):
@@ -11,4 +11,13 @@ class ContactoForm(forms.ModelForm):
             "email": forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Email"}),
             "asunto": forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Asunto"}),
             "mensaje": forms.Textarea(attrs={'class': 'form-control form-alta', 'rows': 4, 'placeholder': "* Mensaje"}),
+        }
+
+
+class NewsletterForm(forms.ModelForm):
+    class Meta:
+        model = NewsLetter
+        fields = '__all__'
+        widgets = {
+            "email": forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Email"}),
         }
