@@ -159,11 +159,3 @@ ROLLBAR = {
     'environment': 'development' if DEBUG else 'production',
     'root': BASE_DIR,
 }
-
-
-rollbar.init(**ROLLBAR)
-
-try:
-    b = a + 1
-except:
-    rollbar.report_exc_info()
