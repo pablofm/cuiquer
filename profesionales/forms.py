@@ -17,7 +17,7 @@ class ProfesionalForm(forms.ModelForm):
             "nombre": forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Nombre y apellidos"}),
             "email": forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Email"}),
             "telefono": forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Teléfono"}),
-            "area_servicio": forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Área en la que ofreces el servicio"}),
+            "area_servicio": forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* ¿En qué zona geográfica deseas trabajar?"}),
             "que": forms.Textarea(attrs={'class': 'form-control form-alta', 'rows': 4, 'placeholder': " ¿Qué me apasiona de mi trabajo?"}),
         }
 

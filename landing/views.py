@@ -40,3 +40,7 @@ class CondicionesPrivacidad(TemplateView):
 
 class Cookies(TemplateView):
     template_name = 'landing/cookies.html'
+
+
+class ComoFunciona(TemplateView):
+    template_name = 'landing/profesionales-como.html'
