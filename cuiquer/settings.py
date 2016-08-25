@@ -162,3 +162,8 @@ ROLLBAR = {
 
 
 rollbar.init(**ROLLBAR)
+
+try:
+    b = a + 1
+except:
+    rollbar.report_exc_info()
