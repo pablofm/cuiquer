@@ -4,17 +4,15 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
- @import url(https://fonts.googleapis.com/css?family=Quicksand:400,700|EB+Garamond);
- @import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,700);
- @import url(https://fonts.googleapis.com/css?family=Didact+Gothic);
+ @import 'https://fonts.googleapis.com/css?family=Hind|Montserrat';
 
 body {
-  font-family: 'Didact Gothic', 'Arial', serif;
+  font-family: 'Hind', 'Arial', serif;
   font-size: 20px;
   color: #333333;
 }
 p {
-  font-family: 'Didact Gothic', 'Arial', serif;
+  font-family: 'Hind', 'Arial', serif;
   line-height: 25px;
   /*margin: 30px 0;*/
   margin-bottom:20px;
@@ -29,7 +27,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Ubuntu', Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 800;
 }
 a {
@@ -683,7 +681,7 @@ header+.fondo-gris{
 
 .panel.panel-image .panel-icon .icon {
     background-color: #ff7900;
-    font-family: 'Didact Gothic', 'Arial', serif;
+    font-family: 'Hind', 'Arial', serif;
     border: 10px solid #fff;
     color: #fff;
     display: inline-block;
