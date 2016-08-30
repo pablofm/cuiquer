@@ -66,10 +66,15 @@ hr.small {
   border-bottom: 1px solid transparent;
 }
 
+.carousel-inner{
+  max-height: 450px;
+}
+
 .navbar-custom .navbar-brand {
   font-weight: 800;
   width: 288px;
   height: 81px;
+  padding:5px 15px;
 }
 .navbar-custom .navbar-header .navbar-toggle {
     color: #fff;
@@ -102,6 +107,7 @@ hr.small {
     display: block;
     height: 100%;
 }
+
 @media only screen and (max-width: 767px) {
   .navbar-custom .nav li a {
     font-size: 16px;
@@ -137,6 +143,15 @@ hr.small {
   .navbar-custom .nav li a:focus {
     color: rgba(255, 255, 255, 0.8);
   }
+
+  .site-heading span{
+    display: block;
+  }
+
+  .slogan-servicios{
+    width: 90%;
+  }
+
 }
 
 
@@ -235,7 +250,8 @@ hr.small {
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading h2,
   .intro-header .page-heading h2 {
-    font-size: 80px;
+    font-size: 70px;
+    text-transform: uppercase;
   }
 }
 
@@ -593,9 +609,11 @@ header+.fondo-gris{
 
 /* PASOS */
 .slogan-servicios {
-    padding: 0px 220px 20px;
+    padding: 0px 20px 20px;
     font-size: 27px;
+    width: 60%;
     color: #555;
+    margin: 0 auto;
 }
 
 .btns-servicios .btn {
@@ -749,12 +767,21 @@ header+.fondo-gris{
     margin: 0;
 }
 
+.header{
+  font-size: 26px;
+  margin-top: 100px;
+}
+
 @media (min-width: 992px){
   .panel.panel-image:hover .panel-icon {
       top: -54px;
   }
 }
 @media (min-width: 768px){
+  .navbar-brand {
+    padding:15px;
+  }
+
   .panel.panel-image {
       margin-top: 45px;
   }
@@ -766,7 +793,3 @@ header+.fondo-gris{
   }
 }
 
-.header{
-  font-size: 26px;
-  margin-top: 100px;
-}
