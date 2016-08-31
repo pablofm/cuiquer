@@ -210,11 +210,18 @@
     </div>
 
     <div class="container">
-        <div class="row text-center">
-            <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
-                <p>Todas nuestras ofertas y promociones a un click</p>
-                <input class="form-control form-alta" id="email-newsletter" placeholder="* Email" type="email" >
-                <button id="newsletter" class="btn btn-default naranja center-block">Añádeme al newsletter</button>
+        <div class="row text-center boxNews">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <div class="textNews">
+                    <p>Todas nuestras ofertas y promociones a un click</p>
+                    <p>No te pierdas ninguna actualización</p>
+                </div>
+                <div class="inputNews">
+                    <input class="form-control form-alta" id="email-newsletter" placeholder="* Introduce tu email" type="email" >
+                </div>
+                <div class="btnNews">
+                    <button id="newsletter" class="btn btn-default naranja">Suscribírme</button>
+                </div>
             </div>
         </div>
     </div>
@@ -223,7 +230,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="col-xs-12 col-sm-6">
+            <div id="footerLogo" class="col-xs-12 col-sm-6 fooLogo">
                 <div class="col-xs-12 no-padding text-center">
                     <img style="max-width:212px; margin:0 auto;" class="logo img-responsive" alt="Logotipo Cuiquer" src="{% static 'img/servicios-cuiquer-nombre-gris.png' %}">
                 </div>
@@ -255,7 +262,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-xs-4 col-sm-2">
+            <div class="col-xs-4 col-sm-2 fooEmpresa">
                 <span class="texto-footer"><strong>Empresa</strong></span>
                 <span class="texto-footer"><a href="{% url 'cuiquer' %}#sobre">Sobre Cuiquer</a></span>
                 <span class="texto-footer"><a href="{% url 'cuiquer' %}#equipo">Equipo</a></span>
@@ -265,12 +272,12 @@
                 {% endcomment %}
                 <span class="texto-footer"><a href="{% url 'cuiquer' %}#contacto">Contacto</a></span>
             </div>
-            <div class="col-xs-4 col-sm-2">
+            <div class="col-xs-4 col-sm-2 fooClientes">
                 <span class="texto-footer"><strong>Clientes</strong></span>
                 <span class="texto-footer"><a href="{% url 'index' %}#facil">Cómo funciona</a></span>
                 <span class="texto-footer"><a href="{% url 'alta_cliente' %}">Solicita servicio</a></span>
             </div>
-            <div class="col-xs-4 col-sm-2">
+            <div class="col-xs-4 col-sm-2 fooProfesionales">
                 <span class="texto-footer"><strong>Profesionales</strong></span>
                 <span class="texto-footer"><a href="{% url 'como_funciona' %}">Cómo funciona</a></span>
                 <span class="texto-footer"><a href="{% url 'alta_profesional' %}">Ofrece servicios</a></span>
@@ -306,7 +313,22 @@
                     
                 });
             });
+
+            cambiarLugarLogoFooter();
+            $(window).resize(function(){
+                cambiarLugarLogoFooter();
+            });
         });
+
+        function cambiarLugarLogoFooter(){
+            if($(window).width()<=768){
+                $('#footerLogo').addClass('fAbajo').insertAfter(".fooProfesionales");
+            }else{
+                if($('#footerLogo').hasClass('fAbajo')){
+                    $('#footerLogo').insertBefore(".fooEmpresa");
+                }
+            }
+        }
     </script>
 </body>
 </html>

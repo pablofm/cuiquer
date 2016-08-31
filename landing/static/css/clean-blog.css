@@ -774,6 +774,23 @@ a[name="facil"] h2.cabecera {
   font-size: 26px;
   margin-top: 100px;
 }
+.boxNews > div{
+  border: 1px solid #ff7900;
+  padding: 20px;
+  background: #f5f5f5;
+}
+
+.boxNews > div > div p:first-child{
+  text-transform: uppercase;
+  color:#ff7900;
+  margin-bottom:5px;
+}
+
+.boxNews .btnNews button{
+  background: #ff7900;
+  color:#fff;
+  width: 100%
+}
 
 @media (min-width: 992px){
   .panel.panel-image:hover .panel-icon {
@@ -813,21 +830,24 @@ a[name="facil"] h2.cabecera {
 
 @media (max-width: 767px){
   .panel.panel-image .panel-body {    
-      min-height: 170px;
-    }
+      min-height: 170px;}
 }
 
 @media (max-width: 480px){
   .intro-header .site-heading h2, .intro-header .page-heading h2{display: none;}
+  .btns-servicios .btn{
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 450px){
+  footer .container > div{
+    width:100%;
+  }
 }
 
 @media (max-width: 360px){
   .slogan-servicios {
     padding: 0px 0px 20px;
     width:100%;
-  }
-
-  .btns-servicios .btn{
-    margin-bottom: 10px;
   }
 }
