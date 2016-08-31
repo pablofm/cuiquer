@@ -45,11 +45,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'alta_profesional' %}">Ofrece servicios</a></li>
                     {% comment %}
                     <li><a href="#">Entrar</a></li>
                     {% endcomment %}
                     <li><a href="{% url 'alta_cliente' %}">Solicita servicio</a></li>
+                    <li><a href="{% url 'alta_profesional' %}">Ofrece servicios</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
@@ -115,52 +115,46 @@
                 <div class="col-sm-4 panel-item">
                   <a class="panel panel-image" href="#">
                     <div class="panel-icon">
-                      <span class="icon">1º</span>
+                      <span class="icon">1</span>
                     </div>
-                    <div class="panel-heading"><img class="img-responsive-sm" alt="Project planning" width="768" height="300" src="assets/images/demo/panels/panel_bg_compass.jpg"></div>
                     <div class="panel-body">
-                      <h3 class="panel-title">Dinos qué necesitas.</h3>
-                      <p>Hay multitud de profesionales en tu zona esperando ser contactados.</p>
+                      <h3 class="panel-title">&nbsp;Dinos qué  necesitas.</h3>
+                      <p>Completa el siguiente formulario y te llamaremos personalmente para saber más sobre tus necesidades.</p>
                     </div>
                   </a>
                 </div>
                 <div class="col-sm-4 panel-item">
                   <a class="panel panel-image" href="#">
                     <div class="panel-icon">
-                      <span class="icon">2º</span>
+                      <span class="icon">2</span>
                     </div>
-                    <div class="panel-heading"><img class="img-responsive-sm" alt="Easy customizable" width="768" height="300" src="assets/images/demo/panels/panel_bg_hat.jpg"></div>
                     <div class="panel-body">
-                      <h3 class="panel-title">Recibe varias ofertas de forma gratuita</h3>
-                      <p>Contacta con varios profesionales de confianza, verificados por nosotros y evaluados por otros usuarios.</p>
+                      <h3 class="panel-title">Obtén ofertas GRATIS</h3>
+                      <p>Recibirás varias ofertas por email varias opciones de forma gratuita y sin compromiso.</p>
                     </div>
                   </a>
                 </div>
                 <div class="col-sm-4 panel-item">
                   <a class="panel panel-image" href="#">
                     <div class="panel-icon">
-                      <span class="icon">3º</span>
+                      <span class="icon">3</span>
                     </div>
-                    <div class="panel-heading"><img class="img-responsive-sm" alt="Fastest workers" width="768" height="300" src="assets/images/demo/panels/panel_bg_chess.jpg"></div>
                     <div class="panel-body">
-                      <h3 class="panel-title">Elige el mejor profesional y contrátalo</h3>
-                      <p>Contrata al mejor profesional y empieza a disfrutar de tu tiempo libre.</p>
+                      <h3 class="panel-title">Elige al mejor profesional</h3>
+                      <p>Elige al mejor profesional y contratalo. ¡Empieza a disfrutar de tu tiempo libre!</p>
                     </div>
                   </a>
                 </div>
               </div>
-            <!--<div class="row">
-                <h2 class="text-center naranja cabecera">¡Es muy fácil!</h2>
-                <div class="col-lg-6"><img class="img-responsive" src="#"></div>
-                <div class="col-lg-6">
-                    <h3 class="naranja">1. Dinos qué necesitas</h3>
-                    <p>Hay multitud de profesionales en tu zona esperando ser contactados.</p>
-                    <h3 class="naranja">2. Recibe varias ofertas de forma gratuita.</h3>
-                    <p>Contacta con varios profesionales de confianza, verificados por nosotros y evaluados por otros usuarios.</p>
-                    <h3 class="naranja">3. Elige el mejor profesional y contrátalo</h3>
-                    <p>Contrata al mejor profesional y empieza a disfrutar de tu tiempo libre.</p>
+              <div class="row">
+                <div class="col-xs-12 panel-item ">
+                    <div class="panel panel-ventaja">
+                        <div class="panel-body">
+                            <h4>Todos nuestros profesionales son de confianza. Verificados por nosotros y evaluados por otros usuarios.</h4>
+                        </div>
+                    </div>
                 </div>
-            </div>-->
+              </div>
         </div>
     </div>
     
@@ -229,25 +223,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="col-sm-4">
-                <span class="texto-footer"><strong>Empresa</strong></span>
-                <span class="texto-footer"><a href="{% url 'cuiquer' %}#sobre">Sobre Cuiquer</a></span>
-                <span class="texto-footer"><a href="{% url 'cuiquer' %}#equipo">Equipo</a></span>
-                {% comment %}
-                <span class="texto-footer"><a href="{% url 'cookies' %}">Política de Cookies</a></span>
-                <span class="texto-footer"><a href="#">Blog</a></span>
-                {% endcomment %}
-                <span class="texto-footer"><a href="{% url 'cuiquer' %}#contacto">Contacto</a></span>
-            </div>
-            <div class="col-sm-4">
-                <span class="texto-footer"><strong>Clientes</strong></span>
-                <span class="texto-footer"><a href="{% url 'index' %}#facil">Cómo funciona</a></span>
-                <span class="texto-footer"><a href="{% url 'alta_cliente' %}">Solicita servicio</a></span>
-                <span class="texto-footer"><strong>Profesionales</strong></span>
-                <span class="texto-footer"><a href="{% url 'como_funciona' %}">Cómo funciona</a></span>
-                <span class="texto-footer"><a href="{% url 'alta_profesional' %}">Ofrece servicios</a></span>
-            </div>
-            <div class="col-sm-4">
+            <div class="col-xs-12 col-sm-6">
                 <div class="col-xs-12 no-padding text-center">
                     <img style="max-width:212px; margin:0 auto;" class="logo img-responsive" alt="Logotipo Cuiquer" src="{% static 'img/servicios-cuiquer-nombre-gris.png' %}">
                 </div>
@@ -279,6 +255,27 @@
                     </a>
                 </div>
             </div>
+            <div class="col-xs-4 col-sm-2">
+                <span class="texto-footer"><strong>Empresa</strong></span>
+                <span class="texto-footer"><a href="{% url 'cuiquer' %}#sobre">Sobre Cuiquer</a></span>
+                <span class="texto-footer"><a href="{% url 'cuiquer' %}#equipo">Equipo</a></span>
+                {% comment %}
+                <span class="texto-footer"><a href="{% url 'cookies' %}">Política de Cookies</a></span>
+                <span class="texto-footer"><a href="#">Blog</a></span>
+                {% endcomment %}
+                <span class="texto-footer"><a href="{% url 'cuiquer' %}#contacto">Contacto</a></span>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <span class="texto-footer"><strong>Clientes</strong></span>
+                <span class="texto-footer"><a href="{% url 'index' %}#facil">Cómo funciona</a></span>
+                <span class="texto-footer"><a href="{% url 'alta_cliente' %}">Solicita servicio</a></span>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <span class="texto-footer"><strong>Profesionales</strong></span>
+                <span class="texto-footer"><a href="{% url 'como_funciona' %}">Cómo funciona</a></span>
+                <span class="texto-footer"><a href="{% url 'alta_profesional' %}">Ofrece servicios</a></span>
+            </div>
+            
         </div>
     <div class="text-center copy">
         <span class="copyright text-left">Cuiquer ©  2016</span>
@@ -303,7 +300,6 @@
     <script type="text/javascript">
         $(document).ready(function($){
             $('#newsletter').click(function(){
-                console.log("patatas");
                 $.ajax({
                     url: "{% url 'newsletter' %}",
                     type: "POST",
