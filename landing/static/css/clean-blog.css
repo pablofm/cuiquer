@@ -40,7 +40,7 @@ a:hover, a:focus {
 
 }
 a img:hover, a img:focus {
-  cursor: zoom-in;
+  cursor: default;
 }
 
 a:hover .copyright{
@@ -225,6 +225,17 @@ hr.small {
   color: white;
 }
 
+.intro-header .site-heading h2,
+.intro-header .page-heading h2 {
+  margin-top: 0;  
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+.site-heading h2 span{
+  display: block;
+}
+
 
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
@@ -237,11 +248,7 @@ hr.small {
 .intro-header .page-heading {
   text-align: center;
 }
-.intro-header .site-heading h2,
-.intro-header .page-heading h2 {
-  margin-top: 0;
-  font-size: 50px;
-}
+
 .btns-servicios h1.subheading,
 .btns-servicios h1.subheading {
   font-size: 24px;
@@ -500,6 +507,10 @@ img::-moz-selection {
   color: #ff7900;
 }
 
+.gris{
+  color:#696969;
+}
+
 .fondo-gris{
   background-color: #f9f9f9;
   color: #696969;
@@ -522,9 +533,11 @@ header+.fondo-gris{
 .seccion{
   padding: 10px 35px;
   display: inline-block;
+  min-height: 180px;
 }
 .icono-seccion{
   padding: 15px 15px 0px 15px;
+  max-width: 100px;
 }
 .texto-seccion{
   display: block;
@@ -577,8 +590,27 @@ a[name="facil"] h2.cabecera {
   display: block;
 }
 
+.contacto i {
+    padding-right: 10px;
+    padding-top: 4px;
+}
+
+.contacto i.i-mail{
+  font-size: 20px;
+}
+
+.contacto i.i-phone{
+  font-size: 25px;
+}
+
+.contacto i.i-mobile{
+  font-size: 38px;
+  padding-right: 15px;
+}
+
 .formulario-contacto{
   margin-top: 15px;
+  margin-bottom:30px;
 }
 
 .buscador{
@@ -596,6 +628,10 @@ a[name="facil"] h2.cabecera {
 .no-padding{
   padding-left:0px !important;
   padding-right:0px !important;
+}
+
+.margen-externo{
+  margin-top:30px;
 }
 
 /* Slider */
@@ -710,20 +746,20 @@ a[name="facil"] h2.cabecera {
 }
 
 .panel.panel-image .panel-icon .icon {
-    background-color: #ff7900;
-    font-family: 'Hind', 'Arial', serif;
-    border: 10px solid #fff;
-    color: #fff;
-    display: inline-block;
-    font-size: 45px;
-    line-height: 70px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
+  background-color: #ff7900;
+  font-family: 'Hind', 'Arial', serif;
+  border: 10px solid #fff;
+  color: #fff;
+  display: inline-block;
+  font-size: 27px;
+  line-height: 57px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
 }
 
 .panel.panel-image .panel-body {
@@ -736,6 +772,14 @@ a[name="facil"] h2.cabecera {
     background: #fff;
 }
 
+.panel.panel-ventaja {
+  box-shadow: none;
+}
+
+.panel.panel-image{
+  background-color: transparent;
+}
+
 .panel.panel-ventaja .panel-body {
     border: 2px solid #eaedf2;
     padding-top: 5px;
@@ -744,9 +788,11 @@ a[name="facil"] h2.cabecera {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     padding: 20px;
-    margin: 60px 0px 0px;
+    margin: 60px auto 0px;
     background: #fff;
+    width: 65%;
 }
+
 
 .panel.panel-image .panel-body {
     padding: 50px 30px 30px;
@@ -774,6 +820,10 @@ a[name="facil"] h2.cabecera {
   font-size: 26px;
   margin-top: 100px;
 }
+
+.subheader{
+  font-size: 26px;
+}
 .boxNews > div{
   border: 1px solid #ff7900;
   padding: 20px;
@@ -790,6 +840,10 @@ a[name="facil"] h2.cabecera {
   background: #ff7900;
   color:#fff;
   width: 100%
+}
+
+#page-empresa footer{
+  margin-top:0px;
 }
 
 @media (min-width: 992px){
@@ -849,5 +903,13 @@ a[name="facil"] h2.cabecera {
   .slogan-servicios {
     padding: 0px 0px 20px;
     width:100%;
+  }
+}
+
+
+/** MODIFICACION DEL CONTAINER **/
+@media (min-width: 1200px){
+  .container{
+    width: 1100px;
   }
 }
