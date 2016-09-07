@@ -914,6 +914,17 @@ a[name="facil"] h2.cabecera {
   }
 }
 
+
+.servicio-box{
+  padding: 10px;
+  display: inline-block;
+  
+  
+}
+.servicio-categoria{
+    font-weight: bold;
+    font-size: 22px;
+}
 .servicio{
   display: block;
 }
