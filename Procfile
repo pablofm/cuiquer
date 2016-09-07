@@ -1,1 +1,1 @@
-web: gunicorn cuiquer.wsgi --log-file - --timeout 120
+web: gunicorn cuiquer.wsgi --log-file - --timeout 120  --configuration=Dev
