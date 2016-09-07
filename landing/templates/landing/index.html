@@ -40,7 +40,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     <span class="text-menu">Menu</span> <i class="fa fa-bars"></i>
                 </button>
-                 <a class="navbar-brand" href="{% url 'index' %}"><img class="logo img-responsive" alt="Logotipo Cuiquer" src="{% static 'img/servicios-cuiquer-nombre-blanco.png' %}"></a>
+                 <a class="navbar-brand" href="{% url 'index' %}"><img class="img-responsive" alt="Cuiquer" src="{% static 'img/servicios-cuiquer-nombre-blanco.png' %}" /></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -308,6 +308,7 @@
                 <span class="texto-footer"><strong>Clientes</strong></span>
                 <span class="texto-footer"><a href="{% url 'index' %}#facil">Cómo funciona</a></span>
                 <span class="texto-footer"><a href="{% url 'alta_cliente' %}">Solicita servicio</a></span>
+                <span class="texto-footer"><a href="{% url 'servicios_ofrecidos' %}">Servicios que ofrecemos</a></span>
             </div>
             <div class="col-xs-4 col-sm-2 fooProfesionales">
                 <span class="texto-footer"><strong>Profesionales</strong></span>

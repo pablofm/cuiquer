@@ -30,6 +30,10 @@ class Cuiquer(CreateView):
     success_url = reverse_lazy('index')
 
 
+class Servicios(TemplateView):
+    template_name = 'landing/servicios_ofrecidos.html'
+
+
 class CondicionesUso(TemplateView):
     template_name = 'landing/condiciones_uso.html'
 

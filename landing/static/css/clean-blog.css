@@ -71,8 +71,8 @@ hr.small {
 }
 
 .navbar-custom .navbar-brand {
+  cursor: hand !important;
   font-weight: 800;
-  width: 288px;
   height: 81px;
   padding:5px 15px;
 }
@@ -912,4 +912,8 @@ a[name="facil"] h2.cabecera {
   .container{
     width: 1100px;
   }
+}
+
+.servicio{
+  display: block;
 }
