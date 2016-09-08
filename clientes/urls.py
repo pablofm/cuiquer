@@ -1,11 +1,9 @@
 from django.conf.urls import url
-from clientes.views import ClienteCreate
-from clientes.views import ClienteCreateFinished
-# from clientes.views import ClienteUpdate
+from clientes.views import ClienteCreateView
+from clientes.views import ClienteDetailView
 
 
 urlpatterns = [
-    url(r'alta/$', ClienteCreate.as_view(), name='alta_cliente'),
-    url(r'alta_finalizada/$', ClienteCreateFinished.as_view(), name='alta_cliente_finalizada'),
-    # url(r'(?P<pk>[0-9]+)/$', ClienteUpdate.as_view(), name='actualizar_cliente'),
+    url(r'alta/$', ClienteCreateView.as_view(), name='cliente-create'),
+    url(r'(?P<cliente_id>[0-9]+)/$', ClienteDetailView.as_view(), name='cliente-detail'),
 ]

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Servicio(models.Model):
@@ -23,19 +24,9 @@ class Profesional(models.Model):
     # Preguntas basicas
     que = models.TextField(blank=True, null=True)
 
+    def get_absolute_url(self):
+        return reverse('profesional-detail', kwargs={'profesional_id': self.pk})
+
     class Meta:
         verbose_name = 'Profesional'
         verbose_name_plural = 'Profesionales'
-
-
-class Trabajo(models.Model):
-    nombre = models.CharField(max_length=100)
-    fecha = models.DateField()
-    nombre_cliente = models.CharField(max_length=100)
-    contacto_cliente = models.CharField(max_length=100)
-    recomendacion_cliente = models.TextField()
-    profesional = models.ForeignKey('Profesional', related_name='trabajos')
-
-    class Meta:
-        verbose_name = 'Trabajo'
-        verbose_name_plural = 'Trabajos'

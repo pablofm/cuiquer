@@ -1,21 +1,15 @@
-from django.views.generic.edit import CreateView, UpdateView
-from django.views.generic import TemplateView
-from django.core.urlresolvers import reverse_lazy
-
-from profesionales.models import Profesional
+from django.views.generic.edit import CreateView
+from django.views.generic.detail import DetailView
 from profesionales.forms import ProfesionalForm
+from profesionales.models import Profesional
 
 
-class ProfesionalCreate(CreateView):
+class ProfesionalDetailView(DetailView):
     model = Profesional
     form_class = ProfesionalForm
-    success_url = reverse_lazy('alta_profesional_finalizada')
+    pk_url_kwarg = 'profesional_id'
 
 
-class ProfesionalCreateFinished(TemplateView):
-    template_name = 'profesionales/alta_finalizada.html'
-
-
-# class ProfesionalUpdate(UpdateView):
-#     model = Profesional
-#     fields = ['name']
+class ProfesionalCreateView(CreateView):
+    model = Profesional
+    form_class = ProfesionalForm

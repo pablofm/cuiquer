@@ -1,10 +1,9 @@
 from django.conf.urls import url
-from profesionales.views import ProfesionalCreate
-from profesionales.views import ProfesionalCreateFinished
-# from profesionales.views import ProfesionalUpdate
+from profesionales.views import ProfesionalCreateView
+from profesionales.views import ProfesionalDetailView
+
 
 urlpatterns = [
-    url(r'alta/$', ProfesionalCreate.as_view(), name='alta_profesional'),
-    url(r'alta_finalizada/$', ProfesionalCreateFinished.as_view(), name='alta_profesional_finalizada'),
-    # url(r'(?P<pk>[0-9]+)/$', ProfesionalUpdate.as_view(), name='actualizar_profesional'),
+    url(r'alta/$', ProfesionalCreateView.as_view(), name='profesional-create'),
+    url(r'^(?P<profesional_id>[0-9]+)/$', ProfesionalDetailView.as_view(), name='profesional-detail'),
 ]

@@ -928,3 +928,7 @@ a[name="facil"] h2.cabecera {
 .servicio{
   display: block;
 }
+
+.boton-alta{
+  margin-top: 15px;
+}
