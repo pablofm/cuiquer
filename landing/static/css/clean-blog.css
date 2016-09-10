@@ -40,7 +40,7 @@ a:hover, a:focus {
 
 }
 a img:hover, a img:focus {
-  cursor: default;
+  cursor: pointer;
 }
 
 a:hover .copyright{
@@ -57,14 +57,25 @@ hr.small {
   border-color: white;
 }
 .navbar-custom {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 3;
   background-color: rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid transparent;
 }
+
+/* MENU STICKY */
+.menu-fixed.navbar-custom{
+  background: #888;
+}
+.menu-fixed.navbar-custom .navbar-brand{
+  height: 60px;
+}
+.menu-fixed .navbar-brand img{
+  height: 50px
+}
+.menu-fixed .nav li a{
+  padding: 20px 20px !important;
+}
+/* // */
+
 
 .carousel-inner{
   max-height: 450px;
@@ -111,8 +122,8 @@ hr.small {
 @media only screen and (max-width: 767px) {
   .navbar-custom .nav li a {
     font-size: 16px;
-    color: #ff7900;
-    border-bottom: #ff7900 solid 1px;
+    color: #fff;
+    border-bottom: #fff solid 1px;
     width: 90%;
   }
 
@@ -123,12 +134,26 @@ hr.small {
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
       border-color: #ff7900;
-      background: rgba(255,255,255,1);
+      background: rgba(150,150,150,0.5);
   }
 
   .panel.panel-image .panel-body {
       min-height: 170px;
   }
+
+  /* MENU STICKY */
+  .menu-fixed.navbar-custom{background: transparent;}
+  .menu-fixed .navbar-header{ background: #888;}
+  .menu-fixed .nav li a {padding:10px 20px;}
+  .menu-fixed .navbar-header .navbar-toggle{
+    height: 50px;
+    font-size: 30px;
+    padding-top: 5px;
+  }
+  .menu-fixed .text-menu {
+      font-size: 11px;
+  }
+  /* // */
 }
 
 @media only screen and (min-width: 768px) {
@@ -227,7 +252,7 @@ hr.small {
 
 .intro-header .site-heading h2,
 .intro-header .page-heading h2 {
-  margin-top: 0;  
+  margin-top: 0;
   font-size: 50px;
   text-transform: uppercase;
 }
@@ -528,20 +553,21 @@ header+.fondo-gris{
 .caja.fondo-gris{
   margin: 90px 0px;
   padding: 90px 0px;
-}  
+}
 
 .seccion{
-  padding: 10px 35px;
   display: inline-block;
-  min-height: 180px;
+  min-height: 140px;
 }
 .icono-seccion{
   padding: 15px 15px 0px 15px;
   max-width: 100px;
+  width: 100%
 }
 .texto-seccion{
   display: block;
   font-size: 20px;
+  color: #71716F;
 }
 
 .provincias > ul {
@@ -564,7 +590,7 @@ header+.fondo-gris{
   padding: 10px;
   display: inline-block;
   border-radius: 200px;
-  border-style: solid;  
+  border-style: solid;
 }
 
 .cabecera{
@@ -883,7 +909,7 @@ a[name="facil"] h2.cabecera {
 }
 
 @media (max-width: 767px){
-  .panel.panel-image .panel-body {    
+  .panel.panel-image .panel-body {
       min-height: 170px;}
 }
 
@@ -891,6 +917,14 @@ a[name="facil"] h2.cabecera {
   .intro-header .site-heading h2, .intro-header .page-heading h2{display: none;}
   .btns-servicios .btn{
     margin-bottom: 10px;
+  }
+
+  .seccion{
+    width: 50%;
+  }
+
+  .slogan-servicios {
+    width: 100%;
   }
 }
 @media (max-width: 450px){
@@ -918,8 +952,8 @@ a[name="facil"] h2.cabecera {
 .servicio-box{
   padding: 10px;
   display: inline-block;
-  
-  
+
+
 }
 .servicio-categoria{
     font-weight: bold;
