@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Te ponemos en contacto con los mejores profesionales de tu zona. Encuentra un entrenador personal, Clases particulares, Canguro en Casa y todo lo que necesite ¡Entra!">
+    <meta name="author" content="Cuiquer">
+    <meta name="keywords" content="cuiquer,servicio, servicios, Salud y Bienestar, Fisioterapeuta, Osteópata, Masajista, Peluquería, Maquillaje, Cuidado de Personas, Cuidado de Niños, Canguro, Cuidado de Personas Mayores, Clases Particulares, Profesor Primaria, Profesor Secundaria, Profesor Bachillerato, Profesor Informática, Profesor Inglés, Profesor Francés, Deportes, Entrenador Personal, Monitor de Tenis, Monitor de Pádel, Monitor de Natación, Profesor de Yoga, Profesor de Pilates, Reparaciones y Reformas​, Albañil, Fontanero, Electricista, Carpintero, Pintor, Reparación Electrodomésticos, Interiorista, Aparejador, Empresa de reformas, Servicios Informáticos​, Diseño de Páginas Web, Diseño de Logos, Instalación de Ordenadores, Reparación de Ordenadores, Hogar y Limpieza, ​Limpieza del Hogar, Limpieza de Oficinas, Empresa de Limpieza, Limpieza de Vehículo, Jardinero" />
 
-    <title>CUIQUER - DICHO Y HECHO</title>
+    <title>CUIQUER: Los mejores profesionales de tu zona a un Click</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -83,7 +84,7 @@
                     <div class="row">
                         <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
                             <div class="site-heading">
-                                <h2><span>Cuiquer </span>Dicho y hecho</h2>
+                                <p><span>Cuiquer </span>Dicho y hecho</p>
                             </div>
                         </div>
                     </div>
@@ -95,46 +96,46 @@
     {% endblock slider %}
     {% block content %}
     <div class="container text-center">
-        <div class="btns-servicios">
+        <div class="btns-servicios margen-externo">
             <h1 class="slogan-servicios">Te ponemos en contacto con los mejores profesionales de tu zona.</h1>
             <a href="{% url 'cliente-create' %}"><button type="button" class="btn btn-primary">Solicita servicio</button></a>
             <a href="{% url 'profesional-create' %}"><button type="button" class="btn btn-primary">Ofrece servicios</button></a>
         </div>
-        <div class="row">
+        <div class="row margen-externo">
             <div class="col-xs-12">
                 <div class="seccion col-xs-3">
                     <img class="icono-seccion" src="{% static 'img/icon/cuiquer_salud.png' %}" alt="Entrenadores personales">
-                    <span class="texto-seccion">Entrenador personal</span>
+                    <h2 class="texto-seccion">Entrenador personal</h2>
                 </div>
                 <div class="seccion col-xs-3">
                     <img class="icono-seccion" src="{% static 'img/icon/cuiquer_clases-particulares.png' %}" alt="Profesores particulares">
-                    <span class="texto-seccion">Profesor particular</span>
+                    <h2 class="texto-seccion">Profesor particular</h2>
                 </div>
                 <div class="seccion col-xs-3">
                     <img class="icono-seccion" src="{% static 'img/icon/cuiquer_cuidado-personas.png' %}" alt="Cuidadores de niños">
-                    <span class="texto-seccion">Cuidado de niños</span>
+                    <h2 class="texto-seccion">Cuidado de niños</h2>
                 </div>
                 <div class="seccion col-xs-3">
                     <img class="icono-seccion" src="{% static 'img/icon/cuiquer_deportes.png' %}" alt="Deportes">
-                    <span class="texto-seccion">Deportes</span>
+                    <h2 class="texto-seccion">Deportes</h2>
                 </div>
             </div>
             <div class="col-xs-12">
                 <div class="seccion col-xs-3">
                     <img class="icono-seccion" src="{% static 'img/icon/cuiquer_hogar.png' %}" alt="Hogar">
-                    <span class="texto-seccion">Hogar</span>
+                    <h2 class="texto-seccion">Hogar</h2>
                 </div>
                 <div class="seccion col-xs-3">
                     <img class="icono-seccion" src="{% static 'img/icon/cuiquer_servicios-informaticos.png' %}" alt="Servicios Informáticos">
-                    <span class="texto-seccion">Servicios Informáticos</span>
+                    <h2 class="texto-seccion">Servicios Informáticos</h2>
                 </div>
                 <div class="seccion col-xs-3">
                     <img class="icono-seccion" src="{% static 'img/icon/cuiquer_reparaciones.png' %}" alt="Reparaciones de niños">
-                    <span class="texto-seccion">Reparaciones</span>
+                    <h2 class="texto-seccion">Reparaciones</h2>
                 </div>
                 <div class="seccion col-xs-3">
                     <img class="icono-seccion" src="{% static 'img/icon/cuiquer_mas-servicios.png' %}" alt="Más">
-                    <span class="texto-seccion">Descubre todos nuestros servicios</span>
+                    <h2 class="texto-seccion">Descubre todos nuestros servicios</h2>
                 </div>
             </div>
         </div>
@@ -142,7 +143,7 @@
     <!-- Main Content -->
     <div class="caja fondo-gris">
         <div class="container">
-            <a name="facil"><h2 class="text-center gris cabecera">¿Cómo funciona?</h2></a>
+            <a name="facil"><p class="text-center gris cabecera">¿Cómo funciona?</p></a>
               <div class="row panels">
                 <div class="col-sm-4 panel-item">
                   <span class="panel panel-image">
@@ -198,7 +199,7 @@
                     <i class="fa fa-thumbs-up fa-stack-1x fa-inverse" aria-hidden="true"></i>
 
                 </span>
-                <h4 class="service-heading">Fácil y rápido de usar.</h4>
+                <h3 class="service-heading">Fácil y rápido de usar.</h3>
                 <p class="text-muted">Recibe las ofertas que más se ajustan a tus necesidades en el plazo de un día. Contrata al profesional más indicado con tan sólo 1-click.</p>
             </div>
             <div class="col-md-4">
@@ -206,7 +207,7 @@
                     <i class="fa fa-circle fa-stack-2x naranja"></i>
                     <i class="fa fa-check fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="service-heading">Calidad Garantizada</h4>
+                <h3 class="service-heading">Calidad Garantizada</h3>
                 <p class="text-muted">Cuiquer sigue un rigoroso proceso de selección y de control de calidad a fn de ofrecer tan sólo servicios profesionales de confanza.</p>
             </div>
             <div class="col-md-4">
@@ -214,7 +215,7 @@
                     <i class="fa fa-circle fa-stack-2x naranja"></i>
                     <i class="fa fa-volume-control-phone fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="service-heading">Atención al cliente 24/7.</h4>
+                <h3 class="service-heading">Atención al cliente 24/7.</h3>
                 <p class="text-muted">Para cualquier duda o problema, el equipo de Cuiquer está disponible via teléfono o email.</p>
             </div>
         </div>
@@ -222,21 +223,21 @@
 
     <div class="caja fondo-gris">
         <div class="container">
-            <h2 class="text-center gris cabecera">¿Qué dicen nuestros clientes?</h2>
+            <p class="text-center gris cabecera">¿Qué dicen nuestros clientes?</p>
             <div class="col-lg-4 text-center">
                 <i class="fa fa-quote-right naranja testimonio" aria-hidden="true"></i>
                 <p><em>Cuiquer es efectivo y muy fácil de usar. Necesitabamos un profesor de natación para nuestra hija, y en cuestión de horas teníamos 3 amables profesionales dispuestos a ayudarnos.</em></p>
-                <h4><span class="text-uppercase">Juan</span>, Sevilla</h4>
+                <p><span class="text-uppercase">Juan</span>, Sevilla</p>
             </div>
             <div class="col-lg-4 text-center">
                 <i class="fa fa-quote-right naranja testimonio" aria-hidden="true"></i>
                 <p><em>He utilizado Cuiquer en varias ocasiones, la experieia ha sido siempre buena. Atención exquisita y máxima profesionalidad.</em></p>
-                <h4><span class="text-uppercase">Pedro</span>, Barcelona</h4>
+                <p><span class="text-uppercase">Pedro</span>, Barcelona</p>
             </div>
             <div class="col-lg-4 text-center">
                 <i class="fa fa-quote-right naranja testimonio" aria-hidden="true"></i>
                 <p><em>Tras perder mucho tiempo buscando una buena canguro de confianza para mis niños, me recomendaron utilizar Cuiquer. En 24 horas hemos conseguido a una canguro con experiencia, a buen precio y que además habla en inglés a nuestros hijos!</em></p>
-                <h4><span class="text-uppercase">Paula</span>, Sevilla</h4>
+                <p><span class="text-uppercase">Paula</span>, Sevilla</p>
             </div>
         </div>
     </div>

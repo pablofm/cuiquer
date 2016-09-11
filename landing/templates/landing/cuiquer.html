@@ -1,17 +1,18 @@
 {% extends "landing/index.html" %}
+{% load staticfiles %}
 {% block slider %} {% endblock slider %}
 {% block content %}
 <div id="page-empresa">
-	<div class="container-fluid">
-		<div class="imgCabecera">
-			<img src="{% static 'img/cabeceras/cuiquer-empresa.jpg' %}" alt="Sobre Cuiquer">
-		</div>
+
+	<div class="imgCabecera">
+		<img class="img-responsive" src="{% static 'img/cabeceras/cuiquer-empresa.jpg' %}" alt="Sobre Cuiquer">
 	</div>
+
 	<div class="container margen-externo">
 				<a name="sobre"></a>
 				<h1 class="naranja header">Acerca de Cuiquer</h1>
 		<div class="row">
-			<div class="col-xs-12 margen-externo">
+			<div class="col-xs-12 margen-interno">
 				<p>Estamos en el siglo XXI y contratar a personal cualificado para llevar a cabo tus proyectos no debería ser tan complicado.</p>
 				<p>CUIQUER está revolucionando la forma en que se contratan los trabajos de siempre.</p>
 				<p>Somos una plataforma líder conectando personas que buscan acometer proyectos con profesionales independientes de alta calidad preseleccionados por nosotros. Desde cuidadores de niños y profesores particulares a jardineros o manitas a domicilio. Dinos que necesitas y rápidamente recibirás ofertas personalizadas de profesionales contrastados</p>
@@ -21,18 +22,18 @@
 	</div>
 
 	<a name="contacto subheader"></a>
-	<div class="">
+	<div>
 		<div class="container margen-externo">
-			<div class="row margen-externo">
+			<div class="row margen-interno">
 				<div class="col-xs-12">
 					<h2 class="naranja">Contacta con nosotros</h2>
 				</div>
-					<div class="col-xs-12 col-sm-3 margen-externo">
+					<div class="col-xs-12 col-sm-3 margen-interno">
 						<span class="contacto"><i class="naranja fa fa-envelope i-mail"></i> <a href="mailto:hello@cuiquer.com">hello@cuiquer.com</a></span>
 						<span class="contacto"><i class="naranja fa fa-phone i-phone"></i> 955 278 254</span>
 						<span class="contacto"><i class="naranja fa fa-mobile i-mobile"></i> 667 488 640</span>
 					</div>
-					<div class="col-xs-12 col-sm-9 margen-externo">
+					<div class="col-xs-12 col-sm-9 margen-interno">
 						<form method="post" class="formulario-contacto">
 							{% csrf_token %}
 							{{form.nombre.errors}}

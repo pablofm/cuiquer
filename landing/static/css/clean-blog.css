@@ -119,6 +119,10 @@ hr.small {
     height: 100%;
 }
 
+.imgCabecera img{
+  width: 100%;
+}
+
 @media only screen and (max-width: 767px) {
   .navbar-custom .nav li a {
     font-size: 16px;
@@ -250,14 +254,16 @@ hr.small {
   color: white;
 }
 
-.intro-header .site-heading h2,
-.intro-header .page-heading h2 {
+.intro-header .site-heading p,
+.intro-header .page-heading p {
   margin-top: 0;
   font-size: 50px;
   text-transform: uppercase;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 800;
 }
 
-.site-heading h2 span{
+.site-heading p span{
   display: block;
 }
 
@@ -289,6 +295,7 @@ hr.small {
   .intro-header .page-heading h2 {
     font-size: 70px;
     text-transform: uppercase;
+    line-height: 60px;
   }
 }
 
@@ -657,6 +664,10 @@ a[name="facil"] h2.cabecera {
 }
 
 .margen-externo{
+  margin-top:60px;
+}
+
+.margen-interno{
   margin-top:30px;
 }
 
@@ -844,7 +855,7 @@ a[name="facil"] h2.cabecera {
 
 .header{
   font-size: 26px;
-  margin-top: 100px;
+  /*margin-top: 100px;*/
 }
 
 .subheader{
@@ -911,10 +922,14 @@ a[name="facil"] h2.cabecera {
 @media (max-width: 767px){
   .panel.panel-image .panel-body {
       min-height: 170px;}
+    .imgCabecera img {
+      width: 150%;
+      max-width: 150%;
+    }
 }
 
 @media (max-width: 480px){
-  .intro-header .site-heading h2, .intro-header .page-heading h2{display: none;}
+  .intro-header .site-heading p, .intro-header .page-heading h2{display: none;}
   .btns-servicios .btn{
     margin-bottom: 10px;
   }
@@ -925,6 +940,16 @@ a[name="facil"] h2.cabecera {
 
   .slogan-servicios {
     width: 100%;
+  }
+
+  .imgCabecera img {
+    width: 200%;
+    max-width: 200%;
+  }
+
+  .imgCabecera img {
+    width: 260%;
+    max-width: 260%;
   }
 }
 @media (max-width: 450px){
