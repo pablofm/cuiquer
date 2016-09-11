@@ -235,7 +235,6 @@ hr.small {
     transform: translate3d(0, 100%, 0);
   }
 }
-}
 
 
 .intro-header {
@@ -261,20 +260,13 @@ hr.small {
   text-transform: uppercase;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 800;
+  line-height: 1.1;
 }
 
 .site-heading p span{
   display: block;
 }
 
-
-@media only screen and (min-width: 768px) {
-  .intro-header .site-heading,
-  .intro-header .post-heading,
-  .intro-header .page-heading {
-    padding: 20% 0;
-  }
-}
 .intro-header .site-heading,
 .intro-header .page-heading {
   text-align: center;
@@ -291,11 +283,10 @@ hr.small {
 
 
 @media only screen and (min-width: 768px) {
-  .intro-header .site-heading h2,
-  .intro-header .page-heading h2 {
+  .intro-header .site-heading p,
+  .intro-header .page-heading p {
     font-size: 70px;
     text-transform: uppercase;
-    line-height: 60px;
   }
 }
 
@@ -575,6 +566,8 @@ header+.fondo-gris{
   display: block;
   font-size: 20px;
   color: #71716F;
+  font-weight: 200;
+  font-family: 'Hind', 'Arial', serif;
 }
 
 .provincias > ul {
@@ -601,14 +594,14 @@ header+.fondo-gris{
 }
 
 .cabecera{
-  margin-bottom: 20px;
+  font-size: 46px;
+  font-weight: 500;
+  font-family: 'Montserrat', Arial, sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 30px;
 }
 
-a[name="facil"] h2.cabecera {
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 46px;
-}
+
 .fondo-naranja{
   background-color: #ff7900;
 
