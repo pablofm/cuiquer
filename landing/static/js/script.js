@@ -1,14 +1,5 @@
 $(document).ready(function($){
-    $('#newsletter').click(function(){
-        $.ajax({
-            url: "{% url 'newsletter' %}",
-            type: "POST",
-
-        });
-    });
-
     menuStickyColor();
-
     cambiarLugarLogoFooter();
     $(window).resize(function(){
         cambiarLugarLogoFooter();

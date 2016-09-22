@@ -1,37 +1,11 @@
 from django.views.generic import TemplateView
-from django.views.generic.edit import CreateView
 from landing.forms import ContactoForm
-from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
-from django.http import JsonResponse
-from landing.models import NewsLetter
+from django.http import HttpResponseRedirect, JsonResponse
 
 
 class IndexView(TemplateView):
     template_name = 'landing/index.html'
-
-
-def newsletter(request):
-    if request.method == 'POST':
-        email = request.POST['email']
-        very_exist = [m.email for m in NewsLetter.objects.all()]
-        if email in very_exist:
-            msg = "Su email ya está apuntado al newsletter."
-            return JsonResponse({'msg': msg})
-
-        NewsLetter.objects.create(email=email)
-        msg = "Hemos apuntado su email al newsletter."
-        return JsonResponse({'msg': msg})
-
-
-class Cuiquer(CreateView):
-    template_name = 'landing/cuiquer.html'
-    form_class = ContactoForm
-    success_url = reverse_lazy('index')
-
-
-class Servicios(TemplateView):
-    template_name = 'landing/secundarias/todos-nuestros-serviciosservicios_ofrecidos.html'
 
 
 class ComoFunciona(TemplateView):
@@ -82,3 +56,33 @@ class CondicionesPrivacidadView(TemplateView):
 
 class CookiesView(TemplateView):
     template_name = 'landing/legal/cookies.html'
+
+
+def contacto(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = ContactoForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = ContactoForm()
+    return render(request, 'landing/contacto.html', {'form': form})
+
+
+def suscripcion(request):
+    from landing.models import Suscripcion
+    emails = [m.email for m in Suscripcion.objects.all()]
+
+    if request.method == 'POST':
+        email = request.POST.get('email', None)
+        print(emails)
+        print(email)
+        print(email in emails)
+        if email is not None and email not in emails:
+            Suscripcion.objects.create(email=email)
+            return JsonResponse({'response': True})
+
+    return JsonResponse({'response': False})

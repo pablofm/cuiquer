@@ -4,10 +4,10 @@ from landing import views
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^como$', views.ComoFunciona.as_view(), name='como-funciona'),
 
-    url(r'^newsletter$', views.newsletter, name='newsletter'),
-    url(r'^cuiquer$', views.Cuiquer.as_view(), name='cuiquer'),
-    url(r'^como$', views.ComoFunciona.as_view(), name='como_funciona'),
+    url(r'^contacto$', views.contacto, name='contacto'),
+    url(r'^suscripcion$', views.suscripcion, name='suscripcion'),
 
     # Secundarias
     url(r'^salud-y-bienestar$', views.SaludYBienestarView.as_view(), name='salud-y-bienestar'),

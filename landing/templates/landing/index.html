@@ -266,14 +266,35 @@
                     <p>No te pierdas ninguna actualización</p>
                 </div>
                 <div class="inputNews">
-                    <input class="form-control form-alta" id="email-newsletter" placeholder="* Introduce tu email" type="email" >
+                    {% csrf_token %}
+                    <input class="form-control form-alta" id="email" placeholder="* Introduce tu email" type="email" >
                 </div>
                 <div class="btnNews">
-                    <button id="newsletter" class="btn btn-default naranja">Suscribírme</button>
+                    <input type="submit" class="btn btn-default naranja" value="Suscribirme" onclick="suscripcion()" />
                 </div>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function suscripcion(){
+            $.ajax({
+                dataType: 'json',
+                type: 'POST',
+                url: '{% url 'suscripcion' %}',
+                data: {
+                    email: $('#email').val(),
+                    csrfmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),
+                },
+                beforeSend: function(){
+                    console.log("antes");
+                },
+                success: function (response) {
+                    console.log("despues");
+                    console.log(response);
+                }
+            });
+        }
+    </script>
 
     {% endblock content %}
     <!-- Footer -->
@@ -313,13 +334,13 @@
             </div>
             <div class="col-xs-4 col-sm-2 fooEmpresa">
                 <span class="texto-footer"><strong>Empresa</strong></span>
-                <span class="texto-footer"><a href="{% url 'cuiquer' %}#sobre">Sobre Cuiquer</a></span>
+                <span class="texto-footer"><a href="{% url 'contacto' %}#sobre">Sobre Cuiquer</a></span>
                 {% comment %}
                 <!--<span class="texto-footer"><a href="{% url 'cuiquer' %}#equipo">Equipo</a></span>-->
                 <span class="texto-footer"><a href="{% url 'cookies' %}">Política de Cookies</a></span>
                 <span class="texto-footer"><a href="#">Blog</a></span>
                 {% endcomment %}
-                <span class="texto-footer"><a href="{% url 'cuiquer' %}#contacto">Contacto</a></span>
+                <span class="texto-footer"><a href="{% url 'contacto' %}#contactanos">Contacto</a></span>
             </div>
             <div class="col-xs-4 col-sm-2 fooClientes">
                 <span class="texto-footer"><strong>Clientes</strong></span>
@@ -329,7 +350,7 @@
             </div>
             <div class="col-xs-4 col-sm-2 fooProfesionales">
                 <span class="texto-footer"><strong>Profesionales</strong></span>
-                <span class="texto-footer"><a href="{% url 'como_funciona' %}">Cómo funciona</a></span>
+                <span class="texto-footer"><a href="{% url 'como-funciona' %}">Cómo funciona</a></span>
                 <span class="texto-footer"><a href="{% url 'profesional-create' %}">Ofrece servicios</a></span>
             </div>
 

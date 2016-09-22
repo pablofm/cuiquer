@@ -38,6 +38,7 @@ class Common(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        'django_nose',
         'localflavor',
         'landing',
         'profesionales',
@@ -127,6 +128,15 @@ class Common(Configuration):
     # Mediafiles
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+
+    TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+    NOSE_ARGS = [
+        '--with-coverage',
+        '--cover-package=landing, clientes, profesionales',
+        '--cover-html',
+        '--cover-inclusive',
+
+    ]
 
 
 class Dev(Common):

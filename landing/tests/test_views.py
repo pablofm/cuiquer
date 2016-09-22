@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
+from landing.models import Contacto, Suscripcion
 
 
 class IndexTest(TestCase):
@@ -146,3 +147,56 @@ class CondicionesPrivacidadTest(TestCase):
 
     def test_llama_plantilla_apropiada(self):
         self.assertTemplateUsed(self.response, 'landing/legal/condiciones-privacidad.html')
+
+
+class ContactoGETTest(TestCase):
+    def setUp(self):
+        url = reverse('contacto')
+        self.response = self.client.get(url)
+
+    def test_devuelve_200(self):
+        self.assertEqual(200, self.response.status_code)
+
+    def test_llama_plantilla_apropiada(self):
+        self.assertTemplateUsed(self.response, 'landing/contacto.html')
+
+
+class ContactoPostTest(TestCase):
+    def setUp(self):
+        self.data = {
+            'nombre': 'Nombre',
+            'email': 'correo@correo.com',
+            'asunto': 'Esto es un asunto',
+            'mensaje': 'Esto es un mensaje'
+        }
+
+    def test_contacto_correcto(self):
+        self.client.post(reverse('contacto'), self.data)
+        self.assertEqual(1, Contacto.objects.count())
+
+    def test_contacto_incorrecto(self):
+        self.data['nombre'] = ''
+        self.client.post(reverse('contacto'), self.data)
+        self.assertEqual(0, Contacto.objects.count())
+
+
+class SuscripcionPOSTTest(TestCase):
+    def test_sin_datos_no_hay_alta(self):
+        self.client.post(reverse('suscripcion'), {})
+        self.assertEqual(0, Suscripcion.objects.count())
+
+    def test_sin_correo_no_hay_alta(self):
+        self.client.post(reverse('suscripcion'), {'email': None})
+        self.assertEqual(0, Suscripcion.objects.count())
+
+    def test_sin_correo_no_hay_alta_2(self):
+        self.client.post(reverse('suscripcion'), {'email': ''})
+        self.assertEqual(0, Suscripcion.objects.count())
+
+    def test_sin_correo_no_hay_alta_3(self):
+        self.client.post(reverse('suscripcion'), {'email': '@correo.com'})
+        self.assertEqual(0, Suscripcion.objects.count())
+
+    def test_alta_correcta(self):
+        self.client.post(reverse('suscripcion'), {'email': 'correo@correo.com'})
+        self.assertEqual(1, Suscripcion.objects.count())

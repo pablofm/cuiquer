@@ -1,5 +1,5 @@
 from django import forms
-from landing.models import Contacto, NewsLetter
+from landing.models import Contacto, Suscripcion
 
 
 class ContactoForm(forms.ModelForm):
@@ -14,10 +14,25 @@ class ContactoForm(forms.ModelForm):
         }
 
 
-class NewsletterForm(forms.ModelForm):
+class SuscripcionForm(forms.ModelForm):
+    def is_valid(self):
+        print("PATATA")
+        valid = super(SuscripcionForm, self).is_valid()
+        print(valid)
+        if not valid:
+            return False
+
+        emails = [m.email for m in Suscripcion.objects.all()]
+        print(emails)
+
+        if self.data["email"] in emails:
+            return False
+
+        return True
+
     class Meta:
-        model = NewsLetter
-        fields = '__all__'
+        model = Suscripcion
+        fields = ['email']
         widgets = {
-            "email": forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Email"}),
+            "email": forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Introduce tu email"}),
         }
