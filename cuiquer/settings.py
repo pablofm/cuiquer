@@ -135,7 +135,6 @@ class Common(Configuration):
         '--cover-package=landing, clientes, profesionales',
         '--cover-html',
         '--cover-inclusive',
-
     ]
 
 
@@ -144,6 +143,10 @@ class Dev(Common):
 
 
 class Prod(Common):
+    import dj_database_url
+    Common.DATABASES['default'] = dj_database_url.config()
+
+    ALLOWED_HOSTS = [".herokuapp.com", ".researchthroughdesign.org"]
     DEBUG = False
 
     ROLLBAR = {
