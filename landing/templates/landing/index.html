@@ -28,7 +28,7 @@
     <![endif]-->
 
     <!-- Theme CSS -->
-    <link href="{% static 'css/clean-blog.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -104,38 +104,54 @@
         <div class="row margen-externo">
             <div class="col-xs-12">
                 <div class="seccion col-xs-3">
-                    <img class="icono-seccion" src="{% static 'img/icon/cuiquer_salud.png' %}" alt="Entrenadores personales">
-                    <h2 class="texto-seccion">Entrenador personal</h2>
+                    <a href="{% url 'salud-y-bienestar' %}">
+                        <img class="icono-seccion" src="{% static 'img/iconos/salud-y-bienestar.png' %}" alt="Salud y Bienestar">
+                        <h2 class="texto-seccion">Salud y Bienestar</h2>
+                    </a>
                 </div>
                 <div class="seccion col-xs-3">
-                    <img class="icono-seccion" src="{% static 'img/icon/cuiquer_clases-particulares.png' %}" alt="Profesores particulares">
-                    <h2 class="texto-seccion">Profesor particular</h2>
+                    <a href="{% url 'cuidado-de-personas' %}">
+                        <img class="icono-seccion" src="{% static 'img/iconos/cuidado-de-personas.png' %}" alt="Cuidado de personas">
+                        <h2 class="texto-seccion">Cuidado de personas</h2>
+                    </a>
                 </div>
                 <div class="seccion col-xs-3">
-                    <img class="icono-seccion" src="{% static 'img/icon/cuiquer_cuidado-personas.png' %}" alt="Cuidadores de niños">
-                    <h2 class="texto-seccion">Cuidado de niños</h2>
+                    <a href="{% url 'clases-particulares' %}">
+                        <img class="icono-seccion" src="{% static 'img/iconos/clases-particulares.png' %}" alt="Clases Particulares">
+                        <h2 class="texto-seccion">Clases Particulares</h2>
+                    </a>
                 </div>
                 <div class="seccion col-xs-3">
-                    <img class="icono-seccion" src="{% static 'img/icon/cuiquer_deportes.png' %}" alt="Deportes">
-                    <h2 class="texto-seccion">Deportes</h2>
+                    <a href="{% url 'monitor-de-deportes' %}">
+                        <img class="icono-seccion" src="{% static 'img/iconos/deportes.png' %}" alt="Deportes">
+                        <h2 class="texto-seccion">Deportes</h2>
+                    </a>
                 </div>
             </div>
             <div class="col-xs-12">
                 <div class="seccion col-xs-3">
-                    <img class="icono-seccion" src="{% static 'img/icon/cuiquer_hogar.png' %}" alt="Hogar">
-                    <h2 class="texto-seccion">Hogar</h2>
+                    <a href="{% url 'hogar-y-limpieza' %}">
+                        <img class="icono-seccion" src="{% static 'img/iconos/hogar-y-limpieza.png' %}" alt="Hogar y limpieza">
+                        <h2 class="texto-seccion">Hogar y Limpieza</h2>
+                    </a>
                 </div>
                 <div class="seccion col-xs-3">
-                    <img class="icono-seccion" src="{% static 'img/icon/cuiquer_servicios-informaticos.png' %}" alt="Servicios Informáticos">
-                    <h2 class="texto-seccion">Servicios Informáticos</h2>
+                    <a href="{% url 'servicios-informaticos' %}">
+                        <img class="icono-seccion" src="{% static 'img/iconos/servicios-informaticos.png' %}" alt="Servicios Informáticos">
+                        <h2 class="texto-seccion">Servicios Informáticos</h2>
+                    </a>
                 </div>
                 <div class="seccion col-xs-3">
-                    <img class="icono-seccion" src="{% static 'img/icon/cuiquer_reparaciones.png' %}" alt="Reparaciones de niños">
-                    <h2 class="texto-seccion">Reparaciones</h2>
+                    <a href="{% url 'reparaciones-y-reformas' %}">
+                        <img class="icono-seccion" src="{% static 'img/iconos/reparaciones-y-reformas.png' %}" alt="Reparaciones y reformas">
+                        <h2 class="texto-seccion">Reparaciones y Reformas</h2>
+                    </a>
                 </div>
                 <div class="seccion col-xs-3">
-                    <img class="icono-seccion" src="{% static 'img/icon/cuiquer_mas-servicios.png' %}" alt="Más">
-                    <h2 class="texto-seccion">Descubre todos nuestros servicios</h2>
+                    <a href="{% url 'todos-nuestros-servicios' %}">
+                        <img class="icono-seccion" src="{% static 'img/iconos/mas.png' %}" alt="Más servicios">
+                        <h2 class="texto-seccion">Descubre todos nuestros servicios</h2>
+                    </a>
                 </div>
             </div>
         </div>
@@ -151,7 +167,7 @@
                       <span class="icon">1</span>
                     </div>
                     <div class="panel-body">
-                      <h3 class="panel-title">&nbsp;Dinos qué  necesitas.</h3>
+                      <h3 class="panel-title">Dinos qué  necesitas.</h3>
                       <p>Completa el siguiente formulario y te llamaremos personalmente para saber más sobre tus necesidades.</p>
                     </div>
                   </span>
@@ -309,7 +325,7 @@
                 <span class="texto-footer"><strong>Clientes</strong></span>
                 <span class="texto-footer"><a href="{% url 'index' %}#facil">Cómo funciona</a></span>
                 <span class="texto-footer"><a href="{% url 'cliente-create' %}">Solicita servicio</a></span>
-                <span class="texto-footer"><a href="{% url 'servicios_ofrecidos' %}">Servicios que ofrecemos</a></span>
+                <span class="texto-footer"><a href="{% url 'todos-nuestros-servicios' %}">Servicios que ofrecemos</a></span>
             </div>
             <div class="col-xs-4 col-sm-2 fooProfesionales">
                 <span class="texto-footer"><strong>Profesionales</strong></span>
@@ -320,8 +336,8 @@
         </div>
     <div class="text-center copy">
         <span class="copyright text-left">Cuiquer ©  2016</span>
-        <span class="copyright text-right"><a href="{% url 'condiciones_uso' %}">Condiciones de uso</a></span>
-        <span class="copyright text-right"><a href="{% url 'condiciones_privacidad' %}">Condiciones de privacidad</a></span>
+        <span class="copyright text-right"><a href="{% url 'condiciones-uso' %}">Condiciones de uso</a></span>
+        <span class="copyright text-right"><a href="{% url 'condiciones-privacidad' %}">Condiciones de privacidad</a></span>
     </div>
     </footer>
 

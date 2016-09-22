@@ -7,8 +7,8 @@ from django.http import JsonResponse
 from landing.models import NewsLetter
 
 
-def index(request):
-    return render(request, 'landing/index.html')
+class IndexView(TemplateView):
+    template_name = 'landing/index.html'
 
 
 def newsletter(request):
@@ -31,20 +31,54 @@ class Cuiquer(CreateView):
 
 
 class Servicios(TemplateView):
-    template_name = 'landing/servicios_ofrecidos.html'
-
-
-class CondicionesUso(TemplateView):
-    template_name = 'landing/condiciones_uso.html'
-
-
-class CondicionesPrivacidad(TemplateView):
-    template_name = 'landing/condiciones_privacidad.html'
-
-
-class Cookies(TemplateView):
-    template_name = 'landing/cookies.html'
+    template_name = 'landing/secundarias/todos-nuestros-serviciosservicios_ofrecidos.html'
 
 
 class ComoFunciona(TemplateView):
     template_name = 'landing/profesionales-como.html'
+
+
+# Secundarias
+class SaludYBienestarView(TemplateView):
+    template_name = 'landing/secundarias/salud-y-bienestar.html'
+
+
+class CuidadoDePersonasView(TemplateView):
+    template_name = 'landing/secundarias/cuidado-de-personas.html'
+
+
+class ClasesParticulares(TemplateView):
+    template_name = 'landing/secundarias/clases-particulares.html'
+
+
+class MonitorDeDeportesView(TemplateView):
+    template_name = 'landing/secundarias/monitor-de-deportes.html'
+
+
+class HogarYLimpiezaView(TemplateView):
+    template_name = 'landing/secundarias/hogar-y-limpieza.html'
+
+
+class ServiciosInformaticosView(TemplateView):
+    template_name = 'landing/secundarias/servicios-informaticos.html'
+
+
+class ReparacionesYReformasView(TemplateView):
+    template_name = 'landing/secundarias/reparaciones-y-reformas.html'
+
+
+class TodosNuestrosServiciosView(TemplateView):
+    template_name = 'landing/secundarias/todos-nuestros-servicios.html'
+
+
+# Legal
+class CondicionesUsoView(TemplateView):
+    template_name = 'landing/legal/condiciones-uso.html'
+
+
+class CondicionesPrivacidadView(TemplateView):
+    template_name = 'landing/legal/condiciones-privacidad.html'
+
+
+class CookiesView(TemplateView):
+    template_name = 'landing/legal/cookies.html'

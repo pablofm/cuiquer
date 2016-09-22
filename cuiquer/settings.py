@@ -11,145 +11,135 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-import dj_database_url
+import sys
+from configurations import Configuration
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TESTING = 'test' in sys.argv
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '8ek1arbfsu_a4!=ptl8r-ulmq5q8jt$io%&)bfx+c$u*lr3ibn'
+class Common(Configuration):
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+    # Quick-start development settings - unsuitable for production
+    # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-ALLOWED_HOSTS = []
+    # SECURITY WARNING: keep the secret key used in production secret!
+    SECRET_KEY = '8ek1arbfsu_a4!=ptl8r-ulmq5q8jt$io%&)bfx+c$u*lr3ibn'
 
-# Application definition
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = True
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'localflavor',
-    'landing',
-    'profesionales',
-    'clientes',
-]
+    ALLOWED_HOSTS = []
 
-MIDDLEWARE_CLASSES = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
-]
+    INSTALLED_APPS = [
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'localflavor',
+        'landing',
+        'profesionales',
+        'clientes',
+    ]
 
-ROOT_URLCONF = 'cuiquer.urls'
+    MIDDLEWARE_CLASSES = [
+        'django.middleware.security.SecurityMiddleware',
+        'django.contrib.sessions.middleware.SessionMiddleware',
+        'django.middleware.common.CommonMiddleware',
+        'django.middleware.csrf.CsrfViewMiddleware',
+        'django.contrib.auth.middleware.AuthenticationMiddleware',
+        'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+        'django.contrib.messages.middleware.MessageMiddleware',
+        'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+        'whitenoise.middleware.WhiteNoiseMiddleware',
+    ]
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'landing/templates'),
-            os.path.join(BASE_DIR, 'profesionales/templates'),
-            os.path.join(BASE_DIR, 'clientes/templates'),
-        ],
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+    ROOT_URLCONF = 'cuiquer.urls'
+
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [
+                os.path.join(BASE_DIR, 'landing/templates'),
+                os.path.join(BASE_DIR, 'profesionales/templates'),
+                os.path.join(BASE_DIR, 'clientes/templates'),
             ],
-            'loaders': [
-                'django.template.loaders.filesystem.Loader',
-                'django.template.loaders.app_directories.Loader',
-            ]
+            'OPTIONS': {
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                ],
+                'loaders': [
+                    'django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader',
+                ]
+            },
         },
-    },
-]
+    ]
 
-WSGI_APPLICATION = 'cuiquer.wsgi.application'
+    WSGI_APPLICATION = 'cuiquer.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+    # Database
+    # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
 
-# Password validation
-# https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
+    # Password validation
+    # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+    AUTH_PASSWORD_VALIDATORS = [
+        {
+            'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        },
+    ]
 
-# Internationalization
-# https://docs.djangoproject.com/en/1.9/topics/i18n/
+    # Internationalization
+    # https://docs.djangoproject.com/en/1.9/topics/i18n/
+    LANGUAGE_CODE = 'es'
+    TIME_ZONE = 'UTC'
+    USE_I18N = True
+    USE_L10N = True
+    USE_TZ = True
 
-LANGUAGE_CODE = 'es'
+    # Staticfiles
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-TIME_ZONE = 'UTC'
+    # Mediafiles
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
-USE_I18N = True
 
-USE_L10N = True
+class Dev(Common):
+    DEBUG = True
 
-USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
+class Prod(Common):
+    DEBUG = False
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATIC_URL = '/static/'
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
-STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'landing/static'),
-)
-
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-# Update database configuration with $DATABASE_URL.
-
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-
-ROLLBAR = {
-    'access_token': 'b5781909e8464502bade1b1127406ae1',
-    'environment': 'development' if DEBUG else 'production',
-    'root': BASE_DIR,
-}
-
-import rollbar
-rollbar.init(**ROLLBAR)
+    ROLLBAR = {
+        'access_token': 'b5781909e8464502bade1b1127406ae1',
+        'environment': 'development' if DEBUG else 'production',
+        'root': Common.BASE_DIR,
+    }
+    import rollbar
+    rollbar.init(**ROLLBAR)

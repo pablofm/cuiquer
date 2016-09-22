@@ -1,0 +1,11 @@
+{% extends "landing/secundarias/secundaria.html" %}
+
+{% block titulo_secundaria %}
+    Todos Nuestros Servicios
+{% endblock titulo_secundaria %}
+
+{% block descripcion_secundaria %}
+    <p>El equipo de Cuiquer se encuentra en constante búsqueda de nuevos profesionales para hacer crecer nuestra base de datos y poder dar servicio a cada vez más personas.</p>
+    {% include 'landing/secundarias/pasos.html' %}
+    {% include 'landing/secundarias/servicios-detallados.html' %}
+{% endblock descripcion_secundaria %}

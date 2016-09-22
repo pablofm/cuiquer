@@ -3,12 +3,23 @@ from landing import views
 
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+
     url(r'^newsletter$', views.newsletter, name='newsletter'),
     url(r'^cuiquer$', views.Cuiquer.as_view(), name='cuiquer'),
     url(r'^como$', views.ComoFunciona.as_view(), name='como_funciona'),
-    url(r'^cookies$', views.Cookies.as_view(), name='cookies'),
-    url(r'^servicios$', views.Servicios.as_view(), name='servicios_ofrecidos'),
-    url(r'^condiciones_uso$', views.CondicionesUso.as_view(), name='condiciones_uso'),
-    url(r'^condiciones_privacidad$', views.CondicionesPrivacidad.as_view(), name='condiciones_privacidad'),
+
+    # Secundarias
+    url(r'^salud-y-bienestar$', views.SaludYBienestarView.as_view(), name='salud-y-bienestar'),
+    url(r'^cuidado-de-personas$', views.CuidadoDePersonasView.as_view(), name='cuidado-de-personas'),
+    url(r'^clases-particulares$', views.ClasesParticulares.as_view(), name='clases-particulares'),
+    url(r'^monitor-de-deportes$', views.MonitorDeDeportesView.as_view(), name='monitor-de-deportes'),
+    url(r'^hogar-y-limpieza$', views.HogarYLimpiezaView.as_view(), name='hogar-y-limpieza'),
+    url(r'^servicios-informaticos$', views.ServiciosInformaticosView.as_view(), name='servicios-informaticos'),
+    url(r'^reparaciones-y-reformas$', views.ReparacionesYReformasView.as_view(), name='reparaciones-y-reformas'),
+    url(r'^todos-nuestros-servicios$', views.TodosNuestrosServiciosView.as_view(), name='todos-nuestros-servicios'),
+    # Legal
+    url(r'^cookies$', views.CookiesView.as_view(), name='cookies'),
+    url(r'^condiciones-uso$', views.CondicionesUsoView.as_view(), name='condiciones-uso'),
+    url(r'^condiciones-privacidad$', views.CondicionesPrivacidadView.as_view(), name='condiciones-privacidad'),
 ]

@@ -1,10 +1,4 @@
-/*!
- * Start Bootstrap - Clean Blog v1.1.0 (http://startbootstrap.com/template-overviews/clean-blog)
- * Copyright 2013-2016 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
-
- @import 'https://fonts.googleapis.com/css?family=Hind|Montserrat';
+@import 'https://fonts.googleapis.com/css?family=Hind|Montserrat';
 
 body {
   font-family: 'Hind', 'Arial', serif;
@@ -14,8 +8,7 @@ body {
 p {
   font-family: 'Hind', 'Arial', serif;
   line-height: 25px;
-  /*margin: 30px 0;*/
-  margin-bottom:20px;
+    margin-bottom:20px;
   font-size: 18px;
 }
 p a {
@@ -74,8 +67,6 @@ hr.small {
 .menu-fixed .nav li a{
   padding: 20px 20px !important;
 }
-/* // */
-
 
 .carousel-inner{
   max-height: 450px;
@@ -848,7 +839,6 @@ header+.fondo-gris{
 
 .header{
   font-size: 26px;
-  /*margin-top: 100px;*/
 }
 
 .subheader{
@@ -958,14 +948,12 @@ header+.fondo-gris{
   }
 }
 
-
 /** MODIFICACION DEL CONTAINER **/
 @media (min-width: 1200px){
   .container{
     width: 1100px;
   }
 }
-
 
 .servicio-box{
   padding: 10px;

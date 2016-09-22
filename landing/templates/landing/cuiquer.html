@@ -3,11 +3,9 @@
 {% block slider %} {% endblock slider %}
 {% block content %}
 <div id="page-empresa">
-
 	<div class="imgCabecera">
 		<img class="img-responsive" src="{% static 'img/cabeceras/cuiquer-empresa.jpg' %}" alt="Sobre Cuiquer">
 	</div>
-
 	<div class="container margen-externo">
 				<a name="sobre"></a>
 				<h1 class="naranja header">Acerca de Cuiquer</h1>
@@ -20,7 +18,6 @@
 			</div>
 		</div>
 	</div>
-
 	<a name="contacto subheader"></a>
 	<div>
 		<div class="container margen-externo">
@@ -28,28 +25,27 @@
 				<div class="col-xs-12">
 					<h2 class="naranja">Contacta con nosotros</h2>
 				</div>
-					<div class="col-xs-12 col-sm-3 margen-interno">
-						<span class="contacto"><i class="naranja fa fa-envelope i-mail"></i> <a href="mailto:hello@cuiquer.com">hello@cuiquer.com</a></span>
-						<span class="contacto"><i class="naranja fa fa-phone i-phone"></i> 955 278 254</span>
-						<span class="contacto"><i class="naranja fa fa-mobile i-mobile"></i> 667 488 640</span>
-					</div>
-					<div class="col-xs-12 col-sm-9 margen-interno">
-						<form method="post" class="formulario-contacto">
-							{% csrf_token %}
-							{{form.nombre.errors}}
-							{{form.nombre}}
-							{{form.email.errors}}
-							{{form.email}}
-							{{form.asunto.errors}}
-							{{form.asunto}}
-							{{form.mensaje.errors}}
-							{{form.mensaje}}
-							<button type="submit" class="btn btn-default naranja center-block">Enviar</button>
-						</form>
-					</div>
+				<div class="col-xs-12 col-sm-3 margen-interno">
+					<span class="contacto"><i class="naranja fa fa-envelope i-mail"></i> <a href="mailto:hello@cuiquer.com">hello@cuiquer.com</a></span>
+					<span class="contacto"><i class="naranja fa fa-phone i-phone"></i> 955 278 254</span>
+					<span class="contacto"><i class="naranja fa fa-mobile i-mobile"></i> 667 488 640</span>
 				</div>
-
+				<div class="col-xs-12 col-sm-9 margen-interno">
+					<form method="post" class="formulario-contacto">
+						{% csrf_token %}
+						{{form.nombre.errors}}
+						{{form.nombre}}
+						{{form.email.errors}}
+						{{form.email}}
+						{{form.asunto.errors}}
+						{{form.asunto}}
+						{{form.mensaje.errors}}
+						{{form.mensaje}}
+						<button type="submit" class="btn btn-default naranja center-block">Enviar</button>
+					</form>
+				</div>
 			</div>
 		</div>
+	</div>
 </div>
 {% endblock content %}

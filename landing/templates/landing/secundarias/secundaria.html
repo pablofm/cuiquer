@@ -1,0 +1,16 @@
+{% extends "landing/index.html" %}
+{% block slider %} {% endblock slider %}
+{% block content %}
+<div class="container margen-externo">
+    <h2 class="naranja header">
+        {% block titulo_secundaria %}
+        {% endblock titulo_secundaria %}
+    </h2>
+    <div class="row margen-externo">
+        <div class="col-xs-12">
+            {% block descripcion_secundaria %}
+            {% endblock descripcion_secundaria %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
