@@ -72,17 +72,31 @@ def contacto(request):
     return render(request, 'landing/contacto.html', {'form': form})
 
 
+def validarEmail(email):
+    from django.core.validators import validate_email
+    from django.core.exceptions import ValidationError
+    try:
+        validate_email(email)
+        return True
+    except ValidationError:
+        return False
+
+
 def suscripcion(request):
     from landing.models import Suscripcion
     emails = [m.email for m in Suscripcion.objects.all()]
 
     if request.method == 'POST':
-        email = request.POST.get('email', None)
-        print(emails)
-        print(email)
-        print(email in emails)
-        if email is not None and email not in emails:
-            Suscripcion.objects.create(email=email)
-            return JsonResponse({'response': True})
+        email = request.POST.get('email', '')
+        nulo = email is None or email is ''
 
+        print('Capturado: {}'.format(email))
+        print('Existentes: {}'.format(emails))
+        print('¿Repetido?: {}'.format(email in emails))
+        print('Correo Vacío: {}'.format(nulo))
+        if not nulo and validarEmail(email) and email not in emails:
+            Suscripcion.objects.create(email=email)
+            print("Correo creado")
+            return JsonResponse({'response': True})
+    print("Correo no creado")
     return JsonResponse({'response': False})

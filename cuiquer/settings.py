@@ -85,15 +85,8 @@ class Common(Configuration):
 
     WSGI_APPLICATION = 'cuiquer.wsgi.application'
 
-    # Database
-    # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
+    
 
     # Password validation
     # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -140,9 +133,19 @@ class Common(Configuration):
 
 class Dev(Common):
     DEBUG = True
+    # Database
+    # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(Common.BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 class Prod(Common):
+    # Database
+    # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
     import dj_database_url
     Common.DATABASES['default'] = dj_database_url.config()
 
