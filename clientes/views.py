@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 
 def alta_cliente(request):
     if request.method == 'POST':
+        print(request.POST)
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()

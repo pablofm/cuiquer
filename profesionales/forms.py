@@ -20,6 +20,7 @@ class ProfesionalForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu código postal"}))
 
     def is_valid(self):
+        print(self.data)
         valid = super(ProfesionalForm, self).is_valid()
         if not valid:
             print(self.errors)
@@ -30,7 +31,7 @@ class ProfesionalForm(forms.Form):
         return True
 
     def save(self):
-        print(self.data)
+
         nombre = self.cleaned_data["nombre"]
         email = self.cleaned_data["email"]
         telefono = self.cleaned_data["telefono"]
