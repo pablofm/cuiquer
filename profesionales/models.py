@@ -1,5 +1,5 @@
 from django.db import models
-from django.urls import reverse
+from perfiles.models import Usuario
 
 
 class Servicio(models.Model):
@@ -15,17 +15,9 @@ class Servicio(models.Model):
 
 
 class Profesional(models.Model):
+    usuario = models.ForeignKey(Usuario)
     servicio = models.ManyToManyField(Servicio)
-    nombre = models.CharField(max_length=100)
-    email = models.EmailField()
-    telefono = models.CharField(max_length=9)
-    area_servicio = models.CharField(max_length=30)
-
-    # Preguntas basicas
-    que = models.TextField(blank=True, null=True)
-
-    def get_absolute_url(self):
-        return reverse('profesional-detail', kwargs={'profesional_id': self.pk})
+    codigo_postal = models.CharField(max_length=30)
 
     class Meta:
         verbose_name = 'Profesional'

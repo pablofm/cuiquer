@@ -1,9 +1,9 @@
 from django.conf.urls import url
-from profesionales.views import ProfesionalCreateView
-from profesionales.views import ProfesionalDetailView
+from profesionales import views
+# from profesionales.views import ProfesionalDetailView
 
 
 urlpatterns = [
-    url(r'alta/$', ProfesionalCreateView.as_view(), name='profesional-create'),
-    url(r'^(?P<profesional_id>[0-9]+)/$', ProfesionalDetailView.as_view(), name='profesional-detail'),
+    url(r'alta/$', views.alta_profesional, name='alta-profesional'),
+    # url(r'^(?P<profesional_id>[0-9]+)/$', ProfesionalDetailView.as_view(), name='profesional-detail'),
 ]

@@ -1,22 +1,17 @@
-from django.forms import ModelForm, TextInput, ModelChoiceField, Select, BooleanField
-from clientes.models import Cliente
-from profesionales.models import Servicio
+from django import forms
 from localflavor.es.forms import ESPhoneNumberField
+from profesionales.models import Servicio
 
 
-class ClienteForm(ModelForm):
-    licencia = BooleanField(initial=False)
-    servicio = ModelChoiceField(
+class ClienteForm(forms.Form):
+    licencia = forms.BooleanField(initial=False)
+    servicio = forms.ModelChoiceField(
         queryset=Servicio.objects.all(),
         empty_label='* ¿Qué tipo de servicio necesita?',
-        widget=Select(attrs={'class': 'form-control form-alta'}))
+        widget=forms.Select(attrs={'class': 'form-control form-alta'}))
+    nombre = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu nombre"}),)
+    email = forms.EmailField(
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu email"}))
     telefono = ESPhoneNumberField(
-        widget=TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Un teléfono de contacto"}))
-
-    class Meta:
-        model = Cliente
-        fields = ['servicio', 'nombre_cliente', 'telefono', 'email']
-        widgets = {
-            "nombre_cliente": TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "Tu nombre"}),
-            "email": TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu email"}),
-        }
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Un teléfono de contacto"}))

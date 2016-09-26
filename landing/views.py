@@ -59,11 +59,8 @@ class CookiesView(TemplateView):
 
 
 def contacto(request):
-    # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
         form = ContactoForm(request.POST)
-        # check whether it's valid:
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')
@@ -90,13 +87,8 @@ def suscripcion(request):
         email = request.POST.get('email', '')
         nulo = email is None or email is ''
 
-        print('Capturado: {}'.format(email))
-        print('Existentes: {}'.format(emails))
-        print('¿Repetido?: {}'.format(email in emails))
-        print('Correo Vacío: {}'.format(nulo))
         if not nulo and validarEmail(email) and email not in emails:
             Suscripcion.objects.create(email=email)
-            print("Correo creado")
             return JsonResponse({'response': True})
-    print("Correo no creado")
+
     return JsonResponse({'response': False})

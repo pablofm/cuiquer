@@ -179,6 +179,21 @@ class ContactoPostTest(TestCase):
         self.client.post(reverse('contacto'), self.data)
         self.assertEqual(0, Contacto.objects.count())
 
+    def test_contacto_incorrecto_2(self):
+        self.data['email'] = ''
+        self.client.post(reverse('contacto'), self.data)
+        self.assertEqual(0, Contacto.objects.count())
+
+    def test_contacto_incorrecto_3(self):
+        self.data['asunto'] = ''
+        self.client.post(reverse('contacto'), self.data)
+        self.assertEqual(0, Contacto.objects.count())
+
+    def test_contacto_incorrecto_4(self):
+        self.data['mensaje'] = ''
+        self.client.post(reverse('contacto'), self.data)
+        self.assertEqual(0, Contacto.objects.count())
+
 
 class SuscripcionPOSTTest(TestCase):
     def test_sin_datos_no_hay_alta(self):

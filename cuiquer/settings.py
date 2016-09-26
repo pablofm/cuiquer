@@ -41,8 +41,9 @@ class Common(Configuration):
         'django_nose',
         'localflavor',
         'landing',
-        'profesionales',
         'clientes',
+        'profesionales',
+        'perfiles',
     ]
 
     MIDDLEWARE_CLASSES = [
@@ -85,9 +86,6 @@ class Common(Configuration):
 
     WSGI_APPLICATION = 'cuiquer.wsgi.application'
 
-
-    
-
     # Password validation
     # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -129,6 +127,8 @@ class Common(Configuration):
         '--cover-html',
         '--cover-inclusive',
     ]
+
+    AUTH_USER_MODEL = 'perfiles.Usuario'
 
 
 class Dev(Common):

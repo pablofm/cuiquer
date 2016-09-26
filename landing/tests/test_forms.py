@@ -8,7 +8,7 @@ class ContactoFormTest(TestCase):
             'nombre': 'Nombre',
             'email': 'correo@correo.com',
             'asunto': 'Esto es un asunto',
-            'mensaje': 'Esto es un mensaje'
+            'mensaje': 'Esto es un mensaje',
         }
 
     def test_formulario_no_vacio(self):

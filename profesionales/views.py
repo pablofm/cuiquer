@@ -1,15 +1,14 @@
-from django.views.generic.edit import CreateView
-from django.views.generic.detail import DetailView
 from profesionales.forms import ProfesionalForm
-from profesionales.models import Profesional
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 
-class ProfesionalDetailView(DetailView):
-    model = Profesional
-    form_class = ProfesionalForm
-    pk_url_kwarg = 'profesional_id'
-
-
-class ProfesionalCreateView(CreateView):
-    model = Profesional
-    form_class = ProfesionalForm
+def alta_profesional(request):
+    if request.method == 'POST':
+        form = ProfesionalForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = ProfesionalForm()
+    return render(request, 'profesionales/profesional-form.html', {'form': form})

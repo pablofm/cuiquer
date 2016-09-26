@@ -16,15 +16,10 @@ class ContactoForm(forms.ModelForm):
 
 class SuscripcionForm(forms.ModelForm):
     def is_valid(self):
-        print("PATATA")
         valid = super(SuscripcionForm, self).is_valid()
-        print(valid)
         if not valid:
             return False
-
         emails = [m.email for m in Suscripcion.objects.all()]
-        print(emails)
-
         if self.data["email"] in emails:
             return False
 
