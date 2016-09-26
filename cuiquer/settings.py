@@ -44,6 +44,7 @@ class Common(Configuration):
         'clientes',
         'profesionales',
         'perfiles',
+        'django_extensions',
     ]
 
     MIDDLEWARE_CLASSES = [
