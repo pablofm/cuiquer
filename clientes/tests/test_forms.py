@@ -1,14 +1,16 @@
 # from django.test import TestCase
 # from clientes.forms import ClienteForm
+# from profesionales.models import Servicio
 
 
 # class ClienteFormTest(TestCase):
 #     def setUp(self):
 #         self.data = {
-#             'servicio': 1,
+#             'licencia': True,
+#             'servicio': [Servicio.objects.first().pk],
 #             'nombre': 'Yo me llamo Ralph',
 #             'email': 'correo@correo.com',
-#             'telefono': '666666666'
+#             'telefono': '666666666',
 #         }
 
 #     def test_formulario_no_vacio(self):
@@ -16,7 +18,7 @@
 #         self.assertFalse(form.is_valid())
 
 #     def test_nombre_no_vacio(self):
-#         self.data['nombre'] = Nonea
+#         self.data['nombre'] = None
 #         form = ClienteForm(self.data)
 #         self.assertFalse(form.is_valid())
 
@@ -52,6 +54,17 @@
 
 #     def test_telefono_no_vacio_2(self):
 #         self.data['telefono'] = ''
+#         form = ClienteForm(self.data)
+#         self.assertFalse(form.is_valid())
+
+#     def test_es_obligatorio_aceptar_la_licencia(self):
+#         self.data['licencia'] = False
+#         form = ClienteForm(self.data)
+#         self.assertFalse(form.is_valid())
+
+#     def test_no_se_puede_repetir_email(self):
+#         from perfiles.models import Usuario
+#         Usuario.objects.create(email='correo@correo.com')
 #         form = ClienteForm(self.data)
 #         self.assertFalse(form.is_valid())
 

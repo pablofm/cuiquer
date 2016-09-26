@@ -5,8 +5,9 @@ from profesionales.models import Servicio
 
 class ProfesionalFormTest(TestCase):
     def setUp(self):
+        self.servicio = Servicio.objects.first()
         self.data = {
-            'servicio': [Servicio.objects.first().pk],
+            'servicios': [self.servicio.pk],
             'nombre': 'Yo me llamo Ralph',
             'email': 'correo@correo.com',
             'telefono': '666666666',
@@ -39,12 +40,12 @@ class ProfesionalFormTest(TestCase):
         self.assertFalse(form.is_valid())
 
     def test_servicio_no_vacio(self):
-        self.data['servicio'] = None
+        self.data['servicios'] = None
         form = ProfesionalForm(self.data)
         self.assertFalse(form.is_valid())
 
     def test_servicio_no_vacio_2(self):
-        self.data['servicio'] = ''
+        self.data['servicios'] = ''
         form = ProfesionalForm(self.data)
         self.assertFalse(form.is_valid())
 

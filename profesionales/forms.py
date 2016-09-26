@@ -7,7 +7,7 @@ from perfiles.models import Usuario
 
 class ProfesionalForm(forms.Form):
     licencia = forms.BooleanField(initial=False)
-    servicio = forms.ModelMultipleChoiceField(
+    servicios = forms.ModelMultipleChoiceField(
         queryset=Servicio.objects.all(),
         widget=forms.CheckboxSelectMultiple(attrs={'class': '.checkbox-inline form-alta'}))
     nombre = forms.CharField(
@@ -22,6 +22,7 @@ class ProfesionalForm(forms.Form):
     def is_valid(self):
         valid = super(ProfesionalForm, self).is_valid()
         if not valid:
+            print(self.errors)
             return False
         if Usuario.objects.filter(email=self.data["email"]).exists():
             return False
@@ -29,13 +30,16 @@ class ProfesionalForm(forms.Form):
         return True
 
     def save(self):
-        nombre = self.data["nombre"]
-        email = self.data["email"]
-        telefono = self.data["telefono"]
-        codigo_postal = self.data["codigo_postal"]
+        print(self.data)
+        nombre = self.cleaned_data["nombre"]
+        email = self.cleaned_data["email"]
+        telefono = self.cleaned_data["telefono"]
+        codigo_postal = self.cleaned_data["codigo_postal"]
+        servicios = self.cleaned_data["servicios"]
 
         usuario = Usuario.objects.create(email=email, nombre=nombre, telefono=telefono)
         usuario.set_password(email)
         usuario.save()
 
-        Profesional.objects.create(codigo_postal=codigo_postal, usuario=usuario)
+        profesional = Profesional.objects.create(codigo_postal=codigo_postal, usuario=usuario)
+        profesional.servicios = servicios

@@ -16,7 +16,7 @@ class Servicio(models.Model):
 
 class Profesional(models.Model):
     usuario = models.ForeignKey(Usuario)
-    servicio = models.ManyToManyField(Servicio)
+    servicios = models.ManyToManyField(Servicio)
     codigo_postal = models.CharField(max_length=30)
 
     class Meta:

@@ -1,16 +1,14 @@
-from django.views.generic.edit import CreateView
-from django.views.generic.detail import DetailView
-
-from clientes.models import Cliente
 from clientes.forms import ClienteForm
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 
-class ClienteCreateView(CreateView):
-    model = Cliente
-    form_class = ClienteForm
-
-
-class ClienteDetailView(DetailView):
-    model = Cliente
-    form_class = ClienteForm
-    pk_url_kwarg = 'cliente_id'
+def alta_cliente(request):
+    if request.method == 'POST':
+        form = ClienteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = ClienteForm()
+    return render(request, 'clientes/cliente-form.html', {'form': form})

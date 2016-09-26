@@ -49,7 +49,7 @@
                     {% comment %}
                     <li><a href="#">Entrar</a></li>
                     {% endcomment %}
-                    <li><a href="{% url 'cliente-create' %}">Solicita servicio</a></li>
+                    <li><a href="{% url 'alta-cliente' %}">Solicita servicio</a></li>
                     <li><a href="{% url 'alta-profesional' %}">Ofrece servicios</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -98,7 +98,7 @@
     <div class="container text-center">
         <div class="btns-servicios margen-externo">
             <h1 class="slogan-servicios">Te ponemos en contacto con los mejores profesionales de tu zona.</h1>
-            <a href="{% url 'cliente-create' %}"><button type="button" class="btn btn-primary">Solicita servicio</button></a>
+            <a href="{% url 'alta-cliente' %}"><button type="button" class="btn btn-primary">Solicita servicio</button></a>
             <a href="{% url 'alta-profesional' %}"><button type="button" class="btn btn-primary">Ofrece servicios</button></a>
         </div>
         <div class="row margen-externo">
@@ -345,7 +345,7 @@
             <div class="col-xs-4 col-sm-2 fooClientes">
                 <span class="texto-footer"><strong>Clientes</strong></span>
                 <span class="texto-footer"><a href="{% url 'index' %}#facil">Cómo funciona</a></span>
-                <span class="texto-footer"><a href="{% url 'cliente-create' %}">Solicita servicio</a></span>
+                <span class="texto-footer"><a href="{% url 'alta-cliente' %}">Solicita servicio</a></span>
                 <span class="texto-footer"><a href="{% url 'todos-nuestros-servicios' %}">Servicios que ofrecemos</a></span>
             </div>
             <div class="col-xs-4 col-sm-2 fooProfesionales">
