@@ -26,6 +26,7 @@ class ProfesionalForm(forms.Form):
             print(self.errors)
             return False
         if Usuario.objects.filter(email=self.data["email"]).exists():
+            self.add_error('email', 'Este email ya está registrado')
             return False
 
         return True
