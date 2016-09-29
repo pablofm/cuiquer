@@ -263,7 +263,7 @@
             <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                 <div class="textNews">
                     <p>Todas nuestras ofertas y promociones a un click</p>
-                    <p>No te pierdas ninguna actualización</p>
+                    <p id="suscripcion_response">No te pierdas ninguna actualización</p>
                 </div>
                 <div class="inputNews">
                     {% csrf_token %}
@@ -285,12 +285,16 @@
                     email: $('#email').val(),
                     csrfmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),
                 },
-                beforeSend: function(){
-                    console.log("antes");
-                },
                 success: function (response) {
-                    console.log("despues");
-                    console.log(response);
+                    var suscripcion_correcta = response["response"];
+                    if (suscripcion_correcta){
+                        $('#suscripcion_response').html("Muchas gracias por suscribirte.");
+                        $('.inputNews').remove();
+                        $('.btnNews').remove();
+                    }
+                    else{
+                        $('#suscripcion_response').html("Ha ocurrido un error. Por favor añade una dirección de correo válida");
+                    }
                 }
             });
         }
