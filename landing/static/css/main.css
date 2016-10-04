@@ -958,8 +958,6 @@ header+.fondo-gris{
 .servicio-box{
   padding: 10px;
   display: inline-block;
-
-
 }
 .servicio-categoria{
     font-weight: bold;
@@ -971,4 +969,12 @@ header+.fondo-gris{
 
 .boton-alta{
   margin-top: 15px;
+}
+
+.categoria{
+  display: block;
+  color: red;
+}
+.servicio{
+  display: inline-block;
 }

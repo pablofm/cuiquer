@@ -1,16 +1,17 @@
 from profesionales.forms import ProfesionalForm
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from profesionales.models import Servicio
 
 
 def alta_profesional(request):
+    servicios = Servicio.objects.all()
     if request.method == 'POST':
         form = ProfesionalForm(request.POST)
         print(request.POST)
         if form.is_valid():
-            form.save()
-            return render(request, 'profesionales/alta-profesional-finalizada.html', {'form': form})
+            profesional = form.save()
+            return render(request, 'profesionales/alta-profesional-finalizada.html', {'profesional': profesional})
     else:
         form = ProfesionalForm()
 
-    return render(request, 'profesionales/profesional-form.html', {'form': form})
+    return render(request, 'profesionales/profesional-form.html', {'form': form, 'servicios': servicios})

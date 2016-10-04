@@ -20,7 +20,14 @@
 			    	<div class="col-lg-12">
 			    		* ¿Qué servicios ofreces? (selecciona todos los que ofrezcas)
 			    		{{form.servicios.errors}}
-			    		{{form.servicios}}
+			    		{% regroup servicios by categoria as lista_servicios %}
+			    		{% for servicio in lista_servicios %}
+			    			<span class="categoria">{{servicio.grouper}}</span>
+			    			{% for item in servicio.list %}
+			    				<span class="servicio">
+			    					<input class="form-alta" name="servicios" type="checkbox" value="{{item.id}}"> {{item}} </span>
+			    			{% endfor %}
+			    		{% endfor %}
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -43,12 +50,6 @@
 			    	<div class="col-lg-6">
 			    		{{form.codigo_postal.errors}}
 			    		{{form.codigo_postal}}
-			    	</div>
-			    </div>
-				<div class="row">
-			    	<div class="col-lg-12">
-			    		{{form.que.errors}}
-			    		{{form.que}}
 			    	</div>
 			    </div>
 			    <div class="row">
