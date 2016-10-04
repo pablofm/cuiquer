@@ -77,7 +77,6 @@ class AltaProfesionalPostTest(TestCase):
 
     def test_repetir_email_no_crea_usuarios_ni_profesionales(self):
         self.client.post(reverse('alta-profesional'), self.data)
-        print(self.data)
         self.assertEqual(1, Usuario.objects.count())
         self.assertEqual(1, Profesional.objects.count())
         self.client.post(reverse('alta-profesional'), self.data)

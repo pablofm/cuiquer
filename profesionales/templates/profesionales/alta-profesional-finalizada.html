@@ -1,4 +1,5 @@
 {% extends "landing/index.html" %}
+{% load staticfiles %}
 
 {% block slider %}
 <header class="intro-header">
@@ -11,11 +12,16 @@
     <div class="row">
     	<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
             <p class="header text-uppercase naranja">¡Muchas gracias!</p>
+            {{profesional}}
             <p>Muchas gracias por confiar en cuiquer. En breve nos pondremos en contacto contigo para finalizar el alta en nuestro sistema. En cuanto lo hagamos, ofreceremos tu teléfono a los clientes interesados</p>
              <div class="row">
                 <div class="col-lg-12">
                     ¿Qué servicios ofreces? (selecciona todos los que ofrezcas)
-                    SERVICIOS OFRECIDOS
+                    <ol>
+                        {% for servicio in profesional.servicios.all %}
+                            <li>{{servicio}}</li>
+                        {% endfor %}
+                    </ol>                
                 </div>
             </div>
             <div class="row">

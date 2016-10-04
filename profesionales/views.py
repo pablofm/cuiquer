@@ -7,7 +7,6 @@ def alta_profesional(request):
     servicios = Servicio.objects.all()
     if request.method == 'POST':
         form = ProfesionalForm(request.POST)
-        print(request.POST)
         if form.is_valid():
             profesional = form.save()
             return render(request, 'profesionales/alta-profesional-finalizada.html', {'profesional': profesional})

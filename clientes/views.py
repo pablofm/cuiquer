@@ -4,7 +4,6 @@ from django.shortcuts import render
 
 def alta_cliente(request):
     if request.method == 'POST':
-        print(request.POST)
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()

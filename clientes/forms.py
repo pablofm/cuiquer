@@ -19,10 +19,8 @@ class ClienteForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Un teléfono de contacto"}))
 
     def is_valid(self):
-        print(self.data)
         valid = super(ClienteForm, self).is_valid()
         if not valid:
-            print(self.errors)
             return False
         if Usuario.objects.filter(email=self.data["email"]).exists():
             self.add_error('email', 'Este email ya está registrado')
