@@ -35,6 +35,10 @@ class AltaProfesionalPostTest(TestCase):
         self.assertEqual(1, Usuario.objects.count())
         self.assertEqual(1, Profesional.objects.count())
 
+    def test_creacion_correcta_lleva_a_pagina_de_gracias(self):
+        response = self.client.post(reverse('alta-profesional'), self.data)
+        self.assertTemplateUsed(response, 'profesionales/alta-profesional-finalizada.html')
+
     def test_creacion_incorrecta(self):
         self.data['servicios'] = []
         self.client.post(reverse('alta-profesional'), self.data)

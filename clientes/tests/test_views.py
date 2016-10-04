@@ -32,6 +32,10 @@ class AltaClientePostTest(TestCase):
         self.assertEqual(1, Usuario.objects.count())
         self.assertEqual(1, Cliente.objects.count())
 
+    def test_creacion_correcta_lleva_a_pagina_de_gracias(self):
+        response = self.client.post(reverse('alta-cliente'), self.data)
+        self.assertTemplateUsed(response, 'clientes/alta-cliente-finalizada.html')
+
     def test_creacion_incorrecta(self):
         self.data['servicio'] = []
         self.client.post(reverse('alta-cliente'), self.data)

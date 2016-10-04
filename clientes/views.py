@@ -1,6 +1,5 @@
 from clientes.forms import ClienteForm
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
 
 
 def alta_cliente(request):
@@ -9,7 +8,7 @@ def alta_cliente(request):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            return render(request, 'clientes/alta-cliente-finalizada.html')
     else:
         form = ClienteForm()
     return render(request, 'clientes/cliente-form.html', {'form': form})

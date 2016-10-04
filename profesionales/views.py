@@ -9,10 +9,7 @@ def alta_profesional(request):
         print(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
-        else:
-            print("caca")
-            print("Form errors: {}".format(form))
+            return render(request, 'profesionales/alta-profesional-finalizada.html', {'form': form})
     else:
         form = ProfesionalForm()
 
