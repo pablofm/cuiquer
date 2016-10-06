@@ -24,7 +24,7 @@
 			    			<span class="categoria">{{servicio.grouper}}</span>
 			    			{% for item in servicio.list %}
 			    				<span class="servicio">
-			    					<input class="form-alta" name="servicios" type="checkbox" value="{{item.id}}"> {{item}} </span>
+			    					<input class="form-alta" name="servicios" type="checkbox" value="{{item.id}}" {% if item in form.servicios_seleccionados %}checked{% endif %}> {{item}} </span>
 			    			{% endfor %}
 			    		{% endfor %}
 			    	</div>

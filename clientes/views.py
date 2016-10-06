@@ -1,6 +1,5 @@
 from clientes.forms import ClienteForm
 from django.shortcuts import render
-from profesionales.models import Servicio
 
 
 def alta_cliente(request):

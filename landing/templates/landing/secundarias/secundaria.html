@@ -1,5 +1,11 @@
 {% extends "landing/index.html" %}
-{% block slider %} {% endblock slider %}
+{% load staticfiles %}
+{% block slider %}
+<header class="intro-header">
+    <img class="img-responsive home-slide" src="{% static 'img/cabeceras/ofrecer-servicio.jpg' %}" alt="Ofrecer servicio">
+</header>
+{% endblock slider %}
+
 {% block content %}
 <div class="container margen-externo">
     <h2 class="naranja header">
