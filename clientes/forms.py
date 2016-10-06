@@ -3,14 +3,17 @@ from localflavor.es.forms import ESPhoneNumberField
 from profesionales.models import Servicio
 from perfiles.models import Usuario
 from clientes.models import Cliente
+from clientes.fields import GroupedModelChoiceField
 
 
 class ClienteForm(forms.Form):
     licencia = forms.BooleanField(initial=False)
-    servicio = forms.ModelChoiceField(
+    servicio = GroupedModelChoiceField(
         queryset=Servicio.objects.all(),
         empty_label='* ¿Qué tipo de servicio necesita?',
+        group_by_field='categoria',
         widget=forms.Select(attrs={'class': 'form-control form-alta'}))
+
     nombre = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu nombre"}),)
     email = forms.EmailField(

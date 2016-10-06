@@ -24,7 +24,7 @@ class Servicio(models.Model):
     class Meta:
         verbose_name = 'Servicio'
         verbose_name_plural = 'Servicios'
-        ordering = ['categoria']
+        ordering = ['categoria', 'nombre_servicio']
 
 
 class Profesional(models.Model):
