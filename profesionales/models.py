@@ -9,8 +9,8 @@ class Categoria(models.Model):
         return str(self.nombre_categoria)
 
     class Meta:
-        verbose_name = 'Servicio'
-        verbose_name_plural = 'Servicios'
+        verbose_name = 'Categoría'
+        verbose_name_plural = 'Categorías'
         ordering = ['nombre_categoria']
 
 
@@ -28,6 +28,9 @@ class Servicio(models.Model):
 
 
 class Profesional(models.Model):
+    fecha_alta = models.DateTimeField(auto_now_add=True)
+    fecha_ultima_modificacion = models.DateTimeField(auto_now=True)
+
     usuario = models.ForeignKey(Usuario)
     servicios = models.ManyToManyField(Servicio)
     codigo_postal = models.CharField(max_length=30)

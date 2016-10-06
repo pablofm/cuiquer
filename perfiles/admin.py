@@ -78,7 +78,7 @@ class UsuarioAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 # Now register the new UserAdmin...
-admin.site.register(Usuario, UsuarioAdmin)
+# admin.site.register(Usuario, UsuarioAdmin)
 # ... and, since we're not using Django's built-in permissions,
 # unregister the Group model from admin.
 admin.site.unregister(Group)
