@@ -256,22 +256,37 @@
     </div>
 
     <div class="container">
-        <div class="row text-center boxNews">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-                <div class="textNews">
-                    <p>Todas nuestras ofertas y promociones a un click</p>
-                    <p id="suscripcion_response">No te pierdas ninguna actualización</p>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 text-center boxNews">
+                <div class="col-xs-12">
+                    <div class="textNews">
+                        <p>Todas nuestras ofertas y promociones a un click</p>
+                        <p id="suscripcion_response">No te pierdas ninguna actualización</p>
+                    </div>
+                    <div class="inputNews">
+                        {% csrf_token %}
+                        <input class="form-control form-alta" id="email" placeholder="* Introduce tu email" type="email" >
+                    </div>
+                    <div class="btnNews">
+                        <input type="submit" class="btn btn-default naranja" value="Suscribirme" onclick="suscripcion()" />
+                    </div>
                 </div>
-                <div class="inputNews">
-                    {% csrf_token %}
-                    <input class="form-control form-alta" id="email" placeholder="* Introduce tu email" type="email" >
-                </div>
-                <div class="btnNews">
-                    <input type="submit" class="btn btn-default naranja" value="Suscribirme" onclick="suscripcion()" />
-                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 text-center">
+                    <div class="fb-page" data-href="https://www.facebook.com/cuiquer/" data-tabs="timeline" data-height="210" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cuiquer/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cuiquer/">Cuiquer</a></blockquote></div>
             </div>
         </div>
     </div>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.8&appId=194516014321055";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     <script type="text/javascript">
         function suscripcion(){
             $.ajax({
