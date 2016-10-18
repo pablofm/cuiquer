@@ -7,3 +7,4 @@ class Cliente(models.Model):
     usuario = models.ForeignKey(Usuario)
     servicio = models.ForeignKey(Servicio, related_name='clientes')
     fecha_solicitud = models.DateTimeField(auto_now_add=True)
+    observaciones = models.TextField(null=True, blank=True)
