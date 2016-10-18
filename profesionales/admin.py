@@ -3,10 +3,10 @@ from profesionales.models import Profesional, Servicio, Categoria
 
 
 class ProfesionalAdmin(admin.ModelAdmin):
-    fields = ('usuario__nombre', 'usuario__email', 'usuario__telefono', 'codigo_postal', 'servicios')
+    fields = ('usuario__nombre', 'usuario__email', 'usuario__telefono', 'codigo_postal', 'servicios', 'observaciones')
     readonly_fields = ('usuario__nombre', 'usuario__email', 'usuario__telefono')
     list_display = (
-        'usuario__nombre', 'usuario__email', 'usuario__telefono', 'codigo_postal', 'fecha_ultima_modificacion')
+        'usuario__nombre', 'usuario__email', 'usuario__telefono', 'codigo_postal', 'fecha_ultima_modificacion', 'observaciones')
     list_filter = ['servicios']
     exclude = ('usuario',)
 
