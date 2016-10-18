@@ -974,6 +974,7 @@ header+.fondo-gris{
 .servicio-categoria{
     font-weight: bold;
     font-size: 22px;
+
 }
 .servicio{
   display: block;
@@ -986,9 +987,6 @@ header+.fondo-gris{
 .categoria{
   display: block;
   color: red;
-}
-.servicio{
-  display: inline-block;
 }
 
 .justificado {
