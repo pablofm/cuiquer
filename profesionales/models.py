@@ -33,7 +33,7 @@ class Profesional(models.Model):
 
     usuario = models.ForeignKey(Usuario)
     servicios = models.ManyToManyField(Servicio)
-    codigo_postal = models.CharField(max_length=30)
+    codigo_postal = models.CharField(max_length=5)
     observaciones = models.TextField(null=True, blank=True)
 
     class Meta:
