@@ -30,7 +30,6 @@ a {
   color: #333333;
 }
 a:hover, a:focus {
-  /*color: #0085A1;*/
   color:#ff7900;
   text-decoration:none;
 
@@ -251,8 +250,8 @@ hr.small {
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
-  padding: 100px 0 50px;
   color: white;
+  text-align: center;
 }
 
 .intro-header .site-heading p,
@@ -261,17 +260,12 @@ hr.small {
   font-size: 50px;
   text-transform: uppercase;
   font-family: 'Open Sans', Arial, sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.1;
 }
 
 .site-heading p span{
   display: block;
-}
-
-.intro-header .site-heading,
-.intro-header .page-heading {
-  text-align: center;
 }
 
 .btns-servicios h1.subheading,
@@ -569,15 +563,43 @@ header+.fondo-gris{
   font-size: 20px;
   color: #71716F;
   font-weight: 200;
-  font-family: 'Hind', 'Arial', serif;
+  font-family: 'Open Sans', 'Arial', serif;
 }
+
+.seccion .efecto-seccion{
+    width: 100px;
+    height: 100px;
+    margin: 0px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.seccion .fondo-seccion{
+    background: #000;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    position: absolute;
+    transform: scale(0);
+    z-index: -1;
+    transition: transform 0.2s ease 0.2s;
+}
+
+.texto-seccion:hover~.efecto-seccion .fondo-seccion,.efecto-seccion:hover .fondo-seccion{
+    transform: scale(1);
+}
+
+/*.seccion:hover .fondo-seccion:after{
+    width: 100px;
+    height: 100px;
+  }*/
 
 .provincias > ul {
   list-style: none;
 }
 
 .provincias > ul > li > a {
-  text-decoration: none
+  text-decoration: none;
 }
 
 .carousel-indicators li {
@@ -679,6 +701,18 @@ header+.fondo-gris{
     bottom: 0;
     left: 0;
     width: 100%;
+    max-height: 450px;
+    display: table;
+    height: 100vh;
+}
+
+.carousel-text .row{
+  display: table-row;
+}
+
+.carousel-text .row .site-heading{
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .home-slide{
@@ -688,7 +722,7 @@ header+.fondo-gris{
 
 /* PASOS */
 .slogan-servicios {
-    padding: 0px 20px 20px;
+    padding: 0px 20px 30px;
     font-size: 27px;
     width: 60%;
     color: #555;
@@ -703,6 +737,7 @@ header+.fondo-gris{
     background: #ff7900;
     border: 0px;
     transition: background 0.4s linear 0.1s;
+    margin-bottom: 10px;
 }
 
 .btns-servicios .btn:hover {
@@ -780,7 +815,7 @@ header+.fondo-gris{
 
 .panel.panel-image .panel-icon .icon {
   background-color: #ff7900;
-  font-family: 'Hind', 'Arial', serif;
+  font-family: 'Open Sans', 'Arial', serif;
   border: 10px solid #fff;
   color: #fff;
   display: inline-block;
@@ -921,6 +956,9 @@ header+.fondo-gris{
       width: 150%;
       max-width: 150%;
     }
+  .carousel-text{
+    height: 40vh;
+  }
 }
 
 @media (max-width: 480px){
