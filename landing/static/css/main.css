@@ -1026,8 +1026,3 @@ header+.fondo-gris{
   display: block;
   color: red;
 }
-
-.justificado {
-    text-align: justify;
-    text-justify: inter-word;
-}
