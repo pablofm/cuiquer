@@ -12,20 +12,22 @@
     <div class="row">
     	<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
 			<form method="post">
-				<p class="header text-uppercase">Trabaja con nosotros</p>
+				<h1 class="header text-uppercase naranja">Trabaja con nosotros</h1>
 	    		{% csrf_token %}
 			    <p>Los campos marcados con * son obligatorios. Sin ellos, no podremos dar de alta tu perfil.</p>
 			    <div class="row">
 			    	<div class="col-lg-12">
-			    		* ¿Qué servicios ofreces? (selecciona todos los que ofrezcas)
+			    		<p>* ¿Qué servicios ofreces? (selecciona todos los que ofrezcas)</p>
 			    		{{form.servicios.errors}}
 			    		{% regroup servicios by categoria as lista_servicios %}
 			    		{% for servicio in lista_servicios %}
-			    			<span class="categoria">{{servicio.grouper}}</span>
-			    			{% for item in servicio.list %}
-			    				<span class="servicio">
-			    					<input class="form-alta" name="servicios" type="checkbox" value="{{item.id}}" {% if item in form.servicios_seleccionados %}checked{% endif %}> {{item}} </span>
-			    			{% endfor %}
+			    			<div class="col-xs-12 col-sm-4">
+				    			<span class="categoria">{{servicio.grouper}}</span>
+				    			{% for item in servicio.list %}
+				    				<span class="servicio">
+				    					<input class="form-alta" name="servicios" type="checkbox" value="{{item.id}}" {% if item in form.servicios_seleccionados %}checked{% endif %}> {{item}} </span>
+				    			{% endfor %}
+				    		</div>
 			    		{% endfor %}
 			    	</div>
 			    </div>
