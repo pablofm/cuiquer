@@ -17,7 +17,7 @@ function cambiarLugarLogoFooter(){
 }
 
 function menuStickyColor(){
-  var altura = $(".carousel-text").offset().top;
+  var altura = 150;
 
   $(window).on('scroll', function(){
     if ( $(window).scrollTop() > altura ){
