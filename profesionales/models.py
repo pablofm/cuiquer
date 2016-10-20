@@ -36,6 +36,8 @@ class Profesional(models.Model):
     codigo_postal = models.CharField(max_length=5)
     observaciones = models.TextField(null=True, blank=True)
 
+    origen = models.CharField(max_length=30, blank=True, null=True)
+
     class Meta:
         verbose_name = 'Profesional'
         verbose_name_plural = 'Profesionales'

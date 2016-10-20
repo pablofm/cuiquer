@@ -19,12 +19,28 @@ class ProfesionalForm(forms.Form):
     codigo_postal = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu código postal"}))
 
+    ORIGEN_CHOICES = (
+        ('', '* ¿Cómo nos has conocido?'),
+        (1, 'Amigo'),
+        (2, 'Email'),
+        (3, 'Buscador'),
+        (4, 'Facebook'),
+        (5, 'Twitter'),
+        (6, 'Instagram'),
+        (7, 'Milanuncios'),
+        (8, 'otros')
+    )
+
+    origen = forms.ChoiceField(
+        choices=ORIGEN_CHOICES,
+        required=True,
+        widget=forms.Select(attrs={'class': 'form-control form-alta'}))
+
     def servicios_seleccionados(self):
         return self.cleaned_data["servicios"]
 
     def is_valid(self):
         valid = super(ProfesionalForm, self).is_valid()
-        print(self.data)
         if not valid:
             return False
         if Usuario.objects.filter(email=self.data["email"]).exists():
@@ -38,12 +54,17 @@ class ProfesionalForm(forms.Form):
         telefono = self.cleaned_data["telefono"]
         codigo_postal = self.cleaned_data["codigo_postal"]
         servicios = self.cleaned_data["servicios"]
+        origen = self.cleaned_data["origen"]
+        origen_verbose = self.ORIGEN_CHOICES[int(origen)][1]
 
         usuario = Usuario.objects.create(email=email, nombre=nombre, telefono=telefono)
         usuario.set_password(email)
         usuario.save()
 
-        profesional = Profesional.objects.create(codigo_postal=codigo_postal, usuario=usuario)
+        profesional = Profesional.objects.create(
+            usuario=usuario,
+            codigo_postal=codigo_postal,
+            origen=origen_verbose)
         profesional.servicios = servicios
-
+        profesional.save()
         return profesional
