@@ -2,17 +2,16 @@
 {% load staticfiles %}
 {% block slider %}
 <header class="intro-header">
-    <img class="img-responsive home-slide" src="{% static 'img/cabeceras/ofrecer-servicio.jpg' %}" alt="Ofrecer servicio">
 </header>
 {% endblock slider %}
 
 {% block content %}
-<div class="container margen-externo">
+<div class="container margen-interno">
     <h2 class="naranja header">
         {% block titulo_secundaria %}
         {% endblock titulo_secundaria %}
     </h2>
-    <div class="row margen-externo">
+    <div class="row margen-interno">
         <div class="col-xs-12">
             {% block descripcion_secundaria %}
             {% endblock descripcion_secundaria %}
