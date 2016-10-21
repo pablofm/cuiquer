@@ -8,7 +8,7 @@
 {% endblock slider %}
 
 {% block content %}
-<div class="container">
+<div class="container ultimo">
     <div class="row">
     	<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
 			<form method="post">
@@ -18,17 +18,19 @@
 			    <div class="row">
 			    	<div class="col-lg-12">
 			    		<p>* ¿Qué servicios ofreces? (selecciona todos los que ofrezcas)</p>
-			    		{{form.servicios.errors}}
-			    		{% regroup servicios by categoria as lista_servicios %}
-			    		{% for servicio in lista_servicios %}
-			    			<div class="col-xs-12 col-sm-4">
-				    			<span class="categoria">{{servicio.grouper}}</span>
-				    			{% for item in servicio.list %}
-				    				<span class="servicio">
-				    					<input class="form-alta" name="servicios" type="checkbox" value="{{item.id}}" {% if item in form.servicios_seleccionados %}checked{% endif %}> {{item}} </span>
-				    			{% endfor %}
-				    		</div>
-			    		{% endfor %}
+			    		<div class="lista-servicios">
+				    		{{form.servicios.errors}}
+				    		{% regroup servicios by categoria as lista_servicios %}
+				    		{% for servicio in lista_servicios %}
+				    			<div class="categoria-servicio">
+					    			<span class="categoria">{{servicio.grouper}}</span>
+					    			{% for item in servicio.list %}
+					    				<span class="servicio">
+					    					<input class="form-alta" name="servicios" type="checkbox" value="{{item.id}}" {% if item in form.servicios_seleccionados %}checked{% endif %}> {{item}} </span>
+					    			{% endfor %}
+				    			</div>
+				    		{% endfor %}
+				    	</div>
 			    	</div>
 			    </div>
 			    <div class="row">

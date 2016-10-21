@@ -46,8 +46,8 @@
                     {% comment %}
                     <li><a href="#">Entrar</a></li>
                     {% endcomment %}
-                    <li><a href="{% url 'alta-cliente' %}">Solicita servicio</a></li>
-                    <li><a href="{% url 'alta-profesional' %}">Ofrece servicios</a></li>
+                    <li><a href="{% url 'alta-profesional' %}">Encuentra trabajo</a></li>
+                    <li><a href="{% url 'alta-cliente' %}">Busca profesionales</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
@@ -80,7 +80,12 @@
                 <div class="carousel-text">
                     <div class="row">
                         <div class="site-heading">
-                            <p>Dicho y hecho</p>
+                            <p>¿Buscas clientes?</p>
+                            <div class="btns-servicios">
+                                <a href="{% url 'alta-profesional' %}">
+                                    <button type="button" class="btn btn-primary">Encuentra trabajo</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -92,37 +97,43 @@
     {% block content %}
     <div class="container text-center">
         <div class="btns-servicios">
-            <h1 class="slogan-servicios">Te ponemos en contacto con los mejores profesionales de tu zona.</h1>
-            <a href="{% url 'alta-cliente' %}"><button type="button" class="btn btn-primary">Solicita servicio</button></a>
-            <a href="{% url 'alta-profesional' %}"><button type="button" class="btn btn-primary">Ofrece servicios</button></a>
+            <h1 class="slogan-servicios">Conectamos profesionales con clientes</h1>            
         </div>
-        <div class="row margen-externo">
+        <div class="row">
             <div class="col-xs-12">
                 <div class="seccion col-xs-3">
                     <a href="{% url 'salud-y-bienestar' %}">
-                        
-                        <img class="icono-seccion" src="{% static 'img/iconos/salud-y-bienestar.png' %}" alt="Salud y Bienestar">
+                        <div class="efecto-seccion">
+                            <div class="fondo-seccion">&nbsp;</div>
+                            <img class="icono-seccion" src="{% static 'img/iconos/salud-y-bienestar.png' %}" alt="Salud y Bienestar">
+                        </div>
                         <h2 class="texto-seccion">Salud y Bienestar</h2>
                     </a>
                 </div>
                 <div class="seccion col-xs-3">
                     <a href="{% url 'cuidado-de-personas' %}">
-                        
-                        <img class="icono-seccion" src="{% static 'img/iconos/cuidado-de-personas.png' %}" alt="Cuidado de personas">
+                        <div class="efecto-seccion">
+                            <div class="fondo-seccion">&nbsp;</div>
+                            <img class="icono-seccion" src="{% static 'img/iconos/cuidado-de-personas.png' %}" alt="Cuidado de personas">
+                        </div>
                         <h2 class="texto-seccion">Cuidado de personas</h2>
                     </a>
                 </div>
                 <div class="seccion col-xs-3">
                     <a href="{% url 'clases-particulares' %}">
-                        
-                        <img class="icono-seccion" src="{% static 'img/iconos/clases-particulares.png' %}" alt="Clases Particulares">
+                        <div class="efecto-seccion">
+                            <div class="fondo-seccion">&nbsp;</div>
+                            <img class="icono-seccion" src="{% static 'img/iconos/clases-particulares.png' %}" alt="Clases Particulares">
+                        </div>
                         <h2 class="texto-seccion">Clases Particulares</h2>
                     </a>
                 </div>
                 <div class="seccion col-xs-3">
                     <a href="{% url 'monitor-de-deportes' %}">
-                        
-                        <img class="icono-seccion" src="{% static 'img/iconos/deportes.png' %}" alt="Deportes">
+                        <div class="efecto-seccion">
+                            <div class="fondo-seccion">&nbsp;</div>
+                            <img class="icono-seccion" src="{% static 'img/iconos/deportes.png' %}" alt="Deportes">
+                        </div>
                         <h2 class="texto-seccion">Deportes</h2>
                     </a>
                 </div>
@@ -130,22 +141,28 @@
             <div class="col-xs-12">
                 <div class="seccion col-xs-3">
                     <a href="{% url 'hogar-y-limpieza' %}">
-                        
-                        <img class="icono-seccion" src="{% static 'img/iconos/hogar-y-limpieza.png' %}" alt="Hogar y limpieza">
+                        <div class="efecto-seccion">
+                            <div class="fondo-seccion">&nbsp;</div>
+                            <img class="icono-seccion" src="{% static 'img/iconos/hogar-y-limpieza.png' %}" alt="Hogar y limpieza">
+                        </div>
                         <h2 class="texto-seccion">Hogar y Limpieza</h2>
                     </a>
                 </div>
                 <div class="seccion col-xs-3">
                     <a href="{% url 'servicios-informaticos' %}">
-                        
-                        <img class="icono-seccion" src="{% static 'img/iconos/servicios-informaticos.png' %}" alt="Servicios Informáticos">
+                        <div class="efecto-seccion">
+                            <div class="fondo-seccion">&nbsp;</div>
+                            <img class="icono-seccion" src="{% static 'img/iconos/servicios-informaticos.png' %}" alt="Servicios Informáticos">
+                        </div>
                         <h2 class="texto-seccion">Servicios Informáticos</h2>
                     </a>
                 </div>
                 <div class="seccion col-xs-3">
                     <a href="{% url 'reparaciones-y-reformas' %}">
-                        
-                        <img class="icono-seccion" src="{% static 'img/iconos/reparaciones-y-reformas.png' %}" alt="Reparaciones y reformas">
+                        <div class="efecto-seccion">
+                            <div class="fondo-seccion">&nbsp;</div>
+                            <img class="icono-seccion" src="{% static 'img/iconos/reparaciones-y-reformas.png' %}" alt="Reparaciones y reformas">
+                        </div>
                         <h2 class="texto-seccion">Reparaciones y Reformas</h2>
                     </a>
                 </div>
@@ -155,7 +172,6 @@
                             <div class="fondo-seccion">&nbsp;</div>
                             <img class="icono-seccion" src="{% static 'img/iconos/mas.png' %}" alt="Más servicios">
                         </div>
-                        
                         <h2 class="texto-seccion">Descubre todos nuestros servicios</h2>
                     </a>
                 </div>
@@ -165,128 +181,59 @@
     <!-- Main Content -->
     <div class="caja fondo-gris">
         <div class="container">
-            <a name="facil"><p class="text-center gris cabecera">¿Cómo funciona?</p></a>
-              <div class="row panels">
-                <div class="col-sm-4 panel-item">
-                  <span class="panel panel-image">
-                    <div class="panel-icon">
-                      <span class="icon">1</span>
-                    </div>
-                    <div class="panel-body">
-                      <h3 class="panel-title">Dinos qué  necesitas.</h3>
-                      <p>Completa el siguiente formulario y te llamaremos personalmente para saber más sobre tus necesidades.</p>
-                    </div>
-                  </span>
-                </div>
-                <div class="col-sm-4 panel-item">
-                  <span class="panel panel-image">
-                    <div class="panel-icon">
-                      <span class="icon">2</span>
-                    </div>
-                    <div class="panel-body">
-                      <h3 class="panel-title">Obtén ofertas GRATIS</h3>
-                      <p>Recibirás varias ofertas por email varias opciones de forma gratuita y sin compromiso.</p>
-                    </div>
-                  </span>
-                </div>
-                <div class="col-sm-4 panel-item">
-                  <span class="panel panel-image">
-                    <div class="panel-icon">
-                      <span class="icon">3</span>
-                    </div>
-                    <div class="panel-body">
-                      <h3 class="panel-title">Elige al mejor profesional</h3>
-                      <p>Elige al mejor profesional y contratalo. ¡Empieza a disfrutar de tu tiempo libre!</p>
-                    </div>
-                  </span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-12 panel-item ">
-                    <div class="panel panel-ventaja">
-                        <div class="panel-body">
-                            <h4>Todos nuestros profesionales son de confianza. Verificados por nosotros y evaluados por otros usuarios.</h4>
+            <a name="facil"><p class="text-center gris cabecera">¿Necesitas ayuda en casa?</p></a>
+            <div class="btns-servicios text-center">
+                <a href="{% url 'alta-cliente' %}">
+                    <button type="button" class="btn btn-primary">Busca profesionales</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <p class="text-center gris cabecera">¿Qué dicen nuestros clientes?</p>
+        <div class="col-xs-12 col-sm-4 text-center">
+            <i class="fa fa-quote-right naranja testimonio" aria-hidden="true"></i>
+            <p><em>Cuiquer es efectivo y muy fácil de usar. Necesitabamos un profesor de natación para nuestra hija, y en cuestión de horas teníamos 3 amables profesionales dispuestos a ayudarnos.</em></p>
+            <p><span class="text-uppercase">Juan</span>, Sevilla</p>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center">
+            <i class="fa fa-quote-right naranja testimonio" aria-hidden="true"></i>
+            <p><em>He utilizado Cuiquer en varias ocasiones, la experieia ha sido siempre buena. Atención exquisita y máxima profesionalidad.</em></p>
+            <p><span class="text-uppercase">Pedro</span>, Barcelona</p>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center">
+            <i class="fa fa-quote-right naranja testimonio" aria-hidden="true"></i>
+            <p><em>Tras perder mucho tiempo buscando una buena canguro de confianza para mis niños, me recomendaron utilizar Cuiquer. En 24 horas hemos conseguido a una canguro con experiencia, a buen precio y que además habla en inglés a nuestros hijos!</em></p>
+            <p><span class="text-uppercase">Paula</span>, Sevilla</p>
+        </div>
+    </div>
+
+    <div class="caja fondo-gris ultimo">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 text-center boxNews">
+                    <div class="col-xs-12">
+                        <div class="textNews">
+                            <p>Todas nuestras ofertas y promociones a un click</p>
+                            <p id="suscripcion_response">No te pierdas ninguna actualización</p>
+                        </div>
+                        <div class="inputNews">
+                            {% csrf_token %}
+                            <input class="form-control form-alta" id="email" placeholder="* Introduce tu email" type="email" >
+                        </div>
+                        <div class="btnNews">
+                            <input type="submit" class="btn btn-default naranja" value="Suscribirme" onclick="suscripcion()" />
                         </div>
                     </div>
                 </div>
-              </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-md-4">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x naranja"></i>
-                    <i class="fa fa-thumbs-up fa-stack-1x fa-inverse" aria-hidden="true"></i>
-
-                </span>
-                <h3 class="service-heading">Fácil y rápido de usar.</h3>
-                <p class="text-muted">Recibe las ofertas que más se ajustan a tus necesidades en el plazo de un día. Contrata al profesional más indicado con tan sólo 1-click.</p>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x naranja"></i>
-                    <i class="fa fa-check fa-stack-1x fa-inverse"></i>
-                </span>
-                <h3 class="service-heading">Calidad Garantizada</h3>
-                <p class="text-muted">Cuiquer sigue un rigoroso proceso de selección y de control de calidad a fn de ofrecer tan sólo servicios profesionales de confanza.</p>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x naranja"></i>
-                    <i class="fa fa-volume-control-phone fa-stack-1x fa-inverse"></i>
-                </span>
-                <h3 class="service-heading">Atención al cliente 24/7.</h3>
-                <p class="text-muted">Para cualquier duda o problema, el equipo de Cuiquer está disponible via teléfono o email.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="caja fondo-gris">
-        <div class="container">
-            <p class="text-center gris cabecera">¿Qué dicen nuestros clientes?</p>
-            <div class="col-lg-4 text-center">
-                <i class="fa fa-quote-right naranja testimonio" aria-hidden="true"></i>
-                <p><em>Cuiquer es efectivo y muy fácil de usar. Necesitabamos un profesor de natación para nuestra hija, y en cuestión de horas teníamos 3 amables profesionales dispuestos a ayudarnos.</em></p>
-                <p><span class="text-uppercase">Juan</span>, Sevilla</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <i class="fa fa-quote-right naranja testimonio" aria-hidden="true"></i>
-                <p><em>He utilizado Cuiquer en varias ocasiones, la experieia ha sido siempre buena. Atención exquisita y máxima profesionalidad.</em></p>
-                <p><span class="text-uppercase">Pedro</span>, Barcelona</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <i class="fa fa-quote-right naranja testimonio" aria-hidden="true"></i>
-                <p><em>Tras perder mucho tiempo buscando una buena canguro de confianza para mis niños, me recomendaron utilizar Cuiquer. En 24 horas hemos conseguido a una canguro con experiencia, a buen precio y que además habla en inglés a nuestros hijos!</em></p>
-                <p><span class="text-uppercase">Paula</span>, Sevilla</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 text-center boxNews">
-                <div class="col-xs-12">
-                    <div class="textNews">
-                        <p>Todas nuestras ofertas y promociones a un click</p>
-                        <p id="suscripcion_response">No te pierdas ninguna actualización</p>
-                    </div>
-                    <div class="inputNews">
-                        {% csrf_token %}
-                        <input class="form-control form-alta" id="email" placeholder="* Introduce tu email" type="email" >
-                    </div>
-                    <div class="btnNews">
-                        <input type="submit" class="btn btn-default naranja" value="Suscribirme" onclick="suscripcion()" />
-                    </div>
+                <div class="col-xs-12 col-sm-6 text-center boxFacebook">
+                        <div class="fb-page" data-href="https://www.facebook.com/cuiquer/" data-tabs="timeline" data-height="210" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cuiquer/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cuiquer/">Cuiquer</a></blockquote></div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 text-center">
-                    <div class="fb-page" data-href="https://www.facebook.com/cuiquer/" data-tabs="timeline" data-height="210" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cuiquer/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cuiquer/">Cuiquer</a></blockquote></div>
-            </div>
         </div>
     </div>
-
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -359,7 +306,7 @@
             </div>
             <div class="col-xs-4 col-sm-2 fooEmpresa">
                 <span class="texto-footer"><strong>Empresa</strong></span>
-                <span class="texto-footer"><a href="{% url 'contacto' %}#sobre">Sobre Cuiquer</a></span>
+                <span class="texto-footer"><a href="{% url 'contacto' %}">Sobre Cuiquer</a></span>
                 {% comment %}
                 <!--<span class="texto-footer"><a href="{% url 'cuiquer' %}#equipo">Equipo</a></span>-->
                 <span class="texto-footer"><a href="{% url 'cookies' %}">Política de Cookies</a></span>
