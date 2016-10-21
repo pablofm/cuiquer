@@ -13,6 +13,7 @@ class ProfesionalFormTest(TestCase):
             'telefono': '666666666',
             'codigo_postal': '41001',
             'licencia': True,
+            'origen': 1,
         }
 
     def test_formulario_no_vacio(self):
