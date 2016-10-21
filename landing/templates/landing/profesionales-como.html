@@ -1,11 +1,15 @@
 {% extends "landing/index.html" %}
-{% block slider %} {% endblock slider %}
+{% block slider %}
+<header class="intro-header">
+	<img class="img-responsive home-slide" src="{% static 'img/cabeceras/ofrecer-servicio.jpg' %}" alt="Ofrecer servicio">
+</header>
+{% endblock slider %}
 {% block content %}
 <div class="container margen-externo ultimo">
 	<h2 class="naranja header ">¿Cómo encuentro trabajos con cuiquer?</h2>
 
 	<div class="row">
-		<div class="col-xs-12 margen-interno">
+		<div class="col-xs-12">
 			<h4 class="gris">1. Alta en nuestra base de datos</h4>
 			<p>Una vez recibamos el formulario con tus datos, te damos de alta en nuestra base de datos.</p>
 			
