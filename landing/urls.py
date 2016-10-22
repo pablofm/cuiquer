@@ -4,7 +4,7 @@ from landing import views
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^como$', views.ComoFunciona.as_view(), name='como-funciona'),
+    url(r'^como-funciona$', views.ComoFunciona.as_view(), name='como-funciona'),
 
     url(r'^contacto$', views.contacto, name='contacto'),
     url(r'^suscripcion$', views.suscripcion, name='suscripcion'),
