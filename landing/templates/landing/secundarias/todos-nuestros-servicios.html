@@ -1,8 +1,16 @@
 {% extends "landing/secundarias/secundaria.html" %}
+{% load staticfiles %}
 
 {% block titulo_secundaria %}
     Todos Nuestros Servicios
 {% endblock titulo_secundaria %}
+
+{% block slider %}
+<header class="intro-header">
+    <img class="img-responsive home-slide" src="{% static 'img/cabeceras/ofrecer-servicio.jpg' %}" alt="Ofrecer servicio">
+</header>
+{% endblock slider %}
+
 
 {% block descripcion_secundaria %}
     <p>El equipo de Cuiquer se encuentra en constante búsqueda de nuevos profesionales para hacer crecer nuestra base de datos y poder dar servicio a cada vez más personas.</p>

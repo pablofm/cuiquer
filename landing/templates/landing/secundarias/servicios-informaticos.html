@@ -1,8 +1,16 @@
 {% extends "landing/secundarias/secundaria.html" %}
+{% load staticfiles %}
 
 {% block titulo_secundaria %}
     Servicios informáticos
 {% endblock titulo_secundaria %}
+
+{% block slider %}
+<header class="intro-header">
+    <img class="img-responsive home-slide" src="{% static 'img/cabeceras/ofrecer-servicio.jpg' %}" alt="Ofrecer servicio">
+</header>
+{% endblock slider %}
+
 
 {% block descripcion_secundaria %}
     <p>¿Quieres una página web para tu empresa? ¿Tu ordenador tarda una eternidad en encenderse?. Contacta con uno de nuestros expertos para solucionar tu problemas con las nuevas tecnologías.</p>

@@ -1,9 +1,16 @@
 {% extends "landing/secundarias/secundaria.html" %}
-
+{% load staticfiles %}
 
 {% block titulo_secundaria %}
     Salud y Bienestar
 {% endblock titulo_secundaria %}
+
+{% block slider %}
+<header class="intro-header">
+    <img class="img-responsive home-slide" src="{% static 'img/cabeceras/ofrecer-servicio.jpg' %}" alt="Ofrecer servicio">
+</header>
+{% endblock slider %}
+
 
 {% block descripcion_secundaria %}
     <p>Encuentra al profesional sanitario que necesitas. Tenemos a tu disposición expertos en distintas areas del sector sanitario y del bienestar.</p>
