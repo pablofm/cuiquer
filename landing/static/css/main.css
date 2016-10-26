@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300, 500');
 
 
 body {
@@ -99,9 +100,10 @@ hr.small {
 
 .navbar-custom .nav li a {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 300;
   letter-spacing: 1px;
   color:#fff;
+  font-family: 'Lato';
 }
 
 .navbar-custom .nav li a:hover {
@@ -290,8 +292,7 @@ hr.small {
 .intro-header .site-heading p,
 .intro-header .page-heading p {
   margin-top: 0;
-  font-size: 50px;
-  text-transform: uppercase;
+  font-size: 60px;
   font-family: 'Open Sans', Arial, sans-serif;
   font-weight: 600;
   line-height: 1.1;
@@ -310,13 +311,16 @@ hr.small {
   margin: 20px;
 }
 
+.btns-servicios.btn-interno{
+  margin-top:50px;
+}
+
 
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading p,
   .intro-header .page-heading p {
-    font-size: 50px;
+    font-size: 60px;
     font-weight: 600;
-    text-transform: uppercase;
   }
 
   .intro-header .site-heading .btn,
@@ -607,7 +611,7 @@ header+.fondo-gris{
 }
 .texto-seccion{
   display: block;
-  font-size: 20px;
+  font-size: 17px;
   color: #71716F;
   font-weight: 200;
   font-family: 'Open Sans', 'Arial', serif;
@@ -670,11 +674,20 @@ header+.fondo-gris{
   margin-bottom: 20px;
 }
 
+.texto-testimonio p{
+  font-family: 'Lato';
+  font-weight: 300;
+}
+
+.texto-testimonio p span{
+  font-family: 'Lato';
+  font-weight: 300;
+}
+
 .cabecera{
-  font-size: 36px;
+  font-size: 50px;
   font-weight: 600;
   font-family: 'Open Sans', Arial, sans-serif;
-  text-transform: uppercase;
   margin-bottom: 30px;
   line-height: 50px;
 }
@@ -690,13 +703,22 @@ header+.fondo-gris{
   font-size: medium;
 }
 
-.contacto{
-  display: block;
+.caja-datos-contacto{
+  display: table;
+}
+
+.caja-datos-contacto .contacto{
+  display: table-row;
+  height: 40px;
+}
+
+.caja-datos-contacto .contacto a, .caja-datos-contacto .contacto i{
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .contacto i {
     padding-right: 10px;
-    padding-top: 4px;
 }
 
 .contacto i.i-mail{
@@ -775,11 +797,12 @@ header+.fondo-gris{
 
 /* PASOS */
 .slogan-servicios {
-    padding: 0px 20px 30px;
-    font-size: 27px;
-    width: 90%;
+    padding: 20px 20px 50px;
+    font-size: 40px;
+    width: 60%;
     color: #555;
     margin: 0 auto;
+    font-weight: 600 !important;
 }
 
 .btns-servicios .btn {
@@ -938,7 +961,8 @@ header+.fondo-gris{
 }
 
 .header{
-  font-size: 26px;
+  font-size: 36px;
+  font-weight: 600;
 }
 
 .subheader{
@@ -1092,12 +1116,16 @@ header+.fondo-gris{
   display: inline-block;
 }
 .servicio-categoria{
-    font-weight: bold;
+    font-weight: 600;
     font-size: 22px;
 
 }
 .servicio{
   display: block;
+}
+
+.servicio-box .servicio {
+    font-size: 14px;
 }
 
 .boton-alta{
@@ -1106,5 +1134,5 @@ header+.fondo-gris{
 
 .categoria{
   display: block;
-  color: red;
+  color: #ff7900;
 }
