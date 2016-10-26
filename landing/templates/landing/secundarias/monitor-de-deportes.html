@@ -1,8 +1,15 @@
 {% extends "landing/secundarias/secundaria.html" %}
+{% load staticfiles %}
 
 {% block titulo_secundaria %}
     Deportes
 {% endblock titulo_secundaria %}
+
+{% block slider %}
+<header class="intro-header">
+    <img class="img-responsive home-slide" src="{% static 'img/cabeceras/ofrecer-servicio.jpg' %}" alt="Ofrecer servicio">
+</header>
+{% endblock slider %}
 
 {% block descripcion_secundaria %}
     <p>Si necesitas un entrenador para un equipo de futbol de niños o un profesor que de clases de natación a un grupo de niños, muy probablemente tengamos en nuestra base de datos a la persona que estás buscando.</p>

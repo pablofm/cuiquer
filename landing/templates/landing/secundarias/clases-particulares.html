@@ -1,9 +1,16 @@
 {% extends "landing/secundarias/secundaria.html" %}
-
+{% load staticfiles %}
 
 {% block titulo_secundaria %}
     Clases Particulares
 {% endblock titulo_secundaria %}
+
+{% block slider %}
+<header class="intro-header">
+    <img class="img-responsive home-slide" src="{% static 'img/cabeceras/ofrecer-servicio.jpg' %}" alt="Ofrecer servicio">
+</header>
+{% endblock slider %}
+
 
 {% block descripcion_secundaria %}
     <p>Si tu hijo ha tenido la mala suerte de tocarle ese profesor que, aun poseyendo un profundo conocimiento de su materia no es capaz de trasmitirla, un profesor particular de refuerzo puede ser una buena opción. Un buen profesor particular permite resolver dudas, centrar el esfuerzo en determinadas áreas que cuestan más trabajo, ayudar al alumno a recuperar la motivación y rendir con mayor eficacia en los exámenes.</p>

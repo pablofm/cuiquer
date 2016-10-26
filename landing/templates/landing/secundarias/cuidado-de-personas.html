@@ -1,8 +1,16 @@
 {% extends "landing/secundarias/secundaria.html" %}
+{% load staticfiles %}
 
 {% block titulo_secundaria %}
     Cuidado de Personas
 {% endblock titulo_secundaria %}
+
+{% block slider %}
+<header class="intro-header">
+    <img class="img-responsive home-slide" src="{% static 'img/cabeceras/ofrecer-servicio.jpg' %}" alt="Ofrecer servicio">
+</header>
+{% endblock slider %}
+
 
 {% block descripcion_secundaria %}
     <p>Te ha surgido un imprevisto en el trabajo y no sabes que hacer con los niños, quieres salir a cenar con tu pareja y necesitas que una persona en la que confíes se quede con los niños. Tu canguro de confianza, de toda la vida, no está ya disponible y tienes que buscar a una nueva. Nosotros te ayudamos.</p>

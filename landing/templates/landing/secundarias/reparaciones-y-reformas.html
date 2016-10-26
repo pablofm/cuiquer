@@ -1,8 +1,15 @@
 {% extends "landing/secundarias/secundaria.html" %}
+{% load staticfiles %}
 
 {% block titulo_secundaria %}
     Reparaciones y Reformas
 {% endblock titulo_secundaria %}
+
+{% block slider %}
+<header class="intro-header">
+    <img class="img-responsive home-slide" src="{% static 'img/cabeceras/ofrecer-servicio.jpg' %}" alt="Ofrecer servicio">
+</header>
+{% endblock slider %}
 
 {% block descripcion_secundaria %}
     <p>Encontramos al profesional adecuado para todas tus necesidades de reforma y reparacion de toda clase: albaliñería, carpintería, fontanería etc.</p>
