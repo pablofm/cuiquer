@@ -181,7 +181,7 @@
     <!-- Main Content -->
     <div class="caja fondo-gris">
         <div class="container">
-            <a name="facil"><p class="text-center gris cabecera">¿Necesitas ayuda en casa?</p></a>
+            <p class="text-center gris cabecera">¿Necesitas ayuda en casa?</p>
             <div class="btns-servicios text-center">
                 <a href="{% url 'alta-cliente' %}">
                     <button type="button" class="btn btn-primary">Busca profesionales</button>
@@ -316,13 +316,13 @@
             </div>
             <div class="col-xs-4 col-sm-3 fooClientes">
                 <span class="texto-footer"><strong>Clientes</strong></span>
-                <span class="texto-footer"><a href="{% url 'index' %}#facil">Cómo funciona</a></span>
+                <span class="texto-footer"><a href="{% url 'como-funciona-clientes' %}">Cómo funciona</a></span>
                 <span class="texto-footer"><a href="{% url 'alta-cliente' %}">Solicita servicio</a></span>
                 <span class="texto-footer"><a href="{% url 'todos-nuestros-servicios' %}">Servicios que ofrecemos</a></span>
             </div>
             <div class="col-xs-4 col-sm-2 fooProfesionales">
                 <span class="texto-footer"><strong>Profesionales</strong></span>
-                <span class="texto-footer"><a href="{% url 'como-funciona' %}">Cómo funciona</a></span>
+                <span class="texto-footer"><a href="{% url 'como-funciona-profesionales' %}">Cómo funciona</a></span>
                 <span class="texto-footer"><a href="{% url 'alta-profesional' %}">Ofrece servicios</a></span>
             </div>
 

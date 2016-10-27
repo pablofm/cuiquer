@@ -15,16 +15,28 @@ class IndexTest(TestCase):
         self.assertTemplateUsed(self.response, 'landing/index.html')
 
 
-class ComoFuncionaTest(TestCase):
+class ComoFuncionaProfesionalesTest(TestCase):
     def setUp(self):
-        url = reverse('como-funciona')
+        url = reverse('como-funciona-profesionales')
         self.response = self.client.get(url)
 
     def test_devuelve_200(self):
         self.assertEqual(200, self.response.status_code)
 
     def test_llama_plantilla_apropiada(self):
-        self.assertTemplateUsed(self.response, 'landing/profesionales-como.html')
+        self.assertTemplateUsed(self.response, 'landing/como-funciona-profesionales.html')
+
+
+class ComoFuncionaClientesTest(TestCase):
+    def setUp(self):
+        url = reverse('como-funciona-clientes')
+        self.response = self.client.get(url)
+
+    def test_devuelve_200(self):
+        self.assertEqual(200, self.response.status_code)
+
+    def test_llama_plantilla_apropiada(self):
+        self.assertTemplateUsed(self.response, 'landing/como-funciona-clientes.html')
 
 
 # Secundarias

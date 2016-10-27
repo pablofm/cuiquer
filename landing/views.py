@@ -8,8 +8,12 @@ class IndexView(TemplateView):
     template_name = 'landing/index.html'
 
 
-class ComoFunciona(TemplateView):
-    template_name = 'landing/profesionales-como.html'
+class ComoFuncionaProfesionales(TemplateView):
+    template_name = 'landing/como-funciona-profesionales.html'
+
+
+class ComoFuncionaClientes(TemplateView):
+    template_name = 'landing/como-funciona-clientes.html'
 
 
 # Secundarias
