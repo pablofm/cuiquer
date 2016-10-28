@@ -1,5 +1,6 @@
 from django.test import TestCase
-from landing.forms import ContactoForm
+from landing.forms import ContactoForm, SuscripcionForm
+from landing.models import Suscripcion
 
 
 class ContactoFormTest(TestCase):
@@ -57,4 +58,34 @@ class ContactoFormTest(TestCase):
 
     def test_formulario_completo(self):
         form = ContactoForm(self.data)
+        self.assertTrue(form.is_valid())
+
+
+class SuscripcionFormTest(TestCase):
+    def setUp(self):
+        self.data = {
+            'email': 'correo@correo.com',
+        }
+
+    def test_formulario_no_vacio(self):
+        form = SuscripcionForm({})
+        self.assertFalse(form.is_valid())
+
+    def test_email_no_vacio(self):
+        self.data['email'] = None
+        form = SuscripcionForm(self.data)
+        self.assertFalse(form.is_valid())
+
+    def test_email_no_vacio_2(self):
+        self.data['email'] = ''
+        form = SuscripcionForm(self.data)
+        self.assertFalse(form.is_valid())
+
+    def test_email_no_repetido(self):
+        Suscripcion.objects.create(email='correo@correo.com')
+        form = SuscripcionForm(self.data)
+        self.assertFalse(form.is_valid())
+
+    def test_formulario_completo(self):
+        form = SuscripcionForm(self.data)
         self.assertTrue(form.is_valid())
