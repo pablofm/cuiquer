@@ -6,7 +6,7 @@ class ClienteAdmin(admin.ModelAdmin):
     readonly_fields = (
         'usuario__nombre', 'usuario__email', 'usuario__telefono', 'fecha_solicitud', 'categoria', 'servicio')
     list_display = (
-        'usuario__nombre', 'usuario__email', 'usuario__telefono', 'servicio', 'fecha_solicitud')
+        'usuario__nombre', 'usuario__email', 'usuario__telefono', 'categoria', 'servicio', 'fecha_solicitud')
     exclude = ('usuario',)
 
     def usuario__nombre(self, obj):
