@@ -1,7 +1,6 @@
 from django.conf.urls import url
 from landing import views
 
-
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^como-funciona-profesionales$', views.ComoFuncionaProfesionales.as_view(), name='como-funciona-profesionales'),
@@ -23,4 +22,7 @@ urlpatterns = [
     url(r'^cookies$', views.CookiesView.as_view(), name='cookies'),
     url(r'^condiciones-uso$', views.CondicionesUsoView.as_view(), name='condiciones-uso'),
     url(r'^condiciones-privacidad$', views.CondicionesPrivacidadView.as_view(), name='condiciones-privacidad'),
+
+    url(r'^404/$', views.PageNotFoundView.as_view(), name='404'),
+    url(r'^500/$', views.ServerFailedView.as_view(), name='500'),
 ]

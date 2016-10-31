@@ -9,7 +9,7 @@ def enviar_correo(para, asunto, plantilla, contexto, adjuntos=None):
     d = Context(contexto)
     text_content = plaintext.render(d)
     html_content = htmly.render(d)
-    correo = EmailMultiAlternatives(asunto, text_content, 'no-reply@cuiquer.com', [para])
+    correo = EmailMultiAlternatives(asunto, text_content, 'hello@cuiquer.com', [para])
     correo.attach_alternative(html_content, "text/html")
     correo.attachments = adjuntos
     correo.send()
