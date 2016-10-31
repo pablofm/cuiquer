@@ -158,7 +158,7 @@ class Prod(Common):
     Common.DATABASES['default'] = dj_database_url.config()
 
     BROKER_URL = 'amqp://gbshkpan:gcdUu85WuYs2n-KjNg1tlxW3vcA90MIp@buck.rmq.cloudamqp.com/gbshkpan'
-    BROKER_POOL_LIMIT = 1s
+    BROKER_POOL_LIMIT = 1
     CELERY_ACCEPT_CONTENT = ['json']
     CELERY_TASK_SERIALIZER = 'json'
     CELERY_RESULT_SERIALIZER = 'json'
