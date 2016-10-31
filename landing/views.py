@@ -9,6 +9,14 @@ class IndexView(TemplateView):
     template_name = 'landing/index.html'
 
 
+class PageNotFoundView(TemplateView):
+    template_name = '404.html'
+
+
+class ServerFailedView(TemplateView):
+    template_name = '500.html'
+
+
 class ComoFuncionaProfesionales(TemplateView):
     template_name = 'landing/como-funciona-profesionales.html'
 
