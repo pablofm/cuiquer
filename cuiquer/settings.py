@@ -148,7 +148,14 @@ class Dev(Common):
             'NAME': os.path.join(Common.BASE_DIR, 'db.sqlite3'),
         }
     }
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'mail.privateemail.com'
+    EMAIL_PORT = 465
+    EMAIL_HOST_USER = 'hello@cuiquer.com'
+    EMAIL_HOST_PASSWORD = 'cuiquer123'
+    EMAIL_USE_SSL = True
+    EMAIL_USE_TLS = False
 
 
 class Prod(Common):
