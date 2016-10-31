@@ -137,6 +137,8 @@ class Common(Configuration):
     TWITTER = 'https://twitter.com/Cuiquer_es'
     INSTAGRAM = 'https://www.instagram.com/cuiquer/'
 
+    BROKER_POOL_LIMIT = 3
+
 
 class Dev(Common):
     DEBUG = True
@@ -156,6 +158,8 @@ class Prod(Common):
     # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
     import dj_database_url
     Common.DATABASES['default'] = dj_database_url.config()
+
+    BROKER_URL = 'amqp://gbshkpan:gcdUu85WuYs2n-KjNg1tlxW3vcA90MIp@buck.rmq.cloudamqp.com/gbshkpan'
 
     ALLOWED_HOSTS = [".herokuapp.com", ".researchthroughdesign.org"]
     DEBUG = False
