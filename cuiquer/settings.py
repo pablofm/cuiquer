@@ -137,8 +137,6 @@ class Common(Configuration):
     TWITTER = 'https://twitter.com/Cuiquer_es'
     INSTAGRAM = 'https://www.instagram.com/cuiquer/'
 
-    BROKER_POOL_LIMIT = 3
-
 
 class Dev(Common):
     DEBUG = True
@@ -160,6 +158,14 @@ class Prod(Common):
     Common.DATABASES['default'] = dj_database_url.config()
 
     BROKER_URL = 'amqp://gbshkpan:gcdUu85WuYs2n-KjNg1tlxW3vcA90MIp@buck.rmq.cloudamqp.com/gbshkpan'
+    BROKER_POOL_LIMIT = 1
+    CELERY_ACCEPT_CONTENT = ['json']
+    CELERY_TASK_SERIALIZER = 'json'
+    CELERY_RESULT_SERIALIZER = 'json'
+    CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+    CELERY_BEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+    CELERY_RESULT_BACKEND = 'amqp'
+    CELERY_TASK_RESULT_EXPIRES = 18000  # 5 horas
 
     ALLOWED_HOSTS = [".herokuapp.com", ".researchthroughdesign.org"]
     DEBUG = False
