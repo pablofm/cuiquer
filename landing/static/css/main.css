@@ -719,6 +719,12 @@ header+.fondo-gris{
   line-height: 50px;
 }
 
+.intro-header img:not(.home-slide) {
+    width: auto;
+    min-height: 90px;
+    max-height: 200px;
+}
+
 
 .fondo-naranja{
   background-color: #ff7900;
