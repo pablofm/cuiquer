@@ -736,6 +736,10 @@ header+.fondo-gris{
   font-size: medium;
 }
 
+.modal-content {
+    padding: 20px 50px;
+}
+
 .caja-datos-contacto{
   display: table;
 }
