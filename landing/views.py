@@ -2,6 +2,7 @@ from django.views.generic import TemplateView
 from landing.forms import ContactoForm
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, JsonResponse
+from correos.emails import correo_mensaje_agradecimiento, correo_alta_newsletter
 
 
 class IndexView(TemplateView):
@@ -66,7 +67,8 @@ def contacto(request):
     if request.method == 'POST':
         form = ContactoForm(request.POST)
         if form.is_valid():
-            form.save()
+            contacto = form.save()
+            correo_mensaje_agradecimiento(contacto.email)
             return HttpResponseRedirect('/')
     else:
         form = ContactoForm()
@@ -93,6 +95,7 @@ def suscripcion(request):
 
         if not nulo and validarEmail(email) and email not in emails:
             Suscripcion.objects.create(email=email)
+            correo_alta_newsletter(email)
             return JsonResponse({'response': True})
 
     return JsonResponse({'response': False})

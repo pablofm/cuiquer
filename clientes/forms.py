@@ -41,4 +41,5 @@ class ClienteForm(forms.Form):
         usuario.set_password(email)
         usuario.save()
 
-        Cliente.objects.create(servicio=servicio, usuario=usuario)
+        cliente = Cliente.objects.create(servicio=servicio, usuario=usuario)
+        return cliente

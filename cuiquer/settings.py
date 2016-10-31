@@ -45,6 +45,7 @@ class Common(Configuration):
         'profesionales',
         'perfiles',
         'django_extensions',
+        'djcelery_email',
     ]
 
     MIDDLEWARE_CLASSES = [
@@ -69,6 +70,7 @@ class Common(Configuration):
                 os.path.join(BASE_DIR, 'landing/templates'),
                 os.path.join(BASE_DIR, 'profesionales/templates'),
                 os.path.join(BASE_DIR, 'clientes/templates'),
+                os.path.join(BASE_DIR, 'correos/templates'),
             ],
             'OPTIONS': {
                 'context_processors': [
@@ -84,7 +86,6 @@ class Common(Configuration):
             },
         },
     ]
-
     WSGI_APPLICATION = 'cuiquer.wsgi.application'
 
     # Password validation
@@ -131,6 +132,11 @@ class Common(Configuration):
 
     AUTH_USER_MODEL = 'perfiles.Usuario'
 
+    # Redes Sociales
+    FACEBOOK = 'https://www.facebook.com/cuiquer/'
+    TWITTER = 'https://twitter.com/Cuiquer_es'
+    INSTAGRAM = 'https://www.instagram.com/cuiquer/'
+
 
 class Dev(Common):
     DEBUG = True
@@ -142,6 +148,7 @@ class Dev(Common):
             'NAME': os.path.join(Common.BASE_DIR, 'db.sqlite3'),
         }
     }
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 class Prod(Common):
@@ -152,6 +159,13 @@ class Prod(Common):
 
     ALLOWED_HOSTS = [".herokuapp.com", ".researchthroughdesign.org"]
     DEBUG = False
+
+    EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
+    EMAIL_HOST = 'mail.privateemail.com'
+    EMAIL_PORT = 465
+    EMAIL_HOST_USER = 'hello@cuiquer.com'
+    EMAIL_HOST_PASSWORD = 'cuiquer123'
+    EMAIL_USE_TLS = True
 
     ROLLBAR = {
         'access_token': 'b5781909e8464502bade1b1127406ae1',
