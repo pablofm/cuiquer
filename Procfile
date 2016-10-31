@@ -1,2 +1,2 @@
-worker: python manage.py celery worker -B -l info
-web: gunicorn cuiquer.wsgi --log-file - --timeout 120
+web: gunicorn cuiquer.wsgi -w 1 --log-file - --timeout 120
+worker: celery -A cuiquer
