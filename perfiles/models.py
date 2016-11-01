@@ -5,13 +5,14 @@ import os
 
 
 class UsuarioManager(BaseUserManager):
-    def create_user(self, email, password=None):
+    def create_user(self, email, nombre=None, telefono=None, password=None):
         if not email:
             raise ValueError('Debes proporcionar un correo válido')
 
         user = self.model(
             email=self.normalize_email(email),
-
+            nombre=nombre,
+            telefono=telefono,
         )
 
         user.set_password(password)
@@ -21,6 +22,8 @@ class UsuarioManager(BaseUserManager):
     def create_superuser(self, email, password):
         user = self.create_user(
             email,
+            nombre=' - ',
+            telefono='',
             password=password,
         )
         user.is_admin = True
