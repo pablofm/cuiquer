@@ -1,7 +1,7 @@
 from profesionales.forms import ProfesionalForm
 from django.shortcuts import render
 from profesionales.models import Servicio
-from correos.emails import correo_alta_profesional
+from correos.emails import correos_alta_profesional
 
 
 def alta_profesional(request):
@@ -10,7 +10,7 @@ def alta_profesional(request):
         form = ProfesionalForm(request.POST)
         if form.is_valid():
             profesional = form.save()
-            correo_alta_profesional(profesional.usuario.email)
+            correos_alta_profesional(profesional.usuario.email)
             return render(request, 'profesionales/alta-profesional-finalizada.html', {'profesional': profesional})
     else:
         form = ProfesionalForm()

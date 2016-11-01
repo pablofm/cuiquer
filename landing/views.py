@@ -76,7 +76,7 @@ def contacto(request):
         form = ContactoForm(request.POST)
         if form.is_valid():
             contacto = form.save()
-            correo_mensaje_agradecimiento(contacto.email)
+            correo_mensaje_agradecimiento([contacto.email])
             return HttpResponseRedirect('/')
     else:
         form = ContactoForm()
@@ -103,7 +103,7 @@ def suscripcion(request):
 
         if not nulo and validarEmail(email) and email not in emails:
             Suscripcion.objects.create(email=email)
-            correo_alta_newsletter(email)
+            correo_alta_newsletter([email])
             return JsonResponse({'response': True})
 
     return JsonResponse({'response': False})
