@@ -40,12 +40,12 @@ class Common(Configuration):
         'django.contrib.staticfiles',
         'django_nose',
         'localflavor',
+        'django_extensions',
+        'djcelery_email',
         'landing',
         'clientes',
         'profesionales',
         'perfiles',
-        'django_extensions',
-        'djcelery_email',
     ]
 
     MIDDLEWARE_CLASSES = [
