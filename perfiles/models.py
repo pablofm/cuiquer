@@ -22,7 +22,7 @@ class UsuarioManager(BaseUserManager):
     def create_superuser(self, email, password):
         user = self.create_user(
             email,
-            nombre=' - ',
+            nombre='',
             telefono='',
             password=password,
         )

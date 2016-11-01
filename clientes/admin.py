@@ -1,28 +1,31 @@
+from django import forms
 from django.contrib import admin
 from clientes.models import Cliente
+from clientes.fields import GroupedModelChoiceField
+from profesionales.models import Servicio
+from perfiles.admin import UsuarioModelAdmin
 
 
-class ClienteAdmin(admin.ModelAdmin):
-    readonly_fields = (
-        'usuario__nombre', 'usuario__email', 'usuario__telefono', 'fecha_solicitud', 'categoria', 'servicio')
-    list_display = (
-        'usuario__nombre', 'usuario__email', 'usuario__telefono', 'categoria', 'servicio', 'fecha_solicitud')
-    exclude = ('usuario',)
+class ClienteAdminForm(forms.ModelForm):
+    servicio = GroupedModelChoiceField(
+        queryset=Servicio.objects.all(),
+        group_by_field='categoria')
 
-    def usuario__nombre(self, obj):
-        return obj.usuario.nombre
+    class Meta:
+        model = Cliente
+        fields = '__all__'
 
-    def usuario__email(self, obj):
-        return obj.usuario.email
 
-    def usuario__telefono(self, obj):
-        return obj.usuario.telefono
+class ClienteAdmin(UsuarioModelAdmin):
+    form = ClienteAdminForm
 
     def categoria(self, obj):
         return obj.servicio.categoria
 
-    usuario__nombre.short_description = "Nombre"
-    usuario__email.short_description = "Email"
-    usuario__telefono.short_description = "Teléfono"
+    empty_value_display = '???'
+
+    list_display = ('nombre', 'email', 'telefono', 'categoria', 'servicio', 'fecha_solicitud')
+    readonly_fields = ('fecha_solicitud', 'detalles_usuario', 'categoria')
+    fields = ('fecha_solicitud', 'detalles_usuario', 'categoria', 'servicio', 'codigo_postal', 'observaciones')
 
 admin.site.register(Cliente, ClienteAdmin)

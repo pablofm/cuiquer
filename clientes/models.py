@@ -1,10 +1,10 @@
 from django.db import models
 from profesionales.models import Servicio
-from perfiles.models import Usuario
+from django.conf import settings
 
 
 class Cliente(models.Model):
-    usuario = models.ForeignKey(Usuario)
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL)
     servicio = models.ForeignKey(Servicio, related_name='clientes')
     fecha_solicitud = models.DateTimeField(auto_now_add=True)
     observaciones = models.TextField(null=True, blank=True)
