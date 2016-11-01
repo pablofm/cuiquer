@@ -19,11 +19,21 @@ def enviar_correo(para, asunto, plantilla, contexto, adjuntos=None):
 def correo_mensaje_agradecimiento(para):
     contexto = {}
     enviar_correo(para=[para], asunto='Mensaje recibido', plantilla='mensaje-agradecimiento', contexto=contexto)
+    enviar_correo(
+        para=settings.CORREO_NUEVO_MENSAJE,
+        asunto='Nuevo mensaje',
+        plantilla='nuevo-mensaje',
+        contexto=contexto)
 
 
 def correo_alta_newsletter(para):
     contexto = {}
     enviar_correo(para=[para], asunto='Bienvenido a Cuiquer', plantilla='alta-newsletter', contexto=contexto)
+    enviar_correo(
+        para=settings.CORREO_NUEVA_SUSCRIPCION,
+        asunto='Nueva suscripcion',
+        plantilla='nueva-suscripcion',
+        contexto=contexto)
 
 
 def correos_alta_cliente(para):

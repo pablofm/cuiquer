@@ -137,6 +137,8 @@ class Common(Configuration):
     TWITTER = 'https://twitter.com/Cuiquer_es'
     INSTAGRAM = 'https://www.instagram.com/cuiquer/'
 
+    CORREO_NUEVO_MENSAJE = ['pafloma@gmail.com', 'antipeibol@gmail.com']
+    CORREO_NUEVA_SUSCRIPCION = ['pafloma@gmail.com', 'antipeibol@gmail.com']
     CORREO_NUEVO_CLIENTE = ['pafloma@gmail.com', 'antipeibol@gmail.com']
     CORREO_NUEVO_PROFESIONAL = ['pafloma@gmail.com', 'antipeibol@gmail.com']
 
