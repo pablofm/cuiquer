@@ -68,3 +68,9 @@ class ProfesionalForm(forms.Form):
         profesional.servicios = servicios
         profesional.save()
         return profesional
+
+
+class ProfesionalExtraForm(forms.ModelForm):
+    class Meta:
+        model = Profesional
+        exclude = ('codigo_actualizacion', )

@@ -88,3 +88,39 @@ class AltaProfesionalPostTest(TestCase):
         self.client.post(reverse('alta-profesional'), self.data)
         profesional = Profesional.objects.first()
         self.assertTrue(self.servicio in profesional.servicios.all())
+
+
+class ActualizarProfesionalGetTest(TestCase):
+    def setUp(self):
+        self.codigo = '3d996006-39ce-400f-9843-2060377319d0'
+        self.servicio = Servicio.objects.first()
+        self.data = {
+            'servicios': [self.servicio.pk],
+            'nombre': 'Yo me llamo Ralph',
+            'email': 'correo@correo.com',
+            'telefono': '666666666',
+            'codigo_postal': '41001',
+            'licencia': True,
+            'origen': 1,
+        }
+        self.client.post(reverse('alta-profesional'), self.data)
+        profesional = Profesional.objects.first()
+        profesional.codigo_actualizacion = self.codigo
+        profesional.save()
+
+    def test_devuelve_el_estado_correcto(self):
+        url = reverse('actualizar_profesional', kwargs={'codigo_actualizacion': self.codigo})
+        response = self.client.get(url)
+        self.assertEqual(200, response.status_code)
+
+    def test_devuelve_404_si_el_perfil_no_existe(self):
+        codigo = '4d996006-39ce-400f-9843-2060377319d0'
+        url = reverse('actualizar_profesional', kwargs={'codigo_actualizacion': codigo})
+        response = self.client.get(url)
+        self.assertEqual(404, response.status_code)
+
+    def test_devuelve_404_si_paso_algo_que_no_sea_uuid(self):
+        codigo = 'mekemeke'
+        url = reverse('actualizar_profesional', kwargs={'codigo_actualizacion': codigo})
+        response = self.client.get(url)
+        self.assertEqual(404, response.status_code)

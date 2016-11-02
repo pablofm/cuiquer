@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+import uuid
 
 
 class Categoria(models.Model):
@@ -47,6 +48,7 @@ class Profesional(models.Model):
     origen = models.CharField(max_length=30, blank=True, null=True)
     servicios = models.ManyToManyField(Servicio)
     observaciones = models.TextField(null=True, blank=True)
+    codigo_actualizacion = models.UUIDField(default=uuid.uuid4, blank=True, null=True, editable=True)
 
     def __str__(self):
         return str(self.usuario)
