@@ -27,16 +27,14 @@ def actualizar_profesional(request, codigo_actualizacion):
         UUID(codigo_actualizacion, version=4)
     except ValueError:
         raise Http404
-
+    servicios = Servicio.objects.all()
     profesional = get_object_or_404(Profesional, codigo_actualizacion=codigo_actualizacion)
-    print(profesional)
-    form = ProfesionalExtraForm(instance=profesional)
     if request.method == 'POST':
         form = ProfesionalExtraForm(request.POST)
         if form.is_valid():
             profesional = form.save()
             return render(request, 'profesionales/alta-profesional-finalizada.html', {'profesional': profesional})
     else:
-        form = ProfesionalExtraForm()
+        form = ProfesionalExtraForm(profesional=profesional)
 
-    return render(request, 'profesionales/actualizar-profesional.html', {'form': form})
+    return render(request, 'profesionales/actualizar-profesional.html', {'form': form, 'servicios': servicios})

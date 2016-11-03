@@ -70,7 +70,49 @@ class ProfesionalForm(forms.Form):
         return profesional
 
 
-class ProfesionalExtraForm(forms.ModelForm):
-    class Meta:
-        model = Profesional
-        exclude = ('codigo_actualizacion', )
+class ProfesionalExtraForm(ProfesionalForm):
+    profesional = None
+
+    servicios = forms.ModelMultipleChoiceField(
+        queryset=Servicio.objects.all(),
+        widget=forms.CheckboxSelectMultiple())
+    nombre = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu Nombre"}))
+    email = forms.EmailField(
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu email"}))
+    telefono = ESPhoneNumberField(
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Un teléfono de contacto"}))
+    codigo_postal = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu código postal"}))
+    fecha_nacimiento = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Fecha de nacimiento"}))
+    foto = forms.FileField()
+
+    METODO_CHOICES = (
+        ('', '* ¿Cómo trabajas?'),
+        ('a', 'Autónomo'),
+        ('e', 'Empresa'),
+        ('p', 'Particular'),
+    )
+
+    metodo_trabajo = forms.ChoiceField(
+        choices=METODO_CHOICES,
+        widget=forms.Select(attrs={'class': 'form-control form-alta'}))
+
+    precio = forms.FloatField(
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "Precio/hora estimado"}))
+    facebook = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "Enlace página web o Facebook"}))
+    linkedin = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "Enlace perfil de linkedin"}))
+
+    formacion_relacionada = forms.CharField(
+        widget=forms.Textarea(attrs={'class': 'form-control form-alta', 'placeholder': "¿Qué formación tienes?"}))
+    opiniones_clientes = forms.CharField(widget=forms.Textarea(
+            attrs={'class': 'form-control form-alta', 'placeholder': "¿Qué dicen tus clientes de ti?"}))
+
+    def __init__(self, *args, **kwargs):
+        self.profesional = kwargs.pop('profesional')
+        if not self.profesional:
+            raise KeyError
+        super().__init__(*args, **kwargs)
