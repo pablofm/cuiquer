@@ -736,6 +736,10 @@ header+.fondo-gris{
   font-size: medium;
 }
 
+.copy a{
+  cursor: pointer;
+}
+
 .modal-content {
     padding: 20px 50px;
 }

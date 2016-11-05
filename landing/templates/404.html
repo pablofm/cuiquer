@@ -8,8 +8,11 @@
 {% endblock slider %}
 
 {% block content %}
-    <div>
-        <h4>404</h4>
-        <h4>La página que buscas no existe</h4>
+   <div class="container margen-externo ultimo">
+    	<h1 class="cabecera">Página no encontrada</h1>
+        <img class="img-responsive" src="{% static 'img/cabeceras/error404.png' %}" alt="Página no encontrada">
+        <h2 class="cabecera">Lo sentimos, la página a la que intentaba acceder no existe o se encuentra en mantenimiento</h2>
+        <p>Póngase en contato con nosotros en <a href="mailto:hello@cuiquer.com"> hello@cuiquer.com</a> para cualqueir duda</p>
+        <p>o si lo desea puede rellenar el formulario en la sección <a href="{% url 'contacto' %}">Contacto</a>.</p>
     </div>
 {% endblock content %}

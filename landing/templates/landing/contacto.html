@@ -1,11 +1,15 @@
 {% extends "landing/index.html" %}
 {% load staticfiles %}
-{% block slider %} {% endblock slider %}
+{% block slider %}
+<header class="intro-header">
+    <img class="img-responsive" src="{% static 'img/cabeceras/sobre-cuiquer-oficina.jpg' %}" alt="Sobre Cuiquer">
+</header>
+ {% endblock slider %}
 {% block content %}
 <div id="page-empresa justificado">
-	<div class="imgCabecera">
+	<!--<div class="imgCabecera">
 		<img class="img-responsive" src="{% static 'img/cabeceras/cuiquer-empresa.jpg' %}" alt="Sobre Cuiquer">
-	</div>
+	</div>-->
 	<div class="container margen-externo">
 		<a name="sobre"></a>
 		<h1 class="naranja header">Acerca de Cuiquer</h1>
