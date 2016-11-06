@@ -3,32 +3,95 @@
 
 {% block slider %}
 <header class="intro-header">
-    <img class="img-responsive home-slide" src="{% static 'img/cabeceras/solicitar-servicio.jpg' %}" alt="Solicitar servicio">
+    <img class="img-responsive" src="{% static 'img/cabeceras/solicitar-servicio.jpg' %}" alt="Solicitar servicio">
 </header>
 {% endblock slider %}
 {% block content %}
-<div class="container margen-externo ultimo">
+<div class="container margen-externo">
     <h2 class="naranja header ">¿Necesitas ayuda en casa?</h2>
-
-    <div class="row">
-        <div class="col-xs-12">
-            <h4 class="gris">1. Punto 1</h4>
-            <p>Descripción del punto 1.</p>
-            <h4 class="gris">1. Punto 2</h4>
-            <p>Descripción del punto 2.</p>
-            <h4 class="gris">1. Punto 3</h4>
-            <p>Descripción del punto 3.</p>
-            <h4 class="gris">1. Punto 4</h4>
-            <p>Descripción del punto 4.</p>
-            <h4 class="gris">1. Punto 5</h4>
-            <p>Por el culo te la hinco xD</p>
-        </div>
-    </div>
-
-    <div class="panel panel-default col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 margen-externo">
-        <div class="panel-body">
-            Cuiquer está fase de lanzamiento y el servicio que ofrece es totalmente gratuito tanto para el que ofrece como para el que solicita el servicio.
-        </div>
+    
+    <div class="margen-interno">
+          <div class="row panels">
+            <div class="col-sm-4 panel-item">
+              <span class="panel panel-image">
+                <div class="panel-icon">
+                  <span class="icon">1</span>
+                </div>
+                <div class="panel-body">
+                  <h3 class="panel-title">Dinos qué  necesitas.</h3>
+                  <p>Completa el siguiente formulario y te llamaremos personalmente para saber más sobre tus necesidades.</p>
+                </div>
+              </span>
+            </div>
+            <div class="col-sm-4 panel-item">
+              <span class="panel panel-image">
+                <div class="panel-icon">
+                  <span class="icon">2</span>
+                </div>
+                <div class="panel-body">
+                  <h3 class="panel-title">Obtén ofertas GRATIS</h3>
+                  <p>Recibirás varias ofertas por email varias opciones de forma gratuita y sin compromiso.</p>
+                </div>
+              </span>
+            </div>
+            <div class="col-sm-4 panel-item">
+              <span class="panel panel-image">
+                <div class="panel-icon">
+                  <span class="icon">3</span>
+                </div>
+                <div class="panel-body">
+                  <h3 class="panel-title">Elige al mejor profesional</h3>
+                  <p>Elige al mejor profesional y contratalo. ¡Empieza a disfrutar de tu tiempo libre!</p>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+              <div class="btns-servicios btn-interno text-center">
+                <a href="{% url 'alta-cliente' %}">
+                    <button type="button" class="btn btn-primary">Busca profesionales</button>
+                </a>
+            </div>
+          </div>
     </div>
 </div>
+
+<div class="caja margen-externo fondo-gris">
+    <div class="container">
+        <h3 class="text-center">Todos nuestros profesionales son de confianza.</h3><h4 class="text-center"> Verificados por nosotros y evaluados por otros usuarios.</h4>
+    </div>
+</div>
+
+<div class="caja margen-externo">
+    <div class="container margen-interno">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <span class="fa-stack fa-2x">
+                    <i class="fa fa-circle fa-stack-2x naranja"></i>
+                    <i class="fa fa-thumbs-up fa-stack-1x fa-inverse" aria-hidden="true"></i>
+
+                </span>
+                <h3 class="service-heading">Fácil y rápido de usar.</h3>
+                <p class="text-muted">Recibe las ofertas que más se ajustan a tus necesidades en el plazo de un día. Contrata al profesional más indicado con tan sólo 1-click.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-2x">
+                    <i class="fa fa-circle fa-stack-2x naranja"></i>
+                    <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                </span>
+                <h3 class="service-heading">Calidad Garantizada</h3>
+                <p class="text-muted">Cuiquer sigue un rigoroso proceso de selección y de control de calidad a fn de ofrecer tan sólo servicios profesionales de confanza.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-2x">
+                    <i class="fa fa-circle fa-stack-2x naranja"></i>
+                    <i class="fa fa-volume-control-phone fa-stack-1x fa-inverse"></i>
+                </span>
+                <h3 class="service-heading">Atención al cliente 24/7.</h3>
+                <p class="text-muted">Para cualquier duda o problema, el equipo de Cuiquer está disponible via teléfono o email.</p>
+            </div>
+        </div>
+    </div>
+<
+
 {% endblock content %}

@@ -44,8 +44,8 @@
 			    <div class="row margen-interno">
 			    	<div class="col-lg-12">
 			    		<p>* ¿Qué servicios ofreces? (selecciona todos los que ofrezcas)</p>
+			    		{{form.servicios.errors}}
 			    		<div class="lista-servicios">
-				    		{{form.servicios.errors}}
 				    		{% regroup servicios by categoria as lista_servicios %}
 				    		{% for servicio in lista_servicios %}
 				    			<div class="categoria-servicio">

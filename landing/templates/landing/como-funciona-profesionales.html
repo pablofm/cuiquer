@@ -3,7 +3,7 @@
 
 {% block slider %}
 <header class="intro-header">
-	<img class="img-responsive home-slide" src="{% static 'img/cabeceras/ofrecer-servicio.jpg' %}" alt="Ofrecer servicio">
+	<img class="img-responsive" src="{% static 'img/cabeceras/registro-profesionales.jpg' %}" alt="Ofrecer servicio">
 </header>
 {% endblock slider %}
 {% block content %}
@@ -38,7 +38,15 @@
 		</div>
 	</div>
 
-	<div class="panel panel-default col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 margen-externo">
+	<div class="row">
+      	<div class="btns-servicios btn-interno text-center">
+	        <a href="{% url 'alta-profesional' %}">
+	            <button type="button" class="btn btn-primary">Ofrece servicios</button>
+	        </a>
+    	</div>
+	</div>
+
+	<div class="panel panel-default col-xs-offset-1 col-xs-12 col-sm-offset-2 col-sm-8 margen-externo">
   		<div class="panel-body">
     		Cuiquer está fase de lanzamiento y el servicio que ofrece es totalmente gratuito tanto para el que ofrece como para el que solicita el servicio.
   		</div>

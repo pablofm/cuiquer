@@ -3,14 +3,26 @@
 
 {% block slider %}
 <header class="intro-header">
-    <img class="img-responsive" src="{% static 'img/cabeceras/ofrecer-servicio.jpg' %}" alt="Ofrecer servicio">
+    <img class="img-responsive" src="{% static 'img/cabeceras/registro-profesionales.jpg' %}" alt="Ofrecer servicio">
 </header>
 {% endblock slider %}
 
 
 {% block content %}
-    <div class="text-center">
-        <h4>500</h4>
-        <h4>La hemos liado parda</h4>
-    </div>
+    <div class="container margen-externo ultimo">
+   	<div class="row">
+   		<div class="col-xs-12 text-center">
+   			<h1 class="header text-uppercase naranja">Hubo un error inesperado</h1>
+   		</div>
+   		<div class="col-xs-12 text-center">
+   			<img class="img-responsive" src="{% static 'img/error500.png' %}" alt="Página no encontrada">
+   		</div>
+   	</div>
+   	<div class="row">
+   		<div class="col-xs-12 text-center">
+   			<p>Rogamos nos comuniques cómo se ha ocasionado el error al email <a href="mailto:hello@cuiquer.com"> hello@cuiquer.com</a>
+        	<span class="nuevalinea">o si lo desea puedes rellenar el formulario en la sección <a href="{% url 'contacto' %}#contactanos">contacto</a>.</span></p>
+   		</div>
+   	</div>
+   </div>
 {% endblock content %}
