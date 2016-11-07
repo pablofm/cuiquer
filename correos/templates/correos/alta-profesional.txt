@@ -4,6 +4,10 @@ Muchas gracias por confiar en cuiquer. A partir de ahora, pondremos todo de nues
 
 En breve empezarás a recibir solicitudes de servicios de las categorías que nos hayas indicado en el formulario.
 
+Sin embargo, para maximizar el número de solicitudes, te recomendamos que amplíes tu perfil siguiendo el siguiente enlace
+
+{{enlace_actualizacion}}
+
 Un atento saludo,
 
 El equipo de Cuiquer

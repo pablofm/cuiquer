@@ -6,6 +6,7 @@ from django.shortcuts import render
 from profesionales.models import Servicio, Profesional
 from correos.emails import correos_alta_profesional
 from django.shortcuts import get_object_or_404
+from django.core.urlresolvers import reverse
 
 
 def alta_profesional(request):
@@ -14,7 +15,11 @@ def alta_profesional(request):
         form = ProfesionalForm(request.POST)
         if form.is_valid():
             profesional = form.save()
-            correos_alta_profesional(profesional.usuario.email)
+            link_relativo = reverse(
+                'actualizar-profesional', kwargs={'codigo_actualizacion': profesional.codigo_actualizacion})
+            link = request.build_absolute_uri(link_relativo)
+
+            correos_alta_profesional(profesional.usuario.email, link)
             return render(request, 'profesionales/alta-profesional-finalizada.html', {'profesional': profesional})
     else:
         form = ProfesionalForm()

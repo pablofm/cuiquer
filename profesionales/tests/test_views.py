@@ -109,18 +109,18 @@ class ActualizarProfesionalGetTest(TestCase):
         profesional.save()
 
     def test_devuelve_el_estado_correcto(self):
-        url = reverse('actualizar_profesional', kwargs={'codigo_actualizacion': self.codigo})
+        url = reverse('actualizar-profesional', kwargs={'codigo_actualizacion': self.codigo})
         response = self.client.get(url)
         self.assertEqual(200, response.status_code)
 
     def test_devuelve_404_si_el_perfil_no_existe(self):
         codigo = '4d996006-39ce-400f-9843-2060377319d0'
-        url = reverse('actualizar_profesional', kwargs={'codigo_actualizacion': codigo})
+        url = reverse('actualizar-profesional', kwargs={'codigo_actualizacion': codigo})
         response = self.client.get(url)
         self.assertEqual(404, response.status_code)
 
     def test_devuelve_404_si_paso_algo_que_no_sea_uuid(self):
         codigo = 'mekemeke'
-        url = reverse('actualizar_profesional', kwargs={'codigo_actualizacion': codigo})
+        url = reverse('actualizar-profesional', kwargs={'codigo_actualizacion': codigo})
         response = self.client.get(url)
         self.assertEqual(404, response.status_code)

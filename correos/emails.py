@@ -46,8 +46,9 @@ def correos_alta_cliente(para):
         contexto=contexto)
 
 
-def correos_alta_profesional(para):
+def correos_alta_profesional(para, enlace_actualizacion):
     contexto = {}
+    contexto["enlace_actualizacion"] = enlace_actualizacion
     enviar_correo(para=[para], asunto='Bienvenido a Cuiquer', plantilla='alta-profesional', contexto=contexto)
     enviar_correo(
         para=settings.CORREO_NUEVO_PROFESIONAL,
