@@ -82,11 +82,17 @@ class ProfesionalExtraForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu email"}))
     telefono = ESPhoneNumberField(
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Un teléfono de contacto"}))
+    codigo_postal = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu código postal"}))
+    servicios = forms.ModelMultipleChoiceField(
+        queryset=Servicio.objects.all(),
+        widget=forms.CheckboxSelectMultiple())
+
     METODO_CHOICES = (
         ('', '* ¿Cómo trabajas?'),
-        ('a', 'Autónomo'),
-        ('e', 'Empresa'),
-        ('p', 'Particular'),
+        (1, 'Autónomo'),
+        (2, 'Empresa'),
+        (3, 'Particular'),
     )
     metodo_trabajo = forms.ChoiceField(
         choices=METODO_CHOICES,
@@ -98,11 +104,11 @@ class ProfesionalExtraForm(forms.Form):
     precio = forms.FloatField(
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Precio/hora estimado"}))
 
-    facebook = forms.CharField(
+    facebook = forms.URLField(
         required=False,
         widget=forms.TextInput(
             attrs={'class': 'form-control form-alta', 'placeholder': "Enlace página web o Facebook"}))
-    linkedin = forms.CharField(
+    linkedin = forms.URLField(
         required=False,
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "Enlace perfil de linkedin"}))
 
@@ -130,3 +136,47 @@ class ProfesionalExtraForm(forms.Form):
             return self.cleaned_data["servicios"]
         except:
             return self.profesional.servicios.all()
+
+    def is_valid(self):
+        valid = super(ProfesionalExtraForm, self).is_valid()
+        if not valid:
+            return False
+        return True
+
+    def save(self):
+        profesional = Profesional.objects.get(id=self.profesional.id)
+        print(profesional)
+
+        nombre = self.cleaned_data["nombre"]
+        email = self.cleaned_data["email"]
+        telefono = self.cleaned_data["telefono"]
+        foto = self.cleaned_data["foto"]
+        codigo_postal = self.cleaned_data["codigo_postal"]
+        servicios = self.cleaned_data["servicios"]
+        metodo_trabajo = self.cleaned_data["metodo_trabajo"]
+        metodo_verbose = self.METODO_CHOICES[int(metodo_trabajo)][1]
+        fecha_nacimiento = self.cleaned_data["fecha_nacimiento"]
+        precio = self.cleaned_data["precio"]
+        facebook = self.cleaned_data["facebook"]
+        linkedin = self.cleaned_data["linkedin"]
+        formacion_relacionada = self.cleaned_data["formacion_relacionada"]
+        opiniones_clientes = self.cleaned_data["opiniones_clientes"]
+
+        usuario = profesional.usuario
+
+        usuario.nombre = nombre
+        usuario.email = email
+        usuario.telefono = telefono
+        usuario.foto = foto
+        usuario.save()
+        profesional.codigo_postal = codigo_postal
+        profesional.servicios = servicios
+        profesional.metodo_trabajo = metodo_verbose
+        profesional.fecha_nacimiento = fecha_nacimiento
+        profesional.precio = precio
+        profesional.facebook = facebook
+        profesional.linkedin = linkedin
+        profesional.formacion_relacionada = formacion_relacionada
+        profesional.opiniones_clientes = opiniones_clientes
+        profesional.save()
+        return profesional
