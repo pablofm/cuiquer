@@ -151,6 +151,7 @@ class ProfesionalExtraForm(forms.Form):
         email = self.cleaned_data["email"]
         telefono = self.cleaned_data["telefono"]
         foto = self.cleaned_data["foto"]
+        print(foto)
         codigo_postal = self.cleaned_data["codigo_postal"]
         servicios = self.cleaned_data["servicios"]
         metodo_trabajo = self.cleaned_data["metodo_trabajo"]
