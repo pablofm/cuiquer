@@ -1165,6 +1165,10 @@ header+.fondo-gris{
     padding: 0px 0px 20px;
     width:100%;
   }
+
+  .boxNews{
+    padding:5px 0px;
+  }
 }
 
 /** MODIFICACION DEL CONTAINER **/
