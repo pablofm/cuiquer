@@ -30,7 +30,7 @@ def actualizar_profesional(request, codigo_actualizacion):
     servicios = Servicio.objects.all()
     profesional = get_object_or_404(Profesional, codigo_actualizacion=codigo_actualizacion)
     if request.method == 'POST':
-        form = ProfesionalExtraForm(request.POST)
+        form = ProfesionalExtraForm(request.POST, profesional=profesional)
         if form.is_valid():
             profesional = form.save()
             return render(request, 'profesionales/alta-profesional-finalizada.html', {'profesional': profesional})

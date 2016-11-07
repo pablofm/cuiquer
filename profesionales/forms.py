@@ -28,7 +28,8 @@ class ProfesionalForm(forms.Form):
         (5, 'Twitter'),
         (6, 'Instagram'),
         (7, 'Milanuncios'),
-        (8, 'otros')
+        (8, 'JobToday'),
+        (9, 'otros')
     )
 
     origen = forms.ChoiceField(
@@ -37,7 +38,10 @@ class ProfesionalForm(forms.Form):
         widget=forms.Select(attrs={'class': 'form-control form-alta'}))
 
     def servicios_seleccionados(self):
-        return self.cleaned_data["servicios"]
+        try:
+            return self.cleaned_data["servicios"]
+        except:
+            return None
 
     def is_valid(self):
         valid = super(ProfesionalForm, self).is_valid()
@@ -70,45 +74,44 @@ class ProfesionalForm(forms.Form):
         return profesional
 
 
-class ProfesionalExtraForm(ProfesionalForm):
+class ProfesionalExtraForm(forms.Form):
     profesional = None
-
-    servicios = forms.ModelMultipleChoiceField(
-        queryset=Servicio.objects.all(),
-        widget=forms.CheckboxSelectMultiple())
     nombre = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu Nombre"}))
     email = forms.EmailField(
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu email"}))
     telefono = ESPhoneNumberField(
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Un teléfono de contacto"}))
-    codigo_postal = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu código postal"}))
-    fecha_nacimiento = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Fecha de nacimiento"}))
-    foto = forms.FileField()
-
     METODO_CHOICES = (
         ('', '* ¿Cómo trabajas?'),
         ('a', 'Autónomo'),
         ('e', 'Empresa'),
         ('p', 'Particular'),
     )
-
     metodo_trabajo = forms.ChoiceField(
         choices=METODO_CHOICES,
         widget=forms.Select(attrs={'class': 'form-control form-alta'}))
 
+    fecha_nacimiento = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Fecha de nacimiento"}))
+    foto = forms.ImageField()
     precio = forms.FloatField(
-        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "Precio/hora estimado"}))
+        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Precio/hora estimado"}))
+
     facebook = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "Enlace página web o Facebook"}))
+        required=False,
+        widget=forms.TextInput(
+            attrs={'class': 'form-control form-alta', 'placeholder': "Enlace página web o Facebook"}))
     linkedin = forms.CharField(
+        required=False,
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "Enlace perfil de linkedin"}))
 
     formacion_relacionada = forms.CharField(
+        required=False,
         widget=forms.Textarea(attrs={'class': 'form-control form-alta', 'placeholder': "¿Qué formación tienes?"}))
-    opiniones_clientes = forms.CharField(widget=forms.Textarea(
+    opiniones_clientes = forms.CharField(
+        required=False,
+        widget=forms.Textarea(
             attrs={'class': 'form-control form-alta', 'placeholder': "¿Qué dicen tus clientes de ti?"}))
 
     def __init__(self, *args, **kwargs):
@@ -116,3 +119,14 @@ class ProfesionalExtraForm(ProfesionalForm):
         if not self.profesional:
             raise KeyError
         super().__init__(*args, **kwargs)
+        self.initial['nombre'] = self.profesional.usuario.nombre
+        self.initial['email'] = self.profesional.usuario.email
+        self.initial['telefono'] = self.profesional.usuario.telefono
+        self.initial['codigo_postal'] = self.profesional.codigo_postal
+        self.initial['servicios'] = self.profesional.servicios.all()
+
+    def servicios_seleccionados(self):
+        try:
+            return self.cleaned_data["servicios"]
+        except:
+            return self.profesional.servicios.all()

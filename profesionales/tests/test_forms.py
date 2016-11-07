@@ -1,6 +1,6 @@
 from django.test import TestCase
 from profesionales.forms import ProfesionalForm, ProfesionalExtraForm
-from profesionales.models import Servicio, Profesional
+from profesionales.models import Servicio
 
 
 class ProfesionalFormTest(TestCase):
@@ -91,7 +91,7 @@ class ProfesionalExtraFormTest(TestCase):
     def setUp(self):
         self.codigo = '3d996006-39ce-400f-9843-2060377319d0'
         self.servicio = Servicio.objects.first()
-        self.data = {
+        self.data_profesional = {
             'servicios': [self.servicio.pk],
             'nombre': 'Yo me llamo Ralph',
             'email': 'correo@correo.com',
@@ -100,7 +100,18 @@ class ProfesionalExtraFormTest(TestCase):
             'licencia': True,
             'origen': 1,
         }
-        form = ProfesionalForm(self.data)
+
+        self.data_extra = {
+            'servicios': [self.servicio.pk],
+            'nombre': 'Yo me llamo Ralph',
+            'email': 'correo@correo.com',
+            'telefono': '666666666',
+            'codigo_postal': '41001',
+            'metodo_trabajo': 'a',
+            'fecha_nacimiento': '05/05/2016',
+            'precio': 11.05,
+        }
+        form = ProfesionalForm(self.data_profesional)
         form.is_valid()
         self.profesional = form.save()
         self.profesional.codigo_actualizacion = self.codigo
@@ -117,60 +128,130 @@ class ProfesionalExtraFormTest(TestCase):
     def test_init(self):
         ProfesionalExtraForm(profesional=self.profesional)
 
+    def test_formulario_bien_inicializado(self):
+        form = ProfesionalExtraForm(profesional=self.profesional)
+        self.assertEqual(form.initial['telefono'], '666666666')
+        self.assertEqual(form.initial['nombre'], 'Yo me llamo Ralph')
+        self.assertQuerysetEqual(form.initial['servicios'], [repr(self.servicio)])
+        self.assertEqual(form.initial['email'], 'correo@correo.com')
+        self.assertEqual(form.initial['codigo_postal'], '41001')
+
     def test_formulario_no_vacio(self):
         form = ProfesionalExtraForm({}, profesional=self.profesional)
         self.assertFalse(form.is_valid())
 
     def test_nombre_no_vacio(self):
-        self.data['nombre'] = None
-        form = ProfesionalExtraForm(self.data, profesional=self.profesional)
+        self.data_extra['nombre'] = None
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
         self.assertFalse(form.is_valid())
 
     def test_nombre_no_vacio_2(self):
-        self.data['nombre'] = ''
-        form = ProfesionalExtraForm(self.data, profesional=self.profesional)
+        self.data_extra['nombre'] = ''
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
         self.assertFalse(form.is_valid())
 
     def test_email_no_vacio(self):
-        self.data['email'] = None
-        form = ProfesionalExtraForm(self.data, profesional=self.profesional)
+        self.data_extra['email'] = None
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
         self.assertFalse(form.is_valid())
 
     def test_email_no_vacio_2(self):
-        self.data['email'] = ''
-        form = ProfesionalExtraForm(self.data, profesional=self.profesional)
+        self.data_extra['email'] = ''
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
         self.assertFalse(form.is_valid())
 
     def test_servicio_no_vacio(self):
-        self.data['servicios'] = None
-        form = ProfesionalExtraForm(self.data, profesional=self.profesional)
+        self.data_extra['servicios'] = None
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
         self.assertFalse(form.is_valid())
 
     def test_servicio_no_vacio_2(self):
-        self.data['servicios'] = ''
-        form = ProfesionalExtraForm(self.data, profesional=self.profesional)
+        self.data_extra['servicios'] = ''
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
         self.assertFalse(form.is_valid())
 
     def test_telefono_no_vacio(self):
-        self.data['telefono'] = None
-        form = ProfesionalExtraForm(self.data, profesional=self.profesional)
+        self.data_extra['telefono'] = None
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
         self.assertFalse(form.is_valid())
 
     def test_telefono_no_vacio_2(self):
-        self.data['telefono'] = ''
-        form = ProfesionalExtraForm(self.data, profesional=self.profesional)
+        self.data_extra['telefono'] = ''
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
         self.assertFalse(form.is_valid())
 
     def test_codigo_postal_no_vacio(self):
-        self.data['codigo_postal'] = None
-        form = ProfesionalExtraForm(self.data, profesional=self.profesional)
+        self.data_extra['codigo_postal'] = None
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
         self.assertFalse(form.is_valid())
 
     def test_codigo_postal_no_vacio_2(self):
-        self.data['codigo_postal'] = ''
-        form = ProfesionalExtraForm(self.data, profesional=self.profesional)
+        self.data_extra['codigo_postal'] = ''
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
+        self.assertFalse(form.is_valid())
+
+    def test_metodo_no_vacio(self):
+        self.data_extra['metodo_trabajo'] = None
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
+        self.assertFalse(form.is_valid())
+
+    def test_metodo_no_vacio_2(self):
+        self.data_extra['metodo_trabajo'] = ''
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
+        self.assertFalse(form.is_valid())
+
+    def test_precio_no_vacio(self):
+        self.data_extra['precio'] = None
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
+        self.assertFalse(form.is_valid())
+
+    def test_precio_no_vacio_2(self):
+        self.data_extra['precio'] = ''
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
+        self.assertFalse(form.is_valid())
+
+    def test_fecha_nacimiento_no_vacio(self):
+        self.data_extra['fecha_nacimiento'] = None
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
+        self.assertFalse(form.is_valid())
+
+    def test_fecha_nacimiento_no_vacio_2(self):
+        self.data_extra['fecha_nacimiento'] = ''
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
+        self.assertFalse(form.is_valid())
+
+    def test_foto_no_vacio(self):
+        self.data_extra['foto'] = None
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
+        self.assertFalse(form.is_valid())
+
+    def test_foto_no_vacio_2(self):
+        self.data_extra['foto'] = ''
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
+        self.assertFalse(form.is_valid())
+
+    def test_facebook_no_texto(self):
+        self.data_extra['facebook'] = 'Pene'
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
+        self.assertFalse(form.is_valid())
+
+    def test_facebook_url(self):
+        self.data_extra['facebook'] = 'http://www.facebook.com'
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
+        self.assertFalse(form.is_valid())
+
+    def test_linkedin_no_texto(self):
+        self.data_extra['linkedin'] = 'Pene'
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
+        self.assertFalse(form.is_valid())
+
+    def test_linkedin_url(self):
+        self.data_extra['linkedin'] = 'http://www.batamanta.com'
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
         self.assertFalse(form.is_valid())
 
     def test_formulario_completo(self):
-        form = ProfesionalExtraForm(self.data, profesional=self.profesional)
+        form = ProfesionalExtraForm(self.data_extra, profesional=self.profesional)
+        form.is_valid()
+        print(form.errors)
         self.assertTrue(form.is_valid())
