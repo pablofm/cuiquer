@@ -1167,7 +1167,7 @@ header+.fondo-gris{
   }
 
   .boxNews{
-    padding:5px 0px;
+    padding:5px 0px !important;
   }
 }
 
