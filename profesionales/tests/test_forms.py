@@ -14,7 +14,7 @@ class ProfesionalFormTest(TestCase):
             'telefono': '666666666',
             'codigo_postal': '41001',
             'licencia': True,
-            'origen': 1,
+            'origen': 'tw',
         }
 
     def test_formulario_no_vacio(self):
@@ -99,7 +99,7 @@ class ProfesionalExtraFormTest(TestCase):
             'telefono': '666666666',
             'codigo_postal': '41001',
             'licencia': True,
-            'origen': 1,
+            'origen': 'tw',
         }
 
         self.data_extra = {

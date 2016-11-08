@@ -1,7 +1,7 @@
 from django import forms
 from localflavor.es.forms import ESPhoneNumberField
 from profesionales.models import Servicio
-from profesionales.models import Profesional, METODO_TRABAJO_CHOICES
+from profesionales.models import Profesional, METODO_TRABAJO_CHOICES, ORIGEN_CHOICES
 from perfiles.models import Usuario
 
 
@@ -19,18 +19,7 @@ class ProfesionalForm(forms.Form):
     codigo_postal = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Tu código postal"}))
 
-    ORIGEN_CHOICES = (
-        ('', '* ¿Cómo nos has conocido?'),
-        (1, 'Amigo'),
-        (2, 'Email'),
-        (3, 'Buscador'),
-        (4, 'Facebook'),
-        (5, 'Twitter'),
-        (6, 'Instagram'),
-        (7, 'Milanuncios'),
-        (8, 'JobToday'),
-        (9, 'otros')
-    )
+    ORIGEN_CHOICES = (('', '* ¿Cómo nos has conocido?'),) + ORIGEN_CHOICES
 
     origen = forms.ChoiceField(
         choices=ORIGEN_CHOICES,
@@ -59,7 +48,6 @@ class ProfesionalForm(forms.Form):
         codigo_postal = self.cleaned_data["codigo_postal"]
         servicios = self.cleaned_data["servicios"]
         origen = self.cleaned_data["origen"]
-        origen_verbose = self.ORIGEN_CHOICES[int(origen)][1]
 
         usuario = Usuario.objects.create(email=email, nombre=nombre, telefono=telefono)
         usuario.set_password(email)
@@ -68,7 +56,7 @@ class ProfesionalForm(forms.Form):
         profesional = Profesional.objects.create(
             usuario=usuario,
             codigo_postal=codigo_postal,
-            origen=origen_verbose)
+            origen=origen)
         profesional.servicios = servicios
         profesional.save()
         return profesional
