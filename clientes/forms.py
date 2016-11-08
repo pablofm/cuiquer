@@ -1,6 +1,6 @@
 from django import forms
 from localflavor.es.forms import ESPhoneNumberField
-from profesionales.models import Servicio
+from profesionales.models import Servicio, ORIGEN_CHOICES
 from perfiles.models import Usuario
 from clientes.models import Cliente
 from clientes.fields import GroupedModelChoiceField
@@ -21,6 +21,13 @@ class ClienteForm(forms.Form):
     telefono = ESPhoneNumberField(
         widget=forms.TextInput(attrs={'class': 'form-control form-alta', 'placeholder': "* Un teléfono de contacto"}))
 
+    ORIGEN_CHOICES = (('', '* ¿Cómo nos has conocido?'),) + ORIGEN_CHOICES
+
+    origen = forms.ChoiceField(
+        choices=ORIGEN_CHOICES,
+        required=True,
+        widget=forms.Select(attrs={'class': 'form-control form-alta'}))
+
     def is_valid(self):
         valid = super(ClienteForm, self).is_valid()
         if not valid:
@@ -36,10 +43,11 @@ class ClienteForm(forms.Form):
         email = self.cleaned_data["email"]
         telefono = self.cleaned_data["telefono"]
         servicio = self.cleaned_data["servicio"]
+        origen = self.cleaned_data["origen"]
 
         usuario = Usuario.objects.create(email=email, nombre=nombre, telefono=telefono)
         usuario.set_password(email)
         usuario.save()
 
-        cliente = Cliente.objects.create(servicio=servicio, usuario=usuario)
+        cliente = Cliente.objects.create(servicio=servicio, usuario=usuario, origen=origen)
         return cliente

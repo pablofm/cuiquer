@@ -12,6 +12,7 @@ class ClienteFormTest(TestCase):
             'nombre': 'Yo me llamo Ralph',
             'email': 'correo@correo.com',
             'telefono': '666666666',
+            'origen': 'tw',
         }
 
     def test_formulario_no_vacio(self):
@@ -55,6 +56,21 @@ class ClienteFormTest(TestCase):
 
     def test_telefono_no_vacio_2(self):
         self.data['telefono'] = ''
+        form = ClienteForm(self.data)
+        self.assertFalse(form.is_valid())
+
+    def test_origen_no_vacio(self):
+        self.data['origen'] = None
+        form = ClienteForm(self.data)
+        self.assertFalse(form.is_valid())
+
+    def test_origen_no_vacio_2(self):
+        self.data['origen'] = ''
+        form = ClienteForm(self.data)
+        self.assertFalse(form.is_valid())
+
+    def test_origen_no_inventado(self):
+        self.data['origen'] = 'pp'
         form = ClienteForm(self.data)
         self.assertFalse(form.is_valid())
 

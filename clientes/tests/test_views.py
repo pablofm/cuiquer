@@ -25,6 +25,7 @@ class AltaClientePostTest(TestCase):
             'email': 'correo@correo.com',
             'telefono': '666666666',
             'licencia': True,
+            'origen': 'tw'
         }
 
     def test_creacion_correcta(self):
