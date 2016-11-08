@@ -1,3 +1,4 @@
+from django import forms
 from django.contrib import admin
 from clientes.fields import GroupedModelMultiChoiceField
 
@@ -5,10 +6,18 @@ from profesionales.models import Profesional, Servicio, Categoria
 from perfiles.admin import UsuarioModelAdmin
 
 
-class ProfesionalAdmin(UsuarioModelAdmin):
+class ProfesionalAdminForm(forms.ModelForm):
     servicios = GroupedModelMultiChoiceField(
         queryset=Servicio.objects.all(),
         group_by_field='categoria')
+
+    class Meta:
+        model = Profesional
+        fields = '__all__'
+
+
+class ProfesionalAdmin(UsuarioModelAdmin):
+    form = ProfesionalAdminForm
 
     list_display = ('nombre', 'email', 'telefono', 'codigo_postal', 'fecha_ultima_modificacion')
     list_filter = ['servicios']
