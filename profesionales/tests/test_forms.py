@@ -108,7 +108,7 @@ class ProfesionalExtraFormTest(TestCase):
             'email': 'correo@correo.com',
             'telefono': '666666666',
             'codigo_postal': '41001',
-            'metodo_trabajo': 1,
+            'metodo_trabajo': 'e',
             'fecha_nacimiento': '2016-05-05',
             'precio': 11.05,
         }

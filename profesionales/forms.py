@@ -1,7 +1,7 @@
 from django import forms
 from localflavor.es.forms import ESPhoneNumberField
 from profesionales.models import Servicio
-from profesionales.models import Profesional
+from profesionales.models import Profesional, METODO_TRABAJO_CHOICES
 from perfiles.models import Usuario
 
 
@@ -88,12 +88,7 @@ class ProfesionalExtraForm(forms.Form):
         queryset=Servicio.objects.all(),
         widget=forms.CheckboxSelectMultiple())
 
-    METODO_CHOICES = (
-        ('', '* ¿Cómo trabajas?'),
-        (1, 'Autónomo'),
-        (2, 'Empresa'),
-        (3, 'Particular'),
-    )
+    METODO_CHOICES = (('', '* ¿Cómo trabajas?'),) + METODO_TRABAJO_CHOICES
     metodo_trabajo = forms.ChoiceField(
         choices=METODO_CHOICES,
         widget=forms.Select(attrs={'class': 'form-control form-alta'}))
@@ -140,6 +135,7 @@ class ProfesionalExtraForm(forms.Form):
     def is_valid(self):
         valid = super(ProfesionalExtraForm, self).is_valid()
         if not valid:
+            print(self.errors)
             return False
         return True
 
@@ -151,11 +147,9 @@ class ProfesionalExtraForm(forms.Form):
         email = self.cleaned_data["email"]
         telefono = self.cleaned_data["telefono"]
         foto = self.cleaned_data["foto"]
-        print(foto)
         codigo_postal = self.cleaned_data["codigo_postal"]
         servicios = self.cleaned_data["servicios"]
         metodo_trabajo = self.cleaned_data["metodo_trabajo"]
-        metodo_verbose = self.METODO_CHOICES[int(metodo_trabajo)][1]
         fecha_nacimiento = self.cleaned_data["fecha_nacimiento"]
         precio = self.cleaned_data["precio"]
         facebook = self.cleaned_data["facebook"]
@@ -172,7 +166,7 @@ class ProfesionalExtraForm(forms.Form):
         usuario.save()
         profesional.codigo_postal = codigo_postal
         profesional.servicios = servicios
-        profesional.metodo_trabajo = metodo_verbose
+        profesional.metodo_trabajo = metodo_trabajo
         profesional.fecha_nacimiento = fecha_nacimiento
         profesional.precio = precio
         profesional.facebook = facebook

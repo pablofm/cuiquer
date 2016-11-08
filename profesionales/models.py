@@ -28,17 +28,19 @@ class Servicio(models.Model):
         ordering = ['categoria', 'nombre_servicio']
 
 
+METODO_TRABAJO_CHOICES = (
+    ('a', 'Autónomo'),
+    ('e', 'Empresa'),
+    ('p', 'Particular'),
+)
+
+
 class Profesional(models.Model):
-    METODO_TRABAJOS_CHOICES = (
-        ('a', 'Autónomo'),
-        ('e', 'Empresa'),
-        ('p', 'Particular'),
-    )
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL)
     fecha_alta = models.DateTimeField(auto_now_add=True)
     fecha_ultima_modificacion = models.DateTimeField(auto_now=True)
     codigo_postal = models.CharField(max_length=5)
-    metodo_trabajo = models.CharField(max_length=1, choices=METODO_TRABAJOS_CHOICES, blank=True, null=True)
+    metodo_trabajo = models.CharField(max_length=1, choices=METODO_TRABAJO_CHOICES, blank=True, null=True)
     fecha_nacimiento = models.DateField(blank=True, null=True)
     precio = models.FloatField(blank=True, null=True)
     facebook = models.URLField(blank=True, null=True)
