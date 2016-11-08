@@ -5,6 +5,7 @@ import uuid
 
 class Categoria(models.Model):
     nombre_categoria = models.CharField(max_length=100)
+    preguntas_especificas = models.TextField(default='Por definir')
 
     def __str__(self):
         return str(self.nombre_categoria)

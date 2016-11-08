@@ -18,7 +18,6 @@ class ClienteAdminForm(forms.ModelForm):
 
 class ClienteAdmin(UsuarioModelAdmin):
     form = ClienteAdminForm
-
     servicio = GroupedModelChoiceField(
         queryset=Servicio.objects.all(),
         group_by_field='categoria')
@@ -32,17 +31,20 @@ class ClienteAdmin(UsuarioModelAdmin):
 
     fieldsets = (
         ('Datos Básicos', {
-           'fields': ('fecha_solicitud', 'detalles_usuario', 'origen')
+            'fields': ('fecha_solicitud', 'detalles_usuario', 'origen')
         }),
         ('Datos Generales', {
             'fields': ('categoria', 'servicio', 'codigo_postal'),
         }),
         ('Información extra', {
-            'fields': ('metodo_trabajo', 'metodo_contacto', 'donde', 'precio', 'informacion_extra', 'observaciones'),
+            'fields': (
+                'metodo_trabajo', 'metodo_contacto', 'donde',
+                'precio', 'preguntas_especificas', 'informacion_extra', 'observaciones'),
         }),
     )
 
     class Meta:
         model = Cliente
+
 
 admin.site.register(Cliente, ClienteAdmin)

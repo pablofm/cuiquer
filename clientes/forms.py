@@ -43,11 +43,14 @@ class ClienteForm(forms.Form):
         email = self.cleaned_data["email"]
         telefono = self.cleaned_data["telefono"]
         servicio = self.cleaned_data["servicio"]
+        preguntas_especificas = servicio.categoria.preguntas_especificas
+
         origen = self.cleaned_data["origen"]
 
         usuario = Usuario.objects.create(email=email, nombre=nombre, telefono=telefono)
         usuario.set_password(email)
         usuario.save()
 
-        cliente = Cliente.objects.create(servicio=servicio, usuario=usuario, origen=origen)
+        cliente = Cliente.objects.create(
+            servicio=servicio, usuario=usuario, origen=origen, preguntas_especificas=preguntas_especificas)
         return cliente

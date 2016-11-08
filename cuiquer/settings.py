@@ -153,7 +153,7 @@ class Dev(Common):
             'NAME': os.path.join(Common.BASE_DIR, 'db.sqlite3'),
         }
     }
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 
 class Prod(Common):

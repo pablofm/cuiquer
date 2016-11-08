@@ -21,6 +21,7 @@ class Cliente(models.Model):
     origen = models.CharField(max_length=2, choices=ORIGEN_CHOICES, blank=True, null=True)
     informacion_extra = models.TextField(null=True, blank=True)
     observaciones = models.TextField(null=True, blank=True)
+    preguntas_especificas = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return str(self.usuario)
