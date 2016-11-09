@@ -4,3 +4,5 @@
 *.coverage
 cover
 mediafiles
+..profile.swp
+.profile.save

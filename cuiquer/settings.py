@@ -48,7 +48,7 @@ class Common(Configuration):
         'perfiles',
     ]
 
-    MIDDLEWARE_CLASSES = [
+    MIDDLEWARE = [
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
@@ -196,8 +196,10 @@ class Prod(Common):
         'branch': 'master',
         'root': Common.BASE_DIR,
     }
-    # import rollbar
-    # rollbar.init(**ROLLBAR)
+
+    import rollbar
+    rollbar.init(**ROLLBAR)
+
     SECRET_KEY = os.environ.get('CUIQUER_SECRET_KEY')
     STATIC_ROOT = '/var/www/cuiquer/static'
     MEDIA_ROOT = '/var/www/cuiquer/media'
@@ -218,5 +220,5 @@ class Heroku(Common):
         'branch': 'master',
         'root': Common.BASE_DIR,
     }
-    # import rollbar
-    # rollbar.init(**ROLLBAR)
+    import rollbar
+    rollbar.init(**ROLLBAR)
