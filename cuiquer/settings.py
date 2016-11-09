@@ -116,11 +116,9 @@ class Common(Configuration):
 
     # Staticfiles
     STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
     # Mediafiles
     MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
     TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
     NOSE_ARGS = [
@@ -169,6 +167,9 @@ class Dev(Common):
     }
     EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
+    STATIC_ROOT = os.path.join(Common.BASE_DIR, 'staticfiles')
+    MEDIA_ROOT = os.path.join(Common.BASE_DIR, 'mediafiles')
+
 
 class Prod(Common):
     # # Database
@@ -199,6 +200,8 @@ class Prod(Common):
     # import rollbar
     # rollbar.init(**ROLLBAR)
     SECRET_KEY = os.environ.get('CUIQUER_SECRET_KEY')
+    STATIC_ROOT = 'var/www/cuiquer/static'
+    MEDIA_ROOT = 'var/www/cuiquer/media'
 
 
 class Heroku(Common):
