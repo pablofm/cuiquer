@@ -149,21 +149,35 @@ class Dev(Common):
     # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(Common.BASE_DIR, 'db.sqlite3'),
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'cuiquer',
+            'USER': 'cuiquer',
+            'PASSWORD': 'cuiquer',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
         }
     }
     EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 
 class Prod(Common):
-    # Database
-    # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-    import dj_database_url
-    Common.DATABASES['default'] = dj_database_url.config()
+    # # Database
+    # # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+    # import dj_database_url
+    # Common.DATABASES['default'] = dj_database_url.config()
 
-    ALLOWED_HOSTS = [".herokuapp.com", ".researchthroughdesign.org"]
     DEBUG = False
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'cuiquer',
+            'USER': 'cuiquer',
+            'PASSWORD': 'cuiquer',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        }
+    }
 
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = 'mail.privateemail.com'
@@ -180,3 +194,13 @@ class Prod(Common):
     }
     import rollbar
     rollbar.init(**ROLLBAR)
+
+
+class Heroku(Prod):
+
+        # Database
+    # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+    import dj_database_url
+    Common.DATABASES['default'] = dj_database_url.config()
+
+    ALLOWED_HOSTS = [".herokuapp.com", ".researchthroughdesign.org"]
