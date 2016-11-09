@@ -6,7 +6,7 @@ from correos.emails import correo_mensaje_agradecimiento, correo_alta_newsletter
 
 
 class IndexView(TemplateView):
-    template_name = 'landing/index.html'
+    # template_name = 'landing/index.html'
 
 
 class PageNotFoundView(TemplateView):
