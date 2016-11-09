@@ -57,8 +57,8 @@ class Common(Configuration):
         'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
         'whitenoise.middleware.WhiteNoiseMiddleware',
+        'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
     ]
 
     ROOT_URLCONF = 'cuiquer.urls'
@@ -157,11 +157,14 @@ class Dev(Common):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
+            'OPTIONS': {
+                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+            },
             'NAME': 'cuiquer',
             'USER': 'cuiquer',
             'PASSWORD': 'cuiquer',
-            'HOST': '127.0.0.1',
-            'PORT': '5432',
+            'HOST': 'localhost',
+            'PORT': '',
         }
     }
     EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
@@ -170,8 +173,6 @@ class Dev(Common):
 class Prod(Common):
     # # Database
     # # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-    # import dj_database_url
-    # Common.DATABASES['default'] = dj_database_url.config()
 
     DEBUG = False
 
@@ -191,14 +192,14 @@ class Prod(Common):
     ROLLBAR = {
         'access_token': 'b5781909e8464502bade1b1127406ae1',
         'environment': 'development' if DEBUG else 'production',
+        'branch': 'master',
         'root': Common.BASE_DIR,
     }
-    import rollbar
-    rollbar.init(**ROLLBAR)
+    # import rollbar
+    # rollbar.init(**ROLLBAR)
 
 
 class Heroku(Common):
-
     # Database
     # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
     import dj_database_url
@@ -210,7 +211,8 @@ class Heroku(Common):
     ROLLBAR = {
         'access_token': 'b5781909e8464502bade1b1127406ae1',
         'environment': 'development' if DEBUG else 'production',
+        'branch': 'master',
         'root': Common.BASE_DIR,
     }
-    import rollbar
-    rollbar.init(**ROLLBAR)
+    # import rollbar
+    # rollbar.init(**ROLLBAR)
