@@ -142,6 +142,13 @@ class Common(Configuration):
     CORREO_NUEVO_CLIENTE = ['pafloma@gmail.com', 'jbecares@gmail.com']
     CORREO_NUEVO_PROFESIONAL = ['pafloma@gmail.com', 'jbecares@gmail.com']
 
+    EMAIL_HOST = 'mail.privateemail.com'
+    EMAIL_PORT = 465
+    EMAIL_HOST_USER = 'hello@cuiquer.com'
+    EMAIL_HOST_PASSWORD = 'cuiquer123'
+    EMAIL_USE_SSL = True
+    EMAIL_USE_TLS = False
+
 
 class Dev(Common):
     DEBUG = True
@@ -180,12 +187,6 @@ class Prod(Common):
     }
 
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST = 'mail.privateemail.com'
-    EMAIL_PORT = 465
-    EMAIL_HOST_USER = 'hello@cuiquer.com'
-    EMAIL_HOST_PASSWORD = 'cuiquer123'
-    EMAIL_USE_SSL = True
-    EMAIL_USE_TLS = False
 
     ROLLBAR = {
         'access_token': 'b5781909e8464502bade1b1127406ae1',
@@ -196,7 +197,7 @@ class Prod(Common):
     rollbar.init(**ROLLBAR)
 
 
-class Heroku(Prod):
+class Heroku(Common):
 
         # Database
     # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -204,3 +205,11 @@ class Heroku(Prod):
     Common.DATABASES['default'] = dj_database_url.config()
 
     ALLOWED_HOSTS = [".herokuapp.com", ".researchthroughdesign.org"]
+    
+    ROLLBAR = {
+        'access_token': 'b5781909e8464502bade1b1127406ae1',
+        'environment': 'development' if DEBUG else 'production',
+        'root': Common.BASE_DIR,
+    }
+    import rollbar
+    rollbar.init(**ROLLBAR)
