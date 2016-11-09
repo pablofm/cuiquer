@@ -2,7 +2,7 @@ from django import forms
 from django.contrib import admin
 from clientes.fields import GroupedModelMultiChoiceField
 
-from profesionales.models import Profesional, Servicio  #  ,categoria
+from profesionales.models import Profesional, Servicio  # ,categoria
 from perfiles.admin import UsuarioModelAdmin
 
 
