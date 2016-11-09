@@ -2,7 +2,7 @@ from django import forms
 from django.contrib import admin
 from clientes.fields import GroupedModelMultiChoiceField
 
-from profesionales.models import Profesional, Servicio, Categoria
+from profesionales.models import Profesional, Servicio  #  ,categoria
 from perfiles.admin import UsuarioModelAdmin
 
 
@@ -43,5 +43,5 @@ class ProfesionalAdmin(UsuarioModelAdmin):
         model = Profesional
 
 admin.site.register(Profesional, ProfesionalAdmin)
-admin.site.register(Servicio)
-admin.site.register(Categoria)
+# admin.site.register(Servicio)
+# admin.site.register(Categoria)
