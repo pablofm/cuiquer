@@ -24,7 +24,7 @@ class Common(Configuration):
     # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
     # SECURITY WARNING: keep the secret key used in production secret!
-    SECRET_KEY = '8ek1arbfsu_a4!=ptl8r-ulmq5q8jt$io%&)bfx+c$u*lr3ibn'
+    SECRET_KEY = '{{ secret_key }}'
 
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
@@ -175,15 +175,16 @@ class Prod(Common):
     # # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
     DEBUG = False
+    ALLOWED_HOSTS = ['*']
 
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'cuiquer',
             'USER': 'cuiquer',
-            'PASSWORD': 'cuiquer',
-            'HOST': '127.0.0.1',
-            'PORT': '5432',
+            'PASSWORD': os.environ.get('CUIQUER_DATABASE_PASSWORD'),
+            'HOST': 'localhost',
+            'PORT': '',
         }
     }
 
@@ -197,6 +198,7 @@ class Prod(Common):
     }
     # import rollbar
     # rollbar.init(**ROLLBAR)
+    SECRET_KEY = os.environ.get('CUIQUER_SECRET_KEY')
 
 
 class Heroku(Common):
