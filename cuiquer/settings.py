@@ -199,8 +199,8 @@ class Prod(Common):
     # import rollbar
     # rollbar.init(**ROLLBAR)
     SECRET_KEY = os.environ.get('CUIQUER_SECRET_KEY')
-    STATIC_ROOT = 'var/www/cuiquer/static/'
-    MEDIA_ROOT = 'var/www/cuiquer/media/'
+    STATIC_ROOT = '/var/www/cuiquer/static'
+    MEDIA_ROOT = '/var/www/cuiquer/media'
 
 
 class Heroku(Common):
