@@ -199,13 +199,14 @@ class Prod(Common):
 
 class Heroku(Common):
 
-        # Database
+    # Database
     # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
     import dj_database_url
     Common.DATABASES['default'] = dj_database_url.config()
 
+    DEBUG = False
     ALLOWED_HOSTS = [".herokuapp.com", ".researchthroughdesign.org"]
-    
+
     ROLLBAR = {
         'access_token': 'b5781909e8464502bade1b1127406ae1',
         'environment': 'development' if DEBUG else 'production',
